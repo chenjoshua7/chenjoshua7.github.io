@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Your Portfolio Name</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0; /* Reset margin to remove any white space */
-                padding: 0; /* Reset padding to remove any white space */
-            }
-            .banner {
-                background: #333;
-                color: #fff;
-                padding: 10px 20px;
-                text-align: center;
-                width: 100%;
-                margin: 0; /* Make sure the banner has no top margin */
-                /* Other styles... */
-            }
-        
-            .banner a {
-                color: #fff;
-                text-decoration: none;
-                margin: 0 10px;
-            }
-            .hero {
-                position: relative;
-                text-align: center;
-                color: white;
-            }
-            .hero img {
-                width: 50%;
-                height: auto;
-            }
-            .hero-text {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0, 0, 0, 0.5); /* Optional: for better readability over the image */
-                padding: 20px;
-            }
-            .about {
-                padding: 20px;
-            }
-        </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio Name</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Reset margin to remove any white space */
+            padding: 0; /* Reset padding to remove any white space */
+            background: linear-gradient(to bottom, skyblue, #755b1b); /* Gradient from sky blue to dirt brown */
+            height: 100vh; /* Ensure it fills the full height of the viewport */
+        }
+        .banner {
+            background: #333;
+            color: #fff;
+            padding: 25px 20px;
+            text-align: center;
+            width: 100%;
+            margin: 0; /* Make sure the banner has no top margin */
+            position: relative; /* Add this to make sure the banner is on top of the gradient */
+            z-index: 10;
+            font-size: 18px; /* Increase font size */
+        }
+        .banner a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 50%;
+            height: auto;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5); /* Optional: for better readability over the image */
+            padding: 20px;
+        }
+        .about {
+            color: white;
+            padding: 40px 200px; /* Add 40 pixels of padding to the left and right */
+            margin-top: 20px; /* Add some space between the hero section and about section */
+        }
+    </style>
 </head>
 <body>
     <div class="banner">
