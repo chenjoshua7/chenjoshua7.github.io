@@ -1,18 +1,15 @@
 title: Joshua D. Chen
-description: > # this means to ignore newlines until "baseurl:"
+description: > 
   Write your awesome description for your site here, and it will appear in the meta
   description tag in the head section of your site!
 
-baseurl: "chenjoshua7.github.io" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "chenjoshua7.github.io"
+url: ""
 
-# Build settings
 theme: minima
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list to override the default setting.
 exclude:
   - Gemfile
   - Gemfile.lock

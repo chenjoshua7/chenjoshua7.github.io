@@ -7,8 +7,8 @@
         <style>
             body {
                 font-family: Arial, sans-serif;
-                margin: 0; /* Remove default margin */
-                padding-top: 40px; /* Adjusted to prevent content from being hidden under the banner */
+                margin: 0; /* Reset margin to remove any white space */
+                padding: 0; /* Reset padding to remove any white space */
             }
             .banner {
                 background: #333;
@@ -16,9 +16,10 @@
                 padding: 10px 20px;
                 text-align: center;
                 width: 100%;
-                top: 0;
-                z-index: 1000;
+                margin: 0; /* Make sure the banner has no top margin */
+                /* Other styles... */
             }
+        
             .banner a {
                 color: #fff;
                 text-decoration: none;
