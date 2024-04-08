@@ -21,9 +21,9 @@
             position: relative;
             z-index: 10;
             font-size: 18px;
-            display: flex; /* Aligns the items horizontally */
-            justify-content: space-around; /* Distributes space around items */
-            align-items: center; /* Align items vertically */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
 
         .banner a {
@@ -45,16 +45,16 @@
         }
 
         .hero {
-            position: relative;
+            position: relative; /* Parent element */
             text-align: center;
             color: white;
         }
         .hero img {
-            width: 65%;
+            width: 65%; /* Full width to maintain aspect ratio */
             height: auto;
         }
         .hero-text {
-            position: absolute;
+            position: absolute; /* Positioned absolutely relative to .hero */
             top: 27%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -62,13 +62,13 @@
             font-size: 20px;
         }
         .hero-text1 {
-            position: absolute;
-            top: 85%;
+            position: absolute; /* Positioned absolutely relative to .hero */
+            width: auto; /* Adjust the width as needed */
+            bottom: 7%; /* Position it from the bottom */
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.8);
-            padding: 10px 25px;
-            font-size: 13px;
+            padding: 10px 25px; /* Adjust padding as needed */
         }
         .about {
             color: white;
