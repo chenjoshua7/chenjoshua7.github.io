@@ -7,10 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Reset margin to remove any white space */
-            padding: 0; /* Reset padding to remove any white space */
-            background: linear-gradient(to bottom, skyblue, #755b1b); /* Gradient from sky blue to dirt brown */
-            height: 100vh; /* Ensure it fills the full height of the viewport */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, skyblue, #755b1b);
+            height: 100vh;
         }
         .banner {
             background: #333;
@@ -18,11 +18,12 @@
             padding: 25px 20px;
             text-align: center;
             width: 100%;
-            margin: 0; /* Make sure the banner has no top margin */
-            position: relative; /* Add this to make sure the banner is on top of the gradient */
+            margin: 0;
+            position: relative;
             z-index: 10;
-            font-size: 18px; /* Increase font size */
+            font-size: 18px;
         }
+
         .banner a {
             color: #fff;
             text-decoration: none;
@@ -42,13 +43,37 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.5); /* Optional: for better readability over the image */
+            background: rgba(0, 0, 0, 0.5);
             padding: 20px;
         }
         .about {
             color: white;
             padding: 40px 200px; /* Add 40 pixels of padding to the left and right */
             margin-top: 20px; /* Add some space between the hero section and about section */
+        }
+        
+        @media (max-width: 768px) {
+            .banner {
+                font-size: 16px; /* slightly smaller text on small screens */
+            }
+
+            .hero-text {
+                font-size: 14px; /* smaller text for the hero section */
+            }
+
+            .about {
+                padding: 20px 5%; /* smaller padding on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                padding: 15px 10px; /* even smaller padding for very small screens */
+            }
+
+            .hero-text {
+                font-size: 12px; /* smaller text for very small screens */
+            }
         }
     </style>
 </head>
