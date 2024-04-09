@@ -9,8 +9,11 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, rgb(0, 183, 255), #54400e);
-            height: 100vh;
+            background-image: url('images/bcn_sunset_bunkers.png');
+            background-size: cover;
+            background-attachment: fixed; 
+            background-repeat: no-repeat; 
+            background-position: center center;
         }
         .banner {
             background: #333;
@@ -105,10 +108,86 @@
                 font-size: 12px;
             }
         }
-        .graph img {
+
+        .resume {
+            background: rgb(229, 255, 214);
+            margin: 20px 350px 0px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .header {
+            text-align: center;
+        }
+        .section {
+            border-top: 1px solid #000;
+            margin-top: 10px;
+            padding-top: 5px;
+        }
+        .section:last-of-type {
+            border-bottom: 1px solid #000;
+        }
+        h1, h2 {
+            color: #1A0DAB;
+            font-size: 1.5em;
+        }
+        h2 {
+            margin-bottom: 0;
+        }
+        .left-col {
+            float: left;
+            width: 20%;
+            text-align: right;
+            padding-right: 10px;
+            box-sizing: border-box;
+        }
+        .right-col {
+            float: right;
+            width: 75%;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .clear {
+            clear: both;
+        }
+        .education, .work-experience, .other {
+            margin-bottom: 20px;
+        }
+        
+        .download-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 200px; /* Or the height of your footer area */
+            background: #C2A366; /* Background color of the footer area */
+        }
+        .download {
+            display: flex;
+            background: rgba(83, 83, 83, 0.6);
+            justify-content: center;
+            margin: 25px 770px;
+            padding: 10px 25px;
             color: white;
-            padding: 20px 600px 20px 250px;
-            margin-top: 0px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 10px; 
+            text-align: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(169, 169, 169, 0.6);
+        }
+        .download a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+
         }
     </style>
 </head>
@@ -133,10 +212,110 @@
         <a href= "#"> </a>
         <a href= "#"> </a>
     </div>
+    
 
+    <div class="resume">
+        <div class="header">
+            <h1>Joshua Chen</h1>
+            <p><a href="https://www.linkedin.com/in/chenjoshua7/">LinkedIn: /in/chenjoshua7</a> | 
+            <a href="https://github.com/chenjoshua7">GitHub: /chenjoshua7</a> | 
+            Brooklyn, New York | 
+            <a href="mailto:chen.joshua98@gmail.com">chen.joshua98@gmail.com</a></p>
+        </div>
+        
+        <div class="section education">
+            <h2>Education</h2>
+            <p><strong>Barcelona School of Economics</strong> (2023 - 2024)<br>
+            M.Sc. in Data Science Methodology<br>
+            <strong>Thesis:</strong> Convolutional Neural Networks and Visual Transformers on Classification of Geospatial Data<br>
+            <strong>Selected Courses:</strong> Statistical Modeling and Inference, Machine Learning, Deep Learning, Advanced Natural Language Processing, Causal Inference, Reinforcement Learning</p>
+        
+            <p><strong>Boston College</strong> (2016 - 2020)<br>
+            <i>Morrissey College of Arts and Sciences Honors Program, Dean's List First Honors</i><br>
+            B.A. in Mathematics, Minor in Economics<br>
+            <strong>Selected Courses:</strong> Econometrics (Doctorate Level), Mathematical Modelling, Statistics, Probability</p>
+        </div>
+        
+        <div class="section skills">
+            <h2>Skills</h2>
+            <div class="left-col">
+                <strong>Programming:</strong>
+            </div>
+            <div class="right-col">
+                <ul>
+                    <li>Python (Scikit-Learn, Pandas, Numpy, Pytorch, TensorFlow)</li>
+                    <li>R (ggplot2, dplyr)</li>
+                    <li>SQL (Postgres)</li>
+                    <li>LaTeX</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="left-col">
+                <strong>Data Science:</strong>
+            </div>
+            <div class="right-col">
+                <ul>
+                    <li>Machine/Deep Learning</li>
+                    <li>Bayesian Statistics</li>
+                    <li>Statistical Inference</li>
+                    <li>Optimization</li>
+                    <li>NLP</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="left-col">
+                <strong>Chosen Projects:</strong>
+            </div>
+            <div class="right-col">
+                <ul>
+                    <li>Multiple Regression Techniques for Multiclassification of Geospatial Data</li>
+                    <li>Network Analysis of Recommendation System Algorithms</li>
+                    <li>Interpreting Convolutional Neural Networks</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        <div class="section work-experience">
+            <h2>Work Experience</h2>
+            <p><strong>World Bank - Development Impact (DIME)</strong> (2024 - 2024)<br>
+            <i>Research Intern</i>
+            <ul>
+                <li>Support in data treatment, analysis, and presentation for diverse data sources</li>
+                <li>Specific project to be determined</li>
+            </ul>
+            </p>
+        
+            <p><strong>Uncommon Preparatory Charter High School</strong><br>
+            <i>11th Grade Team Lead</i> (2022 - 2023)
+            <ul>
+                <li>Manage a team of 10 teachers and counselors and a grade of 117 students</li>
+                <li>Assisted staff and students in meeting expectations through individual/group intervention</li>
+                <li>Maintain the 11th Grade budget and plan quarterly grade team events</li>
+            </ul>
+            <i>Lead Mathematics Instructor</i> (2020 - 2023)
+            <ul>
+                <li>Create daily lesson materials for over 110 high school students</li>
+                <li>Improved performance of Algebra 2 assessments over the 2020-21 school year by 15%</li>
+                <li>Founding coach of the boys’ volleyball team, additionally taught violin/piano/chess</li>
+            </ul>
+            </p>
+        </div>
+        
+        <div class="section other">
+            <h2>Other</h2>
+            <p><strong>Relay Graduate School of Education</strong> - M.A. of Teaching - Secondary Mathematics (2020 - 2022)</p>
+            <p><strong>Big Brothers Big Sisters of Massachusetts Bay</strong> - Mentor (2017 - Present)</p>
+            <p><strong>Languages</strong> - English (Native), Chinese (Intermediate)</p>
+        </div>
+    </div>
 
+    <div class="download">
+        <a href="Resume.pdf" download = "Joshua_Chen_Resume.pdf"> Download </a>
+    </div>
     <div class=btm_banner>
         © Copyright 2024 Joshua Chen
-</div>
+    </div>
+
 </body>
 </html>
