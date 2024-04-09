@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua D. Chen</title>
+    <title>Visualizing the Perceptron Algorithm</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
         .banner {
             background: #333;
             color: #fff;
-            padding: 5px 0px;
+            padding: 0px 0px;
             text-align: center;
             width: 100%;
             margin: 0;
@@ -82,21 +82,32 @@
             z-index: 10;
             font-size: 12px;
         }
+        
+        .percept {
+            color: white;
+            padding: 20px 200px 20px 200px;
+            margin-top: 40px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
 
         .visual {
-            display: flex; /* This will lay out your .graph children side by side */
-            justify-content: center; /* This will center them in the container */
-            align-items: center; /* This will vertically align them in case they are of different heights */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; 
         }
         
         .graph {
-            margin: 0 10px; /* This will add space between your images */
+            margin: 0 10px;
         }
         
         .graph img {
-            width: 100%; /* This will make your image fill its container */
-            height: auto; /* This will maintain the aspect ratio of your images */
+            width: 80%;
+            height: auto;
         }
+
+
 
         @media (max-width: 768px) {
             .banner {
@@ -121,6 +132,8 @@
                 font-size: 12px;
             }
         }
+
+
     </style>
 </head>
 
@@ -139,27 +152,22 @@
             </div>
         </div>
     
-        <a href="#">Projects</a>
+        <a href="../projects.html">Projects</a>
         <a href="#">Other Stuff</a>
         <a href= "#"> </a>
         <a href= "#"> </a>
     </div>
     
-    <div>
-        <center><h1> Understanding and Visualizing the Percpetron Algorithm</h1></center>
-        
-    </div>
-    The Dawn of the Perceptron (Late 1950s)
 
-    The perceptron was invented in 1957 by Frank Rosenblatt at the Cornell Aeronautical Laboratory.
-    It was inspired by earlier work on the McCulloch-Pitts neuron model and represented a simplified model of a biological neuron.
-    The perceptron was designed to classify data into two parts, making it a binary linear classifier.
-    Rosenblatt's work was initially supported by the U.S. Office of Naval Research, and the perceptron was seen as a step towards artificial intelligence.
-    The Perceptron's Promise and Initial Impact (1960s)
-    
-    Early demonstrations of the perceptron were promising. It was able to perform simple pattern recognition tasks such as character recognition.
-    The perceptron was one of the first algorithms that could learn from data, adjusting its weights based on errors made in predictions.
-    The original implementation of the perceptron was a simple layer with adjustable weights, taking binary inputs and producing a single binary output.
+    <div class="percept">
+        <h1> Understanding and Visualizing the Percpetron Algorithm</h1>
+        <p> 
+            As part of my Machine Learning course with Professor Gabor Lugosi, part of our homework was to code the Perceptron Algorithm from scratch and 
+        </p>
+        <p>Early demonstrations of the perceptron were promising. It was able to perform simple pattern recognition tasks such as character recognition. The perceptron was one of the first algorithms that could learn from data, adjusting its weights based on errors made in predictions. The original implementation of the perceptron was a simple layer with adjustable weights, taking binary inputs and producing a single binary output.
+        </p>
+    </div>
+
     <div class="visual">
         <div class="graph">
             <img src="../perceptron_gifs/alpha051.gif" alt="Perceptron Alpha">
@@ -168,9 +176,11 @@
             <img src="../perceptron_gifs/linearlyns.gif" alt="Linearly NS">
         </div>
     </div>
+    
     <br/>
+    
     <div class=btm_banner>
         © Copyright 2024 Joshua Chen
-</div>
+    </div>
 </body>
 </html>
