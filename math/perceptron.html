@@ -205,7 +205,7 @@
         <div class="graph">
             <figcaption>Linearly Separable Data with Alpha = 0.1</figcaption>
             <br/>
-            <img src="../perceptron_gifs/alpha051.gif" alt="Perceptron Alpha">
+            <img src="../perceptron_gifs/alpha05.gif" alt="Perceptron Alpha">
         </div>
         <div class="graph">
             <figcaption>Linearly Inseparable Data with m = 3</figcaption>
@@ -242,10 +242,11 @@
                 </ul>
             </li>
             <li>Stop when all data points are correctly classified. Cycle through the data several times if needed.<br>
-            So the linear classifier is \( \hat{w} = \sum_{t} X_t Y_t \mathbb{1}_{w_{t-1} X_t Y_t \leq 0} \).
             </li>
             </ol>
+        Linearly separable data is a huge assumption. As we see in the visualization, we must create a maximum number of iterations or else it will run forever (as there will always be at least one misclassified point by definition.)
     </div>
+    
     
     
     <div class=btm_banner>
