@@ -3,82 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template.css">
     <title>Math Things</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom, rgb(0, 183, 255), #54400e);
-            height: 100vh;
-        }
-        .banner {
-            background: #333;
-            color: #fff;
-            padding: 0px 0px;
-            text-align: center;
-            width: 100%;
-            margin: 0;
-            position: relative;
-            z-index: 10;
-            font-size: 18px;
-            display: flex; /* Aligns the items horizontally */
-            justify-content: space-around; /* Distributes space around items */
-            align-items: center; /* Align items vertically */
-        }
-
-        .banner a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        
-        .dropbtn {
-            background: none;
-            color: white;
-            padding: 16px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-        }
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-        
-        .dropdown-content a:hover {background-color: #f1f1f1}
-        
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }
-        
-        .btm_banner {
-            background: #333;
-            color: #fff;
-            padding: 10px 10px;
-            text-align: center;
-            width: 100%;
-            margin: 0;
-            position: bottom;
-            z-index: 10;
-            font-size: 12px;
-        }
-
         @media (max-width: 768px) {
             .banner {
                 font-size: 16px;
@@ -115,12 +42,19 @@
             <a href="math.html"><button class="dropbtn">Math</button></a>
             <div class="dropdown-content">
                 <a href="math/perceptron.html">Perceptron</a>
-                <a href="#">Link 2</a>
+                <a href="math/pandemic.html">Pandemic Modeling</a>
                 <a href="#">Link 3</a>
             </div>
         </div>
     
-        <a href="projects.html">Projects</a>
+        <div class="dropdown">
+            <a href="projects.html"><button class="dropbtn">Projects</button></a>
+            <div class="dropdown-content">
+                <a href="projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
         <a href="#">Other Stuff</a>
         <a href= "#"> </a>
         <a href= "#"> </a>
