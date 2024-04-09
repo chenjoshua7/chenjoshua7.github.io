@@ -116,6 +116,7 @@
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            min-width: 750px;
         }
 
         .header {
@@ -162,27 +163,24 @@
             margin-bottom: 20px;
         }
         
-        .download-container {
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            height: 200px; /* Or the height of your footer area */
-            background: #C2A366; /* Background color of the footer area */
-        }
         .download {
             display: flex;
+            justify-content: center; /* This will center the <a> tag horizontally within the .download div */
+            align-items: center; /* This will center the <a> tag vertically within the .download div */
+            position: relative;
             background: rgba(83, 83, 83, 0.6);
-            justify-content: center;
-            margin: 25px 770px;
-            padding: 10px 25px;
+            margin: 20px auto; 
+            padding: 12px 5px;
             color: white;
             font-size: 20px;
             text-decoration: none;
-            border-radius: 10px; 
+            border-radius: 7px; 
             text-align: center;
-            align-items: center;
-            box-shadow: 0 0 20px rgba(169, 169, 169, 0.6);
+            box-shadow: 0 0 20px rgba(51, 0, 0, 0.8);
+            width: fit-content; /* This makes the .download div only as wide as its content */
         }
+        
+        
         .download a {
             color: #fff;
             text-decoration: none;
@@ -314,8 +312,9 @@
     </div>
 
     <div class="download">
-        <a href="Resume.pdf" download = "Joshua_Chen_Resume.pdf"> Download </a>
+        <a href="Resume.pdf" download = "Joshua_Chen_Resume.pdf">Download</a>
     </div>
+    
     <div class=btm_banner>
         © Copyright 2024 Joshua Chen
     </div>
