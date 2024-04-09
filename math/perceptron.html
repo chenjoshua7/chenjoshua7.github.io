@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizing the Perceptron Algorithm</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom, rgb(0, 183, 255), #54400e 100vh);;
+        }
+        
+        .center-text {
+            text-align: center;
         }
 
         .banner {
@@ -86,7 +92,7 @@
         .percept {
             color: white;
             padding: 10px 250px 10px 250px;
-            margin-top: 40px;
+            margin-top: 10px;
             text-align: justify;
             text-justify: inter-word;
             font-size: 18px;
@@ -171,7 +177,9 @@
     
 
     <div class="percept">
-        <center><h1> Understanding and Visualizing the Percpetron Algorithm</h1></center>
+        <br/>
+        <br/>
+        <h1 class="center-text"> Understanding and Visualizing the Percpetron Algorithm</h1>
         <p> 
             As part of my Machine Learning course with Professor Gabor Lugosi, part of our homework was to code the Perceptron Algorithm from scratch and apply it to generated linearly separable and linearly non separable data across different sample sizes, dimensions, and degrees of separability. This was then compared to the Bayes Risk.
         </p>
@@ -195,25 +203,48 @@
 
     <div class="visual">
         <div class="graph">
-            <figcaption>Linearly Separable Data with Alpha = 0.5</figcaption>
+            <figcaption>Linearly Separable Data with Alpha = 0.1</figcaption>
             <br/>
             <img src="../perceptron_gifs/alpha051.gif" alt="Perceptron Alpha">
         </div>
         <div class="graph">
-            <figcaption>Linearly Inseparable Data with Alpha = 0.5</figcaption>
+            <figcaption>Linearly Inseparable Data with m = 3</figcaption>
             <br/>
             <img src="../perceptron_gifs/linearlyns.gif" alt="Linearly NS">
         </div>
     </div>
-    
-    <br/>
+
 
     <div class="percept">
         <a id = "generate"></a>
-        <center><h2> Generating the Data</h2></center>
+        <h2 class="center-text"> Generating the Data</h2>
         <p>To generate the data for this binary classificaiton problem, I created data from two distributions.</p>
-        <p>In the linearly separable case, we pull from uniform distributions separated.</p>
-        
+        <p>In the linearly separable case, we pull from uniform distributions and we set the degree of seperation with al</p>
+        <p>For the linearly the linearly inseparable case, we draw from multivariate normals. However, for the first dimension, we set the mean to be 0 for one class and <i>m</i> for the other class. The means for the rest of the dimensions are 0.</p>
+    </div>
+    
+    <div class="percept">
+        <a id = "algo"></a>
+        <h2 class="center-text"> The Algorithm</h2>
+        <p>
+            This algorithm was invented on the 50’s and learns a neuron (a linear classifier is basically a neural network with one neuron).
+            </p>
+            <p>
+            Suppose that the data is nearly separable. Let’s see the algorithm.
+            </p>
+            <ol>
+            <li>We start with an arbitrary \( w_0 \), for example \( w_0 = \vec{0} \).</li>
+            <li>Then we go through our data points one by one.<br>
+            At time \( t \):
+                <ul>
+                <li>If \( w_{t-1} X_t Y_t > 0 \) then we do nothing.</li>
+                <li>If \( w_{t-1} X_t Y_t \leq 0 \) then \( w_t = w_{t-1} + X_t Y_t \).</li>
+                </ul>
+            </li>
+            <li>Stop when all data points are correctly classified. Cycle through the data several times if needed.<br>
+            So the linear classifier is \( \hat{w} = \sum_{t} X_t Y_t \mathbb{1}_{w_{t-1} X_t Y_t \leq 0} \).
+            </li>
+            </ol>
     </div>
     
     
