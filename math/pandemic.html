@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Your Page Title</title>
     <link rel="stylesheet" href="../template.css">
     <style>
-        
+        .image {
+            color: white;
+            text-align: center;
+        }
+
+        .image img{
+            width: 50%;
+            height: auto;
+            border-radius: 10px; 
+        }
     </style>
 </head>
 <body>
@@ -35,6 +46,54 @@
         <a href="#">Other Stuff</a>
         <a href= "#"> </a>
         <a href= "#"> </a>
+    </div>
+
+    <div class="backgd">
+        <div class="textblock">
+            <h1 class="center-text">Pandemic Modeling</h1>
+            <p> I have done pandemic modeling in two different circumstances with 2 different approaches. The first time 
+                was in Senior Year of my undergraduate program in my Mathematical Modeling course with SIR pandemic modeling. 
+                Coincidentally, this was also during COVID. </p>
+            <p>
+                The second circumstance was in my Networks class in my Masters program from a Networks perspective.
+        
+            </p>
+        </div>
+        <div class="textblock">
+            <h2>Undergraduate - Markov Chains</h2>
+            <p>In my undergraduate course, we model pandemics with Markov chains. Find an example of one of my old homeworks  <a href = "https://github.com/chenjoshua7/SIR_model_measles/blob/master/Chen.Joshua.GPS%20Measles.pdf"> here</a>.</p>
+            <p>Typically in SIR pandemic modeling, we want to model the number of people Susceptible, Infected, and Recovered in a given state (hence the name).
+                Below is an example from the problem set listed above. B represents the birthrate. 
+            </p>
+            \[
+            S_{k+1} = S_k - \alpha I_k S_k + B_k
+            \]
+            \[
+            I_{k+1} = \alpha I_k S_k
+            \]
+            \[
+            B_{k+1} = c B_k
+            \]
+
+            <div class="image">
+                <img src="pandemic/sib_model.png">
+            </div>
+
+
+        </div>
+        <div class="textblock">
+            <h2>Masters - Network</h2>
+            <div class="image">
+                <figcaption>p = 0.5, K = 2, epsilon = 0</figcaption>
+                <br/>
+                <img src="pandemic/p05eps0k2.gif">
+            </div>
+        </div>
+    </div>
+    
+
+    <div class=btm_banner>
+        © Copyright 2024 Joshua Chen
     </div>
 </body>
 </html>
