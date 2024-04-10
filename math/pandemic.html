@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
     <title>Your Page Title</title>
     <link rel="stylesheet" href="../template.css">
     <style>
@@ -18,6 +20,53 @@
             height: auto;
             border-radius: 10px; 
         }
+
+        .visual {
+            color: white;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .graph {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0px;
+        }
+        
+        .graph img {
+            border-radius: 10px; 
+            width: 90%;
+            height: auto;
+        }
+
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left: auto;  /* Centers table */
+            margin-right: auto; /* Centers table */
+            }
+
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px;
+          }
+          
+          tr:nth-child(1) {
+            background-color: hsla(0, 0%, 0%, 0.602);
+          }
+
+          tr:nth-child(even) {
+            background-color: hsla(256, 100%, 94%, 0.159);
+          }
+
     </style>
 </head>
 <body>
@@ -83,11 +132,79 @@
         </div>
         <div class="textblock">
             <h2>Masters - Network</h2>
+            <p>
+                Play around with Python Notebook <a href = "https://github.com/chenjoshua7/chenjoshua7.github.io/blob/main/notebooks/pandemic.ipynb">here</a>
+            </p>
+            <p>We took the same approach and considered it from a networks and community detection perspective. I coded a 
+                simulation of pandemics across different networks. To create different networks, I adjust the following parameters:</p>
+                <div class="center-text">
+                    <table>
+                    <tr>
+                      <th>Parameter</th>
+                      <th>Meaning</th>
+                    </tr>
+                    <tr>
+                        <td>p</td>
+                        <td>Probability of transmission</td>
+                    </tr>
+                    <tr>
+                      <td>N</td>
+                      <td>Number of nodes (people) in the network</td>
+                    </tr>
+                    <tr>
+                        <td>K</td>
+                        <td>Number of Communities</td>
+                    </tr>
+                    <tr>
+                        <td>d</td>
+                        <td>Mean degree</td>
+                    </tr>
+                    <tr>
+                        <td>\(\epsilon\)</td>
+                        <td>Community strength <br/>
+                            Prob of intra-communitiy edge = \(\frac{2d + \epsilon}{2n}\)<br/>
+                            Prob of inter-communitiy edge = \(\frac{2d - \epsilon}{2n}\)
+                        </td>
+                    </tr>
+                  </table>
+                </div>
+                  <br>
+            <p>Here is a visualization of one simulated pandemic.</p> 
             <div class="image">
-                <figcaption>p = 0.5, K = 2, epsilon = 0</figcaption>
+                <figcaption>p = 0.5, N = 1000, K = 2, d = 8, \(\epsilon\) = 0</figcaption>
                 <br/>
                 <img src="pandemic/p05eps0k2.gif">
             </div>
+            <h3>Some More Visualizations</h3>
+            <h4 class="center-text"">Super Strong Community</h4>
+        <div class="visual">
+            <div class="graph">
+                    <figcaption>p = 0.8, N = 1000, K = 2, d = 8, \(\epsilon\) = 15.99</figcaption>
+                    <figcaption>With Community Crossing</figcaption>
+                    <br/>
+                    <img src="pandemic/1599_nocross.gif">
+                </div>
+                <div class="graph">
+                    <figcaption>p = 0.8, N = 1000, K = 2, d = 8, \(\epsilon\) = 15.99</figcaption>
+                    <figcaption>No Community Crossing</figcaption>
+                    <br/>
+                    <img src="pandemic/1599_cross.gif">
+                </div>
+            </div>
+
+        <h4 class="center-text"">More Communities</h4>
+        <div class="visual">
+            <div class="graph">
+                    <figcaption>p = 0.8, N = 1000, K = 3, d = 8.5, \(\epsilon\) = 17</figcaption>
+                    <br/>
+                    <img src="pandemic/k3.gif">
+                </div>
+                <div class="graph">
+                    <figcaption>p = 0.8, N = 1000, K = 5, d = 7, \(\epsilon\) = 13.95</figcaption>
+                    <br/>
+                    <img src="pandemic/k5.gif">
+                </div>
+        </div>
         </div>
     </div>
     
