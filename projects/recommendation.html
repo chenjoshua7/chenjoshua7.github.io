@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>MovieLens Recommendation</title>
     <link rel="stylesheet" href="../template.css">
     <style>
         
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left: auto;  /* Centers table */
+            margin-right: auto; /* Centers table */
+            }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px;
+            }
+            
+            tr:nth-child(1) {
+            background-color: hsla(0, 0%, 0%, 0.602);
+            }
+
+            tr:nth-child(even) {
+            background-color: hsla(256, 100%, 94%, 0.159);
+            }
+        .image {
+            text-align: center;
+        }
+
+        .image img{
+            width: 700px;
+            height: auto;
+            border-radius: 10px
+        }
+
+        .note{
+            background-color: rgba(23, 23, 23, 0.705);
+            color: white;
+            box-shadow: 0px 0 25px white;
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin: 50px 100px
+        }
+
     </style>
 </head>
 <body>
@@ -37,5 +79,88 @@
         <a href= "#"> </a>
         <a href= "#"> </a>
     </div>
+    
+    <div class="backgd">
+        <div class="textblock">
+            <h1 class="center-text">MovieLens Recommendation System</h1>
+            <p class="center-text"><small> Special thanks to my wonderful project partners: Jonny Codd, Carlos Perez, and Rafael Gallegos.</small></p>
+            
+            <div class="note">
+                <p><b>Note:</b> As discussed later, our results for recommendations illuminated some interesting information about the Cold Start problem. I am currently working
+                on an item-to-item extension on this problem. Come back soon to see how I tackle this problem. </p>
+            </div>
+
+            <p> Our final project can be found <a href="https://github.com/chenjoshua7/RecommendationSystems_NetworksFP/blob/main/latex/main.pdf"> here. </a></p>
+
+            <p> To get a stronger understanding of Recommendation Systems methodologies, we studied the application of different recommendation systems on the MovieLens DataSet.
+                We looked at the effectiveness of implementing ProbS, HeatS, and Collaborative Filtering as well as the network affects these recommendations had over iterations.
+            </p>
+            <p> The results are listed below. We chose Precision - \(\frac{TP + FP}{TP}\) - as our main evaluation metric. When recommending movies, we considered it to be much
+                more important to recommend only movies a person would like, rather than recommending all movies a person would like. However, this would not be case for, say, an 
+                e-commerce business where a FP results is relatively harmless but a FN is lost income.
+            </p>
+            <h3 class="center-text">Results</h3>
+            <table>
+                <tr>
+                  <th>Model</th>
+                  <th>Precision</th>
+                </tr>
+                <tr>
+                    <td>Average User Rating (Baseline)</td>
+                    <td>0.67</td>
+                </tr>
+                <tr>
+                  <td>Prob S - Uniform Weights</td>
+                  <td>0.62</td>
+                </tr>
+                <tr>
+                    <td>Prob S - Using Ratings</td>
+                    <td>0.62</td>
+                </tr>
+                <tr>
+                    <td>Heat S - Unifrom Weights</td>
+                    <td>0.54</td>
+                </tr>
+                <tr>
+                    <td>Heat S - Using Ratings</td>
+                    <td> 0.57 </td>
+                </tr>
+                <tr>
+                    <td>Collaborative Filtering</td>
+                    <td> 0.77 </td>
+                </tr>
+              </table>
+            <p>
+            </p>
+            <h3 class="center-text">Discussion</h3>
+            <p> Collaborative Filtering returned a very high precision but we had a problem. </p>
+            <div class="image">
+                <img src="images/collabfilter.png">
+            </div>
+            <p> Every single movie reocmmended to User 314 was a highly rated movie from before 2000, despite a large majority of the movies in the dataset being post 2000. 
+                This is a perfect representation of the Cold Start problem.
+            </p>
+
+            <div class="image">
+                <figcaption>Prob S Dyanmics over 1, 10, and 100 Iterations</figcaption>
+                <img src="images/ProbS.png">
+               
+            </div>
+            <p> Here we see this problem represented for through running iterations of the Prob S recommendations. Already popular movies will get disproportionately
+                recommended over time, with smaller movies never getting recommended. Heat S, as seen below, sacrifices precision. However, it allows for movies to be
+                more equitably recommended.
+            </p>
+            <div class="image">
+                <figcaption>Heat S Dyanmics over 1, 10, and 100 Iterations</figcaption>
+                <img src="images/ProbS.png">
+               
+            </div>
+        </div>        
+    </div>
+    <br/>
+    <div class=btm_banner>
+        © Copyright 2024 Joshua Chen
+    </div>
+    
 </body>
 </html>
