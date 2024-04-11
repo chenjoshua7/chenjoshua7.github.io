@@ -7,6 +7,58 @@
     <link rel="stylesheet" href="template.css">
     <title>Other Stuff</title>
     <style>
+        #myModal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 150px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            z-index: 10;
+        }
+        /* Style the modal content (image) */
+        #img01 {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         #gameArea {
             text-align: center;
             margin-top: 50px;
@@ -46,12 +98,22 @@
         
         .backgd1 {
             background: rgba(189, 189, 189, 0.94);
-            margin: 0px 50px 0px 50px;
+            margin: 0px 50px 20px 50px;
             padding: 2px 20px 20px 20px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
             min-width: 750px;
+        }
+
+        .apptracker {
+            text-align: center;
+        }
+
+        .apptracker img {
+            width: 700px;
+            height: auto;
+            
         }
 
         .organizedbox {
@@ -141,6 +203,48 @@
                 side of Data Science, I have taken on some challenges to improve my coding. A lot of it has just been LeetCode but here are some other things I've been working on.
             </p>
         </div>
+        <div class="backgd1">
+            <h2 class="center-text">Application Tracker</h2>
+            <p> I haven't met anyone that loves, or even likes, the job application process. However, it's an inevitable process that most of us
+                normal people will have to go through at least a couple time in our lives. As I am now working on landing my first job in Data, I wanted
+                to keep track of the data during my application process. That way, afterwords, I can analyze and play around the data to see what patterns
+                and truths I can uncover. Therefore, in Python, I created a database to track all my applications and any updates to those applications.
+                I also included a function that automatically marks after a certain number of days without a response as <b>GHOSTED &#128123;</b>.
+            </p>   
+            <p>
+                I gave it a GUI so my friends who are in the same position can use it as well. Happy hunting everyone.
+            </p>
+            <div class="apptracker">
+                <img id="myImg" src="/images/apptracker.gif" alt="Job Tracker App Demonstration" style="width:100%;max-width:700px">
+
+                <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                </div>
+
+                <script>
+                    var modal = document.getElementById('myModal');
+                    var img = document.getElementById('myImg');
+                    var modalImg = document.getElementById("img01");
+                    var captionText = document.getElementById("caption");
+                    img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                    }
+
+                    var span = document.getElementsByClassName("close")[0];
+                    span.onclick = function() {
+                    modal.style.display = "none";
+                    }
+                </script> 
+            </div>
+        </div>
+
+        <br/>
+
+
         <div class="backgd1">
             <h2 class="center-text">Python Games</h2>
             I enjoy games. With the well-defined parameters and constraints of a game, it is the perfect environment to practice critical thinking and problem solving. When I was teaching, I tried to incorporate games as much
