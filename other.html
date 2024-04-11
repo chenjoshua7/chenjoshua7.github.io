@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="games/hilowredblack.js"></script>
     <link rel="stylesheet" href="template.css">
-    <title>Math Things</title>
+    <title>Other Stuff</title>
     <style>
+        #gameArea {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #choices button {
+            margin: 5px;
+            padding: 10px;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -16,7 +33,49 @@
             background-repeat: no-repeat; 
             background-position: center center;
         }
+
+        .backgd {
+            background: rgba(64, 64, 64, 0.94);
+            margin: 20px 100px 20px 100px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            min-width: 750px;
+        }
         
+        .backgd1 {
+            background: rgba(189, 189, 189, 0.94);
+            margin: 0px 50px 0px 50px;
+            padding: 2px 20px 20px 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+            min-width: 750px;
+        }
+
+        .organizedbox {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            box-sizing: border-box;
+            margin: 20px;
+        }
+        .gamebox {
+            justify-content: center;
+            max-width: 100%;
+            padding: 10px;
+        }
+        .smallimg {
+            text-align: center;
+        }
+        .smallimg img{
+            width: 80%;
+            height: auto;
+            border-radius: 10px;
+        }
+
         @media (max-width: 768px) {
             .banner {
                 font-size: 16px;
@@ -66,12 +125,97 @@
                 <a href="#">Link 3</a>
             </div>
         </div>
-        <a href="#">Other Stuff</a>
+        <a href="other.html">Other Stuff</a>
         <a href= "#"> </a>
         <a href= "#"> </a>
     </div>
+
+    <div class="backgd">
+        <div class="textblock">
+            <h1 class="center-text">Miscellanious</h1>
+            <hr>
+
+            <h2 class="center-text"> Programming </h2>
+            <p>A goal of mine entering this program was to become a good programmer. As the focus of my program is more on the theoretical and methodological 
+                side of Data Science, I have taken on some challenges to improve my coding. A lot of it has just been LeetCode but here are some other things I've been working on.
+            </p>
+        </div>
+        <div class="backgd1">
+            <h2 class="center-text">Python Games</h2>
+            I enjoy games. With the well-defined parameters and constraints of a game, it is the perfect environment to practice critical thinking and problem solving. When I was teaching, I tried to incorporate games as much
+            into my lessons. To practice coding, I picked some games and gave them a shot. You can see the games <a href="https://github.com/chenjoshua7/python_games/tree/main">here.</a>
+                <div class="organizedbox">
+                    <div class="gamebox">
+                        <h3 class="center-text">Tic Tac Toe</h3>
+                        <p>I started with the simplest game - Tic Tac Toe. I followed the tutorial below to get the idea of where to start. I added the ability to play multiple games as well as a score board.</p>
+                        <div class="center-text">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/dK6gJw4-NCo?si=hNPiSFdo_FUOP2CF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="gamebox">
+                        <h3 class="center-text">Greedy Pig Game</h3>
+                        <p> I first played the Greedy Pig Game in college. When I taught probability, I introduced it to my students and they got very competitive with it.
+                        The game is quite simple and can be played in groups of however many people.
+                        </p>
+                        <p><b>Rules:</b>
+                        <br/>
+                        There are 5 rounds.
+                        <ol>
+                            <li>A die is rolled. Whatever number appears on the die (except 1) is added to every person's score.</li>
+                            <li>Players can either choose to end their turn or keep rolling.</li>
+                            <li>If a rolled die ends up with 1, the round is over and everyone who is still in the round has their score
+                                for the round set to 0.
+                            </li>
+                            <li>Play 5 rounds and whoever has the highest cumulative score wins.</li>
+                        </ol>
+                        </p>
+
+                        <p>It's a simple and fun game so I chose to program this next. This was unaided and done individually.</p>
+                    </div>
+                    
+                    <div class="gamebox">
+                        <h3 class="center-text">Blackjack</h3>
+                        <p> This is not a game I played with my students. Actually, I don't play blackjack but I decided to tackle a
+                            more complicated game. This was a lot of fun as I had to juggle many more moving pieces. After I implemented
+                            the basic aspects of Player Wallet, Calculating Score, and Dealing Cards, I added Insurance and Doubling Down.
+                        </p>
+                        <div class="smallimg">
+                            <img src="images/blackjack.png">
+                        </div>
+                    </div>
+
+                    <div class="gamebox">
+                        <h3 class="center-text">High Low Red Black</h3>
+                        <p> The one piece of advice that I got repeatedly from all my more experience friends was: <i>"Why are there global
+                            variables everywhere? Use a class."</i> And that was my introduction to object oriented programing. I tried to 
+                            create a Card and a Deck class.
+                        </p>
+                        <p>
+                            I used this to make another simple probability game: High Low Red Black. The game is simple. Guess if the next 
+                            card is higher, lower, red, or black. Get as many in a row right as you can.
+                        </p>
+                        <div id="gameArea">
+                            <div id="cardDisplay">Current Card: <span id="startingCard"></span></div>
+                            <div id="choices">
+                                <button id="high">High</button>
+                                <button id="low">Low</button>
+                                <button id="red">Red</button>
+                                <button id="black">Black</button>
+                            </div>
+                            <div id="scoreDisplay">Score: <span id="score">0</span></div>
+                            <div id="message"></div>
+                            <button id="restart" style="display: none;">Restart</button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+
     <div class=btm_banner>
         © Copyright 2024 Joshua Chen
-</div>
+    </div>
 </body>
 </html>
