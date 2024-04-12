@@ -167,10 +167,10 @@
             <p class="center-text"><small> Special thanks to my wonderful project partners: Mathieu Breier, Carlos Perez, and Rafael Gallegos.</small></p>
             <br/>
             
-            <p>This was a text classification task of the <a href="https://huggingface.co/datasets/valurank/Topic_Classification">this Hugging Face dataaset from Valurank.</a> There are 22,462 articles with
-            120 topics. We grouped the topics into seven groups.</p>
+            <p>This was a text classification task of the <a href="https://huggingface.co/datasets/valurank/Topic_Classification">this Hugging Face dataset from Valurank.</a> There are 22,462 articles with
+            120 topics. We grouped the topics into seven groups and used a 50%, 25%, 25% train, validation, test split. As a part of this project, we played around with data augmentation and data generation 
+            using Generative AI. These were the final results on the testing set using our best models. Note that the baseline with Tf-Idf Vectorizer - Logistic Regression. </p>
             
-            <br/>
             <figcaption class="center-text"> Accuracy, Precision, Recall, F1 Results on the Testing Set</figcaption>
             
             <div class="apptracker">
@@ -199,7 +199,29 @@
                     }
                 </script> 
             </div>
+                
+            <br/>
 
+            <p>For reference, here is the results of the Validation Set. Note: The baseline classifier was trained on the entire set. However, Limited BERT, Augmented BERT, OpenAI Aug. BERT, and combined BERT were only trained on 32
+                data samples.
+            </p>
+            
+            <p>
+                For Augmentation, we implemented non-deep learning approaches. We took the tail end of data as unique data points and implemented random deletion and random swap. <a href = 'https://arxiv.org/abs/1901.11196'>(<i>"EDA: Easy Data Augmentation Techniques for Boosting Performance on
+                    Text Classification Tasks"</i> by Jason Wei and Kai Zou).</a>
+            </p>
+
+            <p> For Data Generation, we queried the Chat GPT API to generate 5 samples for each topic. Note that both methodologies produced large leaps in performance on limited data with the combination of the methods producing solid results on
+                just the 32 samples.
+            </p>
+            <div class="apptracker">
+                <figcaption class="center-text">Performance Metrics on Validation Set</figcaption>
+                <img id="myImg1" src="images/validresults.png" alt="Validation">
+            </div>
+
+            <p>The following is the learning curve on the Vanilla DistilBERT model (no data augmentation).</p>
+            <figcaption class="center-text">Learning Curve on Non-Augmented Dataset</figcaption>
+            <img id="myImg1" src="images/learningcurve.png" alt="Validation">
         </div>
         </div>
     <br/>
