@@ -8,7 +8,80 @@
     <title>BERT Classification</title>
     <link rel="stylesheet" href="../template.css">
     <style>
+        #myModal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 150px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            z-index: 10;
+        }
+        /* Style the modal content (image) */
+        #img01 {
+            margin: auto;
+            display: block;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
         
+        .apptracker img {
+            width: 700px;
+            height: auto;
+            
+        }
+
+        #gameArea {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #choices button {
+            margin: 5px;
+            padding: 10px;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+        }
+
         table {
             font-family: Arial, sans-serif;
             border-collapse: collapse;
@@ -33,6 +106,14 @@
         .image {
             text-align: center;
         }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            border-radius: 10px;
+          }
 
         .image img{
             width: 700px;
@@ -69,8 +150,8 @@
         <div class="dropdown">
             <a href="../projects.html"><button class="dropbtn">Projects</button></a>
             <div class="dropdown-content">
-                <a href="../projects/recommendation.html">MovieLens Recommendation</a>
-                <a href="#">Link 2</a>
+                <a href="recommendation.html">MovieLens Recommendation</a>
+                <a href="nlp.html">BERT Classification</a>
                 <a href="#">Link 3</a>
             </div>
         </div>
@@ -82,9 +163,44 @@
     
     <div class="backgd">
         <div class="textblock">
-            <h1 class="center-text">MovieLens Recommendation System</h1>
-            <p class="center-text"><small> Special thanks to my wonderful project partners: Jonny Codd, Carlos Perez, and Rafael Gallegos.</small></p>
+            <h1 class="center-text">Text Classification</h1>
+            <p class="center-text"><small> Special thanks to my wonderful project partners: Mathieu Breier, Carlos Perez, and Rafael Gallegos.</small></p>
+            <br/>
             
+            <p>This was a text classification task of the <a href="https://huggingface.co/datasets/valurank/Topic_Classification">this Hugging Face dataaset from Valurank.</a> There are 22,462 articles with
+            120 topics. We grouped the topics into seven groups.</p>
+            
+            <br/>
+            <figcaption class="center-text"> Accuracy, Precision, Recall, F1 Results on the Testing Set</figcaption>
+            
+            <div class="apptracker">
+                <img id="myImg" src="images/testresults.jpg" alt="Testset">
+
+                <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                </div>
+
+                <script>
+                    var modal = document.getElementById('myModal');
+                    var img = document.getElementById('myImg');
+                    var modalImg = document.getElementById("img01");
+                    var captionText = document.getElementById("caption");
+                    img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                    }
+
+                    var span = document.getElementsByClassName("close")[0];
+                    span.onclick = function() {
+                    modal.style.display = "none";
+                    }
+                </script> 
+            </div>
+
+        </div>
         </div>
     <br/>
     <div class=btm_banner>
