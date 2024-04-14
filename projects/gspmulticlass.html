@@ -163,67 +163,30 @@
     
     <div class="backgd">
         <div class="textblock">
-            <h1 class="center-text">Text Classification</h1>
-            <p class="center-text"><small> Special thanks to my wonderful project partners: Mathieu Breier, Carlos Perez, and Rafael Gallegos.</small></p>
+            <h1 class="center-text">Classification of Urban Land Covers with Linear Models</h1>
+            <p class="center-text"><small> Special thanks to my wonderful project partner: Jonas Wallstein</small></p>
             <br/>
             
-            <p>This was a text classification task of the <a href="https://huggingface.co/datasets/valurank/Topic_Classification">this Hugging Face dataset from Valurank.</a> There are 22,462 articles with
-            120 topics. We grouped the topics into seven groups and used a 50%, 25%, 25% train, validation, test split. As a part of this project, we played around with data augmentation and data generation 
-            using Generative AI. These were the final results on the testing set using our best models. Note that the baseline with Tf-Idf Vectorizer - Logistic Regression. </p>
-            
-            <figcaption class="center-text"> Accuracy, Precision, Recall, F1 Results on the Testing Set</figcaption>
-            
-            <div class="apptracker">
-                <img id="myImg" src="images/testresults.jpg" alt="Testset">
-
-                <div id="myModal" class="modal">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="img01">
-                        <div id="caption"></div>
-                </div>
-
-                <script>
-                    var modal = document.getElementById('myModal');
-                    var img = document.getElementById('myImg');
-                    var modalImg = document.getElementById("img01");
-                    var captionText = document.getElementById("caption");
-                    img.onclick = function(){
-                    modal.style.display = "block";
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt;
-                    }
-
-                    var span = document.getElementsByClassName("close")[0];
-                    span.onclick = function() {
-                    modal.style.display = "none";
-                    }
-                </script> 
-            </div>
-                
-            <br/>
-
-            <p>For reference, here is the results of the Validation Set. Note: The baseline classifier was trained on the entire set. However, Limited BERT, Augmented BERT, OpenAI Aug. BERT, and combined BERT were only trained on 32
-                data samples.
-            </p>
-            
+            <p>The way in which the surface of a city is distributed has a huge impact on human life in the city. Cities with a large
+                share of impervious surfaces have higher risk of floods as water cannot sink into the soil (Feng et al. 2021), and
+                temperatures are more extreme (Kalnay and Cai, 2003). An important aspect for public policy is therefore knowing how the 
+                area in a city is distributed. This is especially important in light of the climate crisis which will increase the frequency 
+                and severity of extreme weather events such as floods and high temperature. The distribution of surfaces is referred to as the 
+                land cover and is defined as “the composition and characteristics of land surface elements” (Cihlar, 2000). The land cover in 
+                an urban area typically includes objects such as asphalt cars and trees. Classification of these objects is vital to assess 
+                the share of impervious surfaces in a city and is typically determined by analyzing aerial images. Thus, our outcome variable 
+                is the class of an object, which can be one of nine types of urban land cover, for example trees or buildings. The input 
+                variables are measures from an aerial image such as the brightness, color or shape of an object.
+                The input data is preprocessed from the pixel level to di↵erent “segments”, which are explained in the data section.</p>
             <p>
-                For Augmentation, we implemented non-deep learning approaches. We took the tail end of data as unique data points and implemented random deletion and random swap. <a href = 'https://arxiv.org/abs/1901.11196'>(<i>"EDA: Easy Data Augmentation Techniques for Boosting Performance on
-                    Text Classification Tasks"</i> by Jason Wei and Kai Zou).</a>
-            </p>
-
-            <p> For Data Generation, we queried the Chat GPT API to generate 5 samples for each topic. Note that both methodologies produced large leaps in performance on limited data with the combination of the methods producing solid results on
-                just the 32 samples.
-            </p>
-            <div class="apptracker">
-                <figcaption class="center-text">Performance Metrics on Validation Set</figcaption>
-                <img id="myImg1" src="images/validresults.png" alt="Validation">
-            </div>
-
-            <p>The following is the learning curve on the Vanilla DistilBERT model (no data augmentation).</p>
-            <figcaption class="center-text">Learning Curve on Non-Augmented Dataset</figcaption>
-            <img id="myImg1" src="images/learningcurve.png" alt="Validation">
+                The goal of this thesis is to classify the urban land cover objects in a setting with a high dimensional feature space.
+                Thus, we use logistic and multinomial regressions with LASSO and Bayesian model selection. Further, we assess the 
+                performance of different clustering methods in differentiating the actual number of clusters that correspond to our nine
+                 types of land cover. This thesis proceeds with a summary of related work and the data used. Then we use regression and 
+                 unsupervised learning and finally discuss our methodology and findings.</p>
+            </p>               
         </div>
-        </div>
+    </div>
     <br/>
     <div class=btm_banner>
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
