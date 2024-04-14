@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <title>Curse of Dimensionality</title>
+    <link rel="stylesheet" href="../template.css">
+    <style>
+        .image {
+            color: white;
+            text-align: center;
+        }
+
+        .image img{
+            width: 50%;
+            height: auto;
+            border-radius: 10px; 
+        }
+
+        .visual {
+            color: white;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .graph {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0px;
+        }
+        
+        .graph img {
+            border-radius: 10px; 
+            width: 90%;
+            height: auto;
+        }
+
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-left: auto;  /* Centers table */
+            margin-right: auto; /* Centers table */
+            }
+
+          
+          td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px;
+          }
+          
+          tr:nth-child(1) {
+            background-color: hsla(0, 0%, 0%, 0.602);
+          }
+
+          tr:nth-child(even) {
+            background-color: hsla(256, 100%, 94%, 0.159);
+          }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+        <a href="../index.html">Home</a>
+        <a href="../resume.html">Resume</a>
+        <div class="dropdown">
+            <a href="../math.html"><button class="dropbtn">Math</button></a>
+            <div class="dropdown-content">
+                <a href="perceptron.html">Perceptron</a>
+                <a href="pandemic.html">Pandemic Modeling</a>
+                <a href="cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <a href="../projects.html"><button class="dropbtn">Projects</button></a>
+            <div class="dropdown-content">
+                <a href="../projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="../projects/nlp.html">BERT Classification</a>
+                <a href="../projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
+        </div>
+        <a href="../other.html">Other Stuff</a>
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+    </div>
+
+    <div class="backgd">
+        <div class="textblock">
+            <h1 class="center-text">The Curse of Dimensionality</h1>
+            <p> This page was inspired by a conversation I was having with my roommate.
+                The <i>Curse of Dimensionality</i> is something we have discussed repeatedly in our classes
+                but I wanted to do some exploration to get a deeper understanding of it and its affect
+                with certain algorithms.
+            </p>
+            <h2 class="center-text">Visualization with kNN</h2>
+            <p> k-Neigherst Neighbors is an algorithm that suffers greatly from high dimensionality as
+                it is based purely on relational distance.
+            </p>
+            <h3 class="center-text"> Generating the Data:</h3>
+
+            <p> To test this I generated the data in the following way. We generate data for 3 classes based on two dimensions.
+                All of these were pulled from a bivariate gaussian with the identity matrix as the covariance matrix.
+                <ol>
+                    <h4>Cluster Centers (Distribution Means)</h4>
+                    <li>Class 1 (Red): \(\left(-1.5, 1.5\right)\)</li>
+                    <li>Class 2 (Blue): \(\left(1.5, 1.5\right)\)</li>
+                    <li>Class 3 (Green): \( \left(0, -1.5 \cdot \left(1 - \sqrt{3}\right)\right) \)</li>
+                </ol>
+                It is important that cluster centers are equidistant from each other. Black dots below represent cluster centers.
+                Also... to my students who asked, when will I need the Pythagorean Theorem or to know special right triangles...
+                just used it.<br> <b>So ha.</b>
+            </p>
+            <div class="visual">
+                <div class="graph">
+                    <figcaption class="center-text">Generated Clusters</figcaption>
+                    <img src="/images/data_clusters.png">
+                </div>
+            </div>
+            <p> To demonstrate the curse of dimensionality, I then generate features that is just random noise pulled from a random
+                uniform (-1, 1).</p>
+
+            <h4 class="center-text">Results</h4>
+            <p>See the results. 50 dimensions were chose on a log scale between 10 and 10000.
+                Each dimension was tested 25 times and the average risk is plotted below.
+            </p>
+
+            <div class="visual">
+                <div class="graph">
+                    <img src="/images/1nnrisk.png">
+                </div>
+            </div>
+
+            <p> Perhaps a cure for the Curse of Dimensionality is more samples! While this is the
+                case for linear regression, with kNN, because the features are truly random, this is not so.
+
+                k-NN relies on the distance between data points to make predictions. If the features are random 
+                and do not correlate with the target variable, the distance metric becomes meaningless. Essentially, 
+                the distances do not provide any useful information about the similarities between instances in terms of the output variable.
+            </p>
+            <p>
+                See below. I hold the number of random features constant and add increase the samples drastically to no change
+                in risk.
+            </p>
+
+            <div class="visual">
+                <div class="graph">
+                    <img src="/images/samplesize_risk.png">
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class=btm_banner>
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+</body>
+</html>
