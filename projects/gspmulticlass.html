@@ -85,7 +85,7 @@
         table {
             font-family: Arial, sans-serif;
             border-collapse: collapse;
-            width: 50%;
+            width: 60%;
             margin-left: auto;  /* Centers table */
             margin-right: auto; /* Centers table */
             }
@@ -166,7 +166,45 @@
             <h1 class="center-text">Classification of Urban Land Covers with Linear Models</h1>
             <p class="center-text"><small> Special thanks to my wonderful project partner: Jonas Wallstein</small></p>
             <br/>
+            <h3 class="center-text">Results</h3>
             
+            <table>
+                <tr>
+                    <th>Linear Model</th>
+                    <th>Accuracy w/ 95% CI</th>
+                </tr>
+                <tr>
+                    <td>Logistic Regression (OvR)</td>
+                    <td>0.673 (0.559,0.706)</td>
+                </tr>
+                <tr>
+                    <td>LASSO AIC (OvR)</td>
+                    <td>0.798 (0.729, 0.856)</td>
+                </tr>
+                <tr>
+                    <td>20-CV LASSO (OvR)</td>
+                    <td>0.839 (0.775,0.891)</td>
+                </tr>
+                <tr>
+                    <td>Bayesian Model Averaging (OvR)</td>
+                    <td> 0.857 (0.795,0.906)</td>
+                </tr>
+                <tr>
+                    <td> LASSO CV (OvO)</td>
+                    <td> 0.738 (0.665,0.803)</td>
+                </tr>
+                <tr>
+                    <td> LASSO CV w/ SMOTE Oversampling (OvR)</td>
+                    <td> 0.738 (0.665,0.803)</td>
+                </tr>
+            </table>
+            <p class="center-text"><small>Note on Bayesian Model Averaging: We set the coefficient prior to Zellner's Prior with g = 1
+                and a Beta-Binomial(1,1) model prior.
+            </small></p>
+
+            <br/>
+            
+            <h3 class="center-text"">About this Project</h3>
             <p>The way in which the surface of a city is distributed has a huge impact on human life in the city. Cities with a large
                 share of impervious surfaces have higher risk of floods as water cannot sink into the soil (Feng et al. 2021), and
                 temperatures are more extreme (Kalnay and Cai, 2003). An important aspect for public policy is therefore knowing how the 
@@ -184,7 +222,8 @@
                 performance of different clustering methods in differentiating the actual number of clusters that correspond to our nine
                  types of land cover. This thesis proceeds with a summary of related work and the data used. Then we use regression and 
                  unsupervised learning and finally discuss our methodology and findings.</p>
-            </p>               
+            </p> 
+
         </div>
     </div>
     <br/>
