@@ -21,6 +21,11 @@
             border-radius: 10px; 
         }
 
+        .rounded-image {
+            padding: 9px;
+            border-radius: 10px; /* Adding a border to visually see the effect of border-radius */
+        }
+
         .visual {
             color: white;
             text-align: center;
@@ -28,6 +33,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .visual img{
+            border-radius: 10px;
+            
         }
 
         .graph {
@@ -48,33 +57,37 @@
             height: 10px; 
             background-color: #ff0000; 
             position: relative;
-          }
-          .marker {
+        }
+
+        .marker {
             height: 100%;
             background-color: #1900ff;
             position: absolute;
-          }
-          .start {
+        }
+
+        .start {
             left: 10%; /* alpha = 0.1 */
             width: 80%; /* from alpha to 1 - alpha */
-          }
-          .end {
+        }
+
+        .end {
             right: 10%; /* 1 - alpha = 0.9 */
             width: 10%; /* width of the boundary area */
-          }
+        }
 
-          .label {
+        .label {
             position: absolute;
             top: 30px; /* position below the line */
             font-size: 14px;
             color: #ffffff;
-          }
-          .alpha {
+        }
+        .alpha {
             left: 10%; /* align with alpha */
-          }
-          .one-minus-alpha {
+        }
+        
+        .one-minus-alpha {
             left: 90%; /* align with 1 - alpha */
-          }
+        }
 
         table {
             font-family: Arial, sans-serif;
@@ -82,7 +95,7 @@
             width: 50%;
             margin-left: auto;  /* Centers table */
             margin-right: auto; /* Centers table */
-            }
+        }
 
           
           td, th {
@@ -224,7 +237,8 @@
             <br/>
             <h2 class="center-text">Demonstration with kNN</h2>
             <p> k-Neigherst Neighbors is an algorithm that suffers greatly from high dimensionality as
-                it is based purely on relational distance.
+                it is based purely on relational distance. Therefore, it is an ideal alogrithm to visual
+                how dimensionality warps distance.
             </p>
             <h3 class="center-text"> Generating the Data:</h3>
 
@@ -277,11 +291,34 @@
                     <img src="/images/samplesize_risk.png">
                 </div>
             </div>
-        </div>
+
+            <br/>
+            <hr>
+            <h3 class="center-text">Applying Dimensionality Reduction</h3>
+            <p> The purpose of this section is to explore how dimensionality reduction work 
+                in higher dimensions. Below we see visualizations with PCA and t-SNE across
+                different dimensions.
+            </p>
+            <div class="visual">
+                <img src="images/pca_visuals.png" width=500px class="visual img"  hspace="10">   
+                <img src="images/tsne-visuals.png" width=500px class="visual img" hspace="10">
+        <br/>
+    </div>
+    <br/>
+    <p>Below, we observe the impact of increased dimensionality on different dimensionality 
+        reduction techniques. While all models are affected by higher dimensions, PCA appears 
+        to mitigate some of the noise more effectively compared to t-SNE. t-SNE may be less 
+        effective in this context  because it focuses on preserving local probabilities derived 
+        from distances rather than global structure.
+    </p>
+    <div class="visual">
+        <img src="images/combined_risks.png" width=500px class="visual img"  hspace="10"> <br/>
         
     </div>
-
-
+    <figcaption class="center-text">1NN with Euclidean Distance</figcaption>
+    </div>
+    <br/>
+    </div>
 
     <div class=btm_banner>
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
