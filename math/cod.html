@@ -43,6 +43,38 @@
             height: auto;
         }
 
+        .line {
+            margin: 0px 200px;
+            height: 10px; 
+            background-color: #ff0000; 
+            position: relative;
+          }
+          .marker {
+            height: 100%;
+            background-color: #1900ff;
+            position: absolute;
+          }
+          .start {
+            left: 10%; /* alpha = 0.1 */
+            width: 80%; /* from alpha to 1 - alpha */
+          }
+          .end {
+            right: 10%; /* 1 - alpha = 0.9 */
+            width: 10%; /* width of the boundary area */
+          }
+
+          .label {
+            position: absolute;
+            top: 30px; /* position below the line */
+            font-size: 14px;
+            color: #ffffff;
+          }
+          .alpha {
+            left: 10%; /* align with alpha */
+          }
+          .one-minus-alpha {
+            left: 90%; /* align with 1 - alpha */
+          }
 
         table {
             font-family: Arial, sans-serif;
@@ -66,6 +98,38 @@
           tr:nth-child(even) {
             background-color: hsla(256, 100%, 94%, 0.159);
           }
+
+        .outer-square {
+            margin: 0px 200px;
+            width: 550px;
+            height: 550px; 
+            background-color: #ff0000; 
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+        .inner-square {
+            width: 80%; /* 100% - 2*20% if alpha is 0.2 */
+            height: 80%; /* Same as width */
+            background-color: #3c00ff; /* Green color for visibility */
+            border: 1px solid black;
+        }
+        .label1 {
+            position: absolute;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        .label-alpha1 {
+            bottom: -20px;
+            left: 10%;
+        }
+        .label-one-minus-alpha1 {
+            bottom: -20px;
+            right: 10%;
+        }
+
 
     </style>
 </head>
@@ -105,7 +169,60 @@
                 but I wanted to do some exploration to get a deeper understanding of it and its affect
                 with certain algorithms.
             </p>
-            <h2 class="center-text">Visualization with kNN</h2>
+            <hr>
+            <h2 class="center-text">Explaining of the Curse of Dimensionality</h2>
+            <p>The core of Machine Learning is to uncover the true posterior distribution of a hyperdimensional 
+                space given the data, aiming to understand the probability distribution of what is being predicted 
+                based on the observed inputs. Very simply if we understand how the output relates to the data, we can use
+                the data to predict the output.
+            </p>
+            <p>
+                However, understanding hyperdimensional space is not easy and increasing dimensions is 
+                makes problems exponentially difficult.
+            </p>
+            <p>
+                Let's take a simple example. In a one dimensional space (a line) of length 1, the probability that
+                a random point is on the inside of the line (with boundaries &alpha;) is \(1-2 \cdot &alpha;\)
+            </p>
+            <br/>
+
+            <figcaption class="center-text">1 Dimension with Boundary α</figcaption>
+            <br/>
+            <div class="line">
+                <div class="marker start"></div>
+                <div class="label alpha">α</div>
+                <div class="label one-minus-alpha">1-α</div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <p> With 2 dimensions, this probability changes to \(\left(1-2 \cdot α\right)^2\)</p>
+            <br/>
+            <figcaption class="center-text">2 Dimension with Boundary α</figcaption>
+            <br/>
+            <div class="outer-square">
+                <div class="inner-square"></div>
+                <div class="label1 label-alpha1">α</div>
+                <div class="label1 label-one-minus-alpha1">1-α</div>
+            </div>
+            <br/>
+            <p>Following this, we have the probability that in <i>d</i>-dimensional space, the 
+            probability the probability of closeness with boundary α is \(\left( 1-2\cdot α\right)^d\) - which rapidly
+            decreases.</p>
+
+            <p>In 100 dimensional space, with a boundary only 0.01, the probability that a point is in the middle is <i><strong>13.3%</strong></i>. Let's 
+            put it another way. In you randomly place a point in a 100 dimension box, 86.7% of the points will be in the 1 percent edge of the box.</p>
+
+            <p>When trying to work in high dimensional space, distances clearly become very, for lack a better word, funky. Below, I demonstrate this
+                concept using some common algorithms.
+            </p>
+            <p>There are many interesting articles and papers explaining and exploring the Curse of Dimensionality. One 
+                place to start is <a href="https://towardsdatascience.com/curse-of-dimensionality-a-curse-to-machine-learning-c122ee33bfeb"> here.</a>
+            </p>
+            <br/>
+            <hr>
+            <br/>
+            <h2 class="center-text">Demonstration with kNN</h2>
             <p> k-Neigherst Neighbors is an algorithm that suffers greatly from high dimensionality as
                 it is based purely on relational distance.
             </p>
