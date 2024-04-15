@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="template.css">
     <title>Other Stuff</title>
     <style>
+        .visual {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .graph {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0px;
+        }
+        
+        .graph img {
+            border-radius: 10px; 
+            width: 95%;
+            height: auto;
+        }
+
         #myModal {
             display: none; /* Hidden by default */
             position: fixed; /* Stay in place */
@@ -311,6 +332,19 @@
                         </div>
                     </div>
                 </div>    
+            </div>
+            <div class="backgd1">
+                <h2 class="center-text">Visualizations</h2>
+                <div class="visual">
+                    <div class="graph">
+                        <figcaption>Percent Population in Urban Areas</figcaption>
+                        <img src="images/urbanpop.png" alt="Urban Pop">
+                    </div>
+                    <div class="graph">
+                        <figcaption>Percent of Arable Land</figcaption>
+                        <img src="images/arableland.png" alt="Arable Land">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
