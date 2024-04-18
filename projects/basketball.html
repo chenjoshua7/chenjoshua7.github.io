@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>BERT Classification</title>
+    <link rel="stylesheet" href="../template.css">
+    <style>
+        #myModal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 150px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            z-index: 10;
+        }
+        /* Style the modal content (image) */
+        #img01 {
+            margin: auto;
+            display: block;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .apptracker img {
+            width: 700px;
+            height: auto;
+            
+        }
+
+        #gameArea {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #choices button {
+            margin: 5px;
+            padding: 10px;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 60%;
+            margin-left: auto;  /* Centers table */
+            margin-right: auto; /* Centers table */
+            }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px;
+            }
+            
+            tr:nth-child(1) {
+            background-color: hsla(0, 0%, 0%, 0.602);
+            }
+
+            tr:nth-child(even) {
+            background-color: hsla(256, 100%, 94%, 0.159);
+            }
+        .image {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            border-radius: 10px;
+          }
+
+        .image img{
+            width: 700px;
+            height: auto;
+            border-radius: 10px
+        }
+
+        .note{
+            background-color: rgba(23, 23, 23, 0.705);
+            color: white;
+            box-shadow: 0px 0 25px white;
+            border-radius: 20px;
+            padding: 20px 40px;
+            margin: 50px 100px
+        }
+
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+        <a href="../index.html">Home</a>
+        <a href="../resume.html">Resume</a>
+        <div class="dropdown">
+            <a href="../math.html"><button class="dropbtn">Math</button></a>
+            <div class="dropdown-content">
+                <a href="../math/perceptron.html">Perceptron</a>
+                <a href="../math/pandemic.html">Pandemic Modeling</a>
+                <a href="/math/cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+    
+        <div class="dropdown">
+            <a href="../projects.html"><button class="dropbtn">Projects</button></a>
+            <div class="dropdown-content">
+                <a href="recommendation.html">MovieLens Recommendation</a>
+                <a href="nlp.html">BERT Classification</a>
+                <a href="gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
+        </div>
+
+        <a href="../other.html">Other Stuff</a>
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+    </div>
+    
+    <div class="backgd">
+        <div class="textblock" style="width: 600px; margin: 0 auto;">
+            <h1 style="text-align: center;">Basketball</h1>
+            <div id="myDiv" style="height: 400px; text-align: center; background-color: #f8f8f8; border-radius: 10px;">
+                <!-- Plotly chart will be drawn inside this DIV -->
+            </div>
+        
+            
+                <script>
+                // Replace with the path to your JSON file
+                fetch('other/lebron_james_performance.json')
+                    .then(response => response.json())
+                    .then(data => {
+                    Plotly.newPlot('myDiv', data.data, data.layout);
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class=btm_banner>
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+</body>
+</html>
