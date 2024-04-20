@@ -153,6 +153,23 @@
             border-radius: 10px;
 
         }
+        
+        .inline-image {
+            vertical-align: middle;
+            width: 250px;
+            height: auto;
+            margin-right: 100px;
+            margin-left: 100px;
+
+        }
+
+        .centered-text {
+            font-family: Lakers Alt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
         .note{
             background-color: rgba(23, 23, 23, 0.705);
@@ -196,44 +213,77 @@
     
     <div class="backgd">
         <div class="textblock" style="width: 1200px; margin: 0 auto;">
-            <h1 style="text-align: center; font-family: Lakers Alt">Lakers 2023-2024 Regular Season Analysis</h1>
-            <h2 style="text-align: center;">Lebron James Box Office Stats Breakdown</h2>
+        
+            
+        <h1 style="text-align: center; font-family: Lakers Alt">Lakers 2023-2024 Regular Season Analysis</h1>
+        <center>
+        <div id="lkrsstats" style="width: 600px; height: 600px; text-align: center; align-items: center">
+            
+            <script>
+                fetch('other/lakers_box_stats.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        Plotly.newPlot('lkrsstats', data.data, data.layout);
+                    });
+            </script>
+            
+        </div>
+    </center>
+        <br/>
+        <hr>
+        <hr>
+        <div class="centered-text">
+            <img src="images/sunshine.png" alt="Left Image" class="inline-image">
+            <h1>LeBron James Box Office Stats Breakdown</h1>
+            <img src="images/sunshine.png" alt="Right Image" class="inline-image">
+        </div>
+        <center>
+        <br/>
+        <div id="myDiv2" style="width: 1000px; height: 400px; text-align: center; align-items: center">
+            <script>
+                fetch('other/lebron_season_stats.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        Plotly.newPlot('myDiv2', data.data, data.layout);
+                    });
+            </script>
+        </div>
+        <br/>
 
-            <center>
-            <div id="myDiv3" style="width: 1000px; height: 600px; text-align: center; align-items: center">
+        <div id="myDiv3" style="width: 1000px; height: 600px; text-align: center; align-items: center">
+            <script>
+                fetch('other/lebron_point_breakdown.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        Plotly.newPlot('myDiv3', data.data, data.layout);
+                    });
+            </script>
+        </div>
+        </center>
+
+        <br/>
+    
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div id="myDiv1" style="width: 600px; height: 400px; text-align: center; margin-right: 20px;">
                 <script>
-                    fetch('other/lebron_point_breakdown.json')
+                    fetch('other/lebron_won_lost.json')
                         .then(response => response.json())
                         .then(data => {
-                            Plotly.newPlot('myDiv3', data.data, data.layout);
+                            Plotly.newPlot('myDiv1', data.data, data.layout);
                         });
                 </script>
             </div>
-            </center>
-
-            <br/>
-     
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <div id="myDiv1" style="width: 600px; height: 400px; text-align: center; margin-right: 20px;">
-                    <script>
-                        fetch('other/lebron_won_lost.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                Plotly.newPlot('myDiv1', data.data, data.layout);
-                            });
-                    </script>
-                </div>
-            
-                <div id="myDiv" style="width: 600px; height: 400px; text-align: center;">
-                    <script>
-                        fetch('other/lebron_home_away.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                Plotly.newPlot('myDiv', data.data, data.layout);
-                            });
-                    </script>
-                </div>
+        
+            <div id="myDiv" style="width: 600px; height: 400px; text-align: center;">
+                <script>
+                    fetch('other/lebron_home_away.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            Plotly.newPlot('myDiv', data.data, data.layout);
+                        });
+                </script>
             </div>
+        </div>
     
         </div>
     </div>
