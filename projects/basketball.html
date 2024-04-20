@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Lakers Season Recap</title>
     <link rel="stylesheet" href="../template.css">
     <style>
@@ -13,16 +11,22 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/lakersbkgd.jpeg');
+            background: url('images/lakersbkgd.jpeg') no-repeat center center fixed; 
             background-size: cover;
-            background-attachment: fixed; 
-            background-repeat: no-repeat; 
-            background-position: center center;
+        }
+
+        .centered-text {
+            color: white;
+            font-family: Lakers Alt;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .backgd {
             background: rgba(64, 64, 64, 0.93);
-            margin: 20px 100px 20px 100px;
+            margin: 20px 100px;
             padding: 30px;
             box-sizing: border-box;
             border-radius: 10px;
@@ -31,155 +35,57 @@
         }
 
         .textblock {
-            font-family: Lakers;
             color: white;
-            padding: 10px 50px 10px 50px;
+            padding: 10px 50px;
             margin-top: 10px;
             text-align: justify;
-            text-justify: inter-word;
             font-size: 18px;
         }
 
-        #myModal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 150px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-            z-index: 10;
-        }
-        /* Style the modal content (image) */
-        #img01 {
-            margin: auto;
-            display: block;
-            width: 100%;
-            max-width: 700px;
-        }
-
-        /* Caption of Modal Image */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
+        h1 {
             text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
+            font-family: 'Lakers Alt', Arial, sans-serif;
         }
 
-        /* The Close Button */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .apptracker img {
-            width: 700px;
-            height: auto;
-            
-        }
-
-        #gameArea {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        #choices button {
-            margin: 5px;
-            padding: 10px;
-        }
-        
-        #message {
-            margin-top: 20px;
-            font-size: 20px;
-            color: rgb(0, 0, 0);
-        }
-
-        table {
-            font-family: Arial, sans-serif;
-            border-collapse: collapse;
-            width: 60%;
-            margin-left: auto;  /* Centers table */
-            margin-right: auto; /* Centers table */
-            }
-
-        td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 10px;
-            }
-            
-            tr:nth-child(1) {
-            background-color: hsla(0, 0%, 0%, 0.602);
-            }
-
-            tr:nth-child(even) {
-            background-color: hsla(256, 100%, 94%, 0.159);
-            }
-        .image {
+        .centered {
             text-align: center;
         }
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%;
-            border-radius: 10px;
-          }
+        .plot-container {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
 
-        .image img{
+        .plot-container.large {
+            width: 1000px;
+            height: 600px;
+        }
+
+        .plot-container.square {
+            width: 600px;
+            height: 600px;
+        }
+
+        .image img, .apptracker img, .inline-image {
             width: 700px;
             height: auto;
             border-radius: 10px;
-
+            display: block;
+            margin: 0 auto;
         }
-        
+
         .inline-image {
-            vertical-align: middle;
             width: 250px;
-            height: auto;
-            margin-right: 100px;
-            margin-left: 100px;
-
+            margin: 50px 100px;
         }
 
-        .centered-text {
-            font-family: Lakers Alt;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .btm_banner {
             text-align: center;
-        }
-
-        .note{
-            background-color: rgba(23, 23, 23, 0.705);
             color: white;
-            box-shadow: 0px 0 25px white;
-            border-radius: 20px;
-            padding: 20px 40px;
-            margin: 50px 100px
+            padding: 10px;
+            background-color: rgba(23, 23, 23, 0.705);
         }
-
     </style>
 </head>
 <body>
@@ -211,24 +117,11 @@
         <a href= "#"> </a>
     </div>
     
+            
     <div class="backgd">
-        <div class="textblock" style="width: 1200px; margin: 0 auto;">
-        
-            
-        <h1 style="text-align: center; font-family: Lakers Alt">Lakers 2023-2024 Regular Season Analysis</h1>
-        <center>
-        <div id="lkrsstats" style="width: 600px; height: 600px; text-align: center; align-items: center">
-            
-            <script>
-                fetch('other/lakers_box_stats.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        Plotly.newPlot('lkrsstats', data.data, data.layout);
-                    });
-            </script>
-            
-        </div>
-    </center>
+        <h1 style="color: white">Lakers 2023-2024 Regular Season Analysis</h1>
+        <div class="plot-container square" id="lkrsstats"></div>
+        <br/>
         <br/>
         <hr>
         <hr>
@@ -237,59 +130,23 @@
             <h1>LeBron James Box Office Stats Breakdown</h1>
             <img src="images/sunshine.png" alt="Right Image" class="inline-image">
         </div>
-        <center>
-        <br/>
-        <div id="myDiv2" style="width: 1000px; height: 400px; text-align: center; align-items: center">
-            <script>
-                fetch('other/lebron_season_stats.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        Plotly.newPlot('myDiv2', data.data, data.layout);
-                    });
-            </script>
-        </div>
-        <br/>
-
-        <div id="myDiv3" style="width: 1000px; height: 600px; text-align: center; align-items: center">
-            <script>
-                fetch('other/lebron_point_breakdown.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        Plotly.newPlot('myDiv3', data.data, data.layout);
-                    });
-            </script>
-        </div>
-        </center>
-
-        <br/>
-    
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <div id="myDiv1" style="width: 600px; height: 400px; text-align: center; margin-right: 20px;">
-                <script>
-                    fetch('other/lebron_won_lost.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            Plotly.newPlot('myDiv1', data.data, data.layout);
-                        });
-                </script>
-            </div>
         
-            <div id="myDiv" style="width: 600px; height: 400px; text-align: center;">
-                <script>
-                    fetch('other/lebron_home_away.json')
-                        .then(response => response.json())
-                        .then(data => {
-                            Plotly.newPlot('myDiv', data.data, data.layout);
-                        });
-                </script>
-            </div>
+        <div class="plot-container large" id="myDiv2"></div>
+        <div class="plot-container large" id="myDiv3"></div>
+        <br/>
+        <br/>
+        
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div class="plot-container" id="myDiv1" style="flex: 1;"></div>
+            <div class="plot-container" id="myDiv" style="flex: 1;"></div>
         </div>
+
+    </div>
     
-        </div>
+    <div class="btm_banner">
+        © 2024 All rights reserved. Designed and developed by Joshua Chen.
     </div>
-    <br/>
-    <div class=btm_banner>
-        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
-    </div>
+
+    <script src="plotlyCharts.js"></script>
 </body>
 </html>
