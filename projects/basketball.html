@@ -63,6 +63,10 @@
             text-align: center;
             font-family: 'Lakers Alt', Arial, sans-serif;
         }
+        p {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
 
         .centered {
             text-align: center;
@@ -137,13 +141,21 @@
             
     <div class="backgd">
         <h1 style="color: white">Lakers 2023-2024 Regular Season Analysis</h1>
+        <p style="color: white">While studying Data Science in Spain has been an enjoyably challenging experience, I thoroughly miss the being able 
+            to watch NBA games at a reasonable hour - particularly this season. Since the end of the regular season, I have been pulling data from the
+            <a href="https://balldontlie.io">balldontlie.io</a> API and organizing it into a MySQL database. Below are some visualizations I made using
+            the data.
+        </p>
         <hr>
 
         <div class="plot-container square" id="lkrsstats"></div>
         <br/>
+        <br/>
         <div class="centered-text">
             <img src="images/winshare.png" style="width:800px">
         </div>
+        <p style="color: white">Data for this graph was pulled from <a href="https://basketball-reference.com"> basketball-reference.com.</a> 
+            Marker size of the players corresponds to their minutes per game.</p>
         <br/>
         <br/>
         <hr>
