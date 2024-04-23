@@ -26,9 +26,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #2b5ca5, rgba(118,161,224,255) 45%, #868079 50%, #868079 100%);
+            background: linear-gradient(to bottom, #2b5ca5, rgba(118,161,224,255) 20%, #868079 30%, #868079 100%);
             height: 100%;
             min-height: 100vh;
+        }
+        a {
+            color: white
         }
         .disclaimer {
             text-align: center;
@@ -173,15 +176,35 @@
     <div class="about">
         <h2>About Me</h2>
         <p>
-        Hi! I'm Josh, a Data Scientist & Machine Learning Engineer. 
-        I found my love of data from studying Mathematics + Economics at Boston College. 
-        Most recently, I have been studying Data Science at the Barcelona School of Economics where I
-        am interning with the World Bank and writing my thesis on a comparaitve analysis of CNNs and Vision Transformers for
-        data visualization. I am currently seeking full-time jobs in Data/ML, hit me up! </p>
-        <p>
-            High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.
+        Hi! I'm Josh, a Data Scientist & Machine Learning Engineer. with expertise in Computer Vision, and Deep Learning. 
+        My other areas on interest include Statistical Inference, Recommendation Systems, and Natural Language Processing.
+        Beyond ML, I enjoy: <a href="other.html"><code> my_python_expertise.extend(new_projects)</code></a>. As a former math
+        teacher, I enjoy no only contemplating math problems to deepen my understanding, but also finding ways to
+        <a href="math/perceptron.html">visualize it and simplify</a> it for others.
+
         </p>
-    
+        <p> I found my love of data from studying Mathematics + Economics at Boston College. 
+        As I begin my final term at Barcelona School of Economics, I'm taking a 
+        Reinforcement Learning course, interning with the World Bank, and writing my Master's 
+        Thesis on CNNs versus Vision Transformers. This challenging yet rewarding chapter of 
+        my life is nearing its end, and I'm excited to return to the States to start my career in 
+        Data Science and Machine Learning. I am currently seeking full-time jobs in Data Science/ML, hit me up! 
+        </p>
+        <p>
+        High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.
+        </p>
+
+        <h2>Highlighted Pages</h2>
+        <ol>
+            <li><a href="/projects/nlp.html">BERT Topic Classification</a> - Using BERT for Multi-classification of New Articles and experimentation with Zero-shot Learning and Data Augmentation.</li>
+            <li><a href="/projects/gspmulticlass.html">Multiclassifcation of Geospatial Data with Linear Models</a> - Using different frequentist and bayesian model selection/regularization tools to classify
+            urban land covers.</li>
+            <li><a href="/projects/basketball.html">Lakers 23-24 Visualizaiton</a> - Organizing data into a MySQL database to create interactive visualizaitons with Python.</li> 
+            <li><a href="/math/cod.html">Curse of Dimensionality</a> - Visualizing the Curse of Dimensionality using kNN, PCA, and t-SNE</li>
+        </ol>
+
+        <br/>
+        <center><img src="projects/images/winshare.png" style="width:600px" ></center>
     </div>
 
     <div class=btm_banner>
