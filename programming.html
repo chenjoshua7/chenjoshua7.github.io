@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="games/hilowredblack.js"></script>
+    <link rel="stylesheet" href="template.css">
+    <title>Other Stuff</title>
+    <style>
+        .visual {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .graph {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0px;
+        }
+        
+        .graph img {
+            border-radius: 10px; 
+            width: 95%;
+            height: auto;
+        }
+
+        #myModal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 150px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+            z-index: 10;
+        }
+        /* Style the modal content (image) */
+        #img01 {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #gameArea {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        #choices button {
+            margin: 5px;
+            padding: 10px;
+        }
+        
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/sarasota.png');
+            background-size: cover;
+            background-attachment: fixed; 
+            background-repeat: no-repeat; 
+            background-position: center center;
+        }
+
+        .backgd {
+            background: rgba(64, 64, 64, 0.94);
+            margin: 20px 100px 20px 100px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            min-width: 750px;
+        }
+        
+        .backgd1 {
+            background: rgba(189, 189, 189, 0.94);
+            margin: 0px 50px 20px 50px;
+            padding: 2px 20px 20px 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+            min-width: 750px;
+        }
+
+        .apptracker {
+            text-align: center;
+        }
+
+        .apptracker img {
+            width: 700px;
+            height: auto;
+            
+        }
+
+        .organizedbox {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            box-sizing: border-box;
+            margin: 20px;
+        }
+        .gamebox {
+            text-align: justify;
+            justify-content: center;
+            max-width: 100%;
+            padding: 10px;
+        }
+        .smallimg {
+            text-align: center;
+        }
+        .smallimg img{
+            width: 500px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                font-size: 16px;
+            }
+
+            .hero-text {
+                font-size: 14px;
+            }
+
+            .about {
+                padding: 20px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                padding: 15px 10px;
+            }
+
+            .hero-text {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+        <a href="/index.html">Home</a>
+        <a href="/resume.html">Resume</a>
+        <div class="dropdown">
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
+                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="/projects/nlp.html">BERT Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
+            <div class="dropdown-content">
+                <a href="/math/perceptron.html">Perceptron</a>
+                <a href="/math/pandemic.html">Pandemic Modeling</a>
+                <a href="/math/cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
+            <div class="dropdown-content">
+                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
+            </div>
+        </div>
+        <a href="other.html">Other</a>
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+    </div>
+
+    <div class="backgd">
+        <div class="textblock">
+            <h1 class="center-text">Programming</h1>
+            <hr>
+
+        </div>
+        <div class="backgd1">
+            <h2 class="center-text">Application Tracker</h2>
+            <p> I haven't met anyone that loves the job application process. However, it's an inevitable process that most of us
+                normal people will have to go through at least a couple of times in our lives. As I am now working on landing my first job in Data, I wanted
+                to keep track of the data during my application process. That way, afterwords, I can play around the data to see what patterns
+                and truths I can uncover. Therefore, in Python, I created a database to track all my applications and any updates to those applications.
+                I also included a function that automatically marks after a certain number of days without a response as <b>GHOSTED &#128123;</b>.
+            </p>   
+            <p>
+                I gave it a GUI so my friends who are in the same position can use it as well. Happy hunting everyone.
+            </p>
+            <div class="apptracker">
+                <img id="myImg" src="/images/apptracker.gif" alt="Job Tracker App Demonstration" style="width:100%;max-width:700px">
+
+                <div id="myModal" class="modal">
+                        <span class="close">&times;</span>
+                        <img class="modal-content" id="img01">
+                        <div id="caption"></div>
+                </div>
+
+                <script>
+                    var modal = document.getElementById('myModal');
+                    var img = document.getElementById('myImg');
+                    var modalImg = document.getElementById("img01");
+                    var captionText = document.getElementById("caption");
+                    img.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                    }
+
+                    var span = document.getElementsByClassName("close")[0];
+                    span.onclick = function() {
+                    modal.style.display = "none";
+                    }
+                </script> 
+            </div>
+        </div>
+
+        <br/>
+
+
+        <div class="backgd1">
+            <h2 class="center-text">Python Games</h2>
+            I enjoy games because their well-defined parameters and constraints create an ideal environment for practicing critical thinking and problem-solving. When I was teaching, I incorporated games into my lessons whenever possible. To enhance coding practice, I selected a few games and gave them a try. Check out my Python for 
+            the games I chose <a href="https://github.com/chenjoshua7/python_games/tree/main">here.</a>.
+            
+                <div class="organizedbox">
+                    <div class="gamebox">
+                        <h3 class="center-text">Tic Tac Toe</h3>
+                        <p>I started with the simplest game - Tic Tac Toe. I followed the tutorial below to get the idea of where to start. I added the ability to play multiple games as well as a score board.</p>
+                        <div class="center-text">
+                            <iframe width="500" height="315" src="https://www.youtube.com/embed/dK6gJw4-NCo?si=hNPiSFdo_FUOP2CF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
+                    <div class="gamebox">
+                        <h3 class="center-text">Greedy Pig Game</h3>
+                        <p> I first played the Greedy Pig Game in college. When I taught probability, I introduced it to my students and they got very competitive with it.
+                        The game is quite simple and can be played in groups of however many people.
+                        </p>
+                        <p><b>Rules:</b>
+                        <br/>
+                        There are 5 rounds.
+                        <ol>
+                            <li>A die is rolled. Whatever number appears on the die (except 1) is added to every person's score.</li>
+                            <li>Players can either choose to end their turn or keep rolling.</li>
+                            <li>If a rolled die ends up with 1, the round is over and everyone who is still in the round has their score
+                                for the round set to 0.
+                            </li>
+                            <li>Play 5 rounds and whoever has the highest cumulative score wins.</li>
+                        </ol>
+                        </p>
+
+                        <p>It's a simple and fun game so I chose to program this next. This was unaided and done individually.</p>
+                    </div>
+                    
+                    <div class="gamebox">
+                        <h3 class="center-text">Blackjack</h3>
+                        <p> This is not a game I played with my students. Actually, I don't play blackjack but I decided to tackle a
+                            more complicated game. This was a lot of fun as I had to juggle many more moving pieces. After I implemented
+                            the basic aspects of Player Wallet, Calculating Score, and Dealing Cards, I added Insurance and Doubling Down.
+                        </p>
+                        <div class="smallimg">
+                            <img src="images/blackjack.png">
+                        </div>
+                    </div>
+
+                    <div class="gamebox">
+                        <h3 class="center-text">High Low Red Black</h3>
+                        <p> The one piece of advice that I got repeatedly from all my more experience friends was: <i>"Why are there global
+                            variables everywhere? Use a class."</i> And that was my introduction to object oriented programing. I tried to 
+                            create a Card and a Deck class.
+                        </p>
+                        <p>
+                            I used this to make another simple probability game: High Low Red Black. The game is simple. Guess if the next 
+                            card is higher, lower, red, or black. Get as many in a row right as you can.
+                        </p>
+                        <div id="gameArea">
+                            <div id="cardDisplay">Current Card: <span id="startingCard"></span></div>
+                            <div id="choices">
+                                <button id="high">High</button>
+                                <button id="low">Low</button>
+                                <button id="red">Red</button>
+                                <button id="black">Black</button>
+                            </div>
+                            <div id="scoreDisplay">Score: <span id="score">0</span></div>
+                            <div id="message"></div>
+                            <button id="restart" style="display: none;">Restart</button>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+    </div>
+
+
+    <div class=btm_banner>
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+</body>
+</html>

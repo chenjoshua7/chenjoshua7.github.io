@@ -1,91 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-    
-            gtag('config', 'G-W57V1PRPVC');
-        </script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projects</title>
-        <link rel="stylesheet" href="/template.css">
-        <link rel="stylesheet" href="/menu.css">
-    </head>
-    <body>
-        <div class="banner">
-            <a href= "#"> </a>
-            <a href= "#"> </a>
-            <a href="/index.html">Home</a>
-            <a href="/resume.html">Resume</a>
-            <div class="dropdown">
-                <a href="/math.html"><button class="dropbtn">Math</button></a>
-                <div class="dropdown-content">
-                    <a href="/math/perceptron.html">Perceptron</a>
-                    <a href="/math/pandemic.html">Pandemic Modeling</a>
-                    <a href="/math/cod.html">Curse of Dimensionality</a>
-                </div>
-            </div>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="/template.css">
+    <link rel="stylesheet" href="/menu.css">
+    <style>
+        .summary {
+            background-color: rgba(189, 189, 189, 0.94);
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px 10px 20px 10px;
+            margin: 20px 50px;
+            height: 150px;
+        }
+        .summary img {
+            width: 180px;
+            margin: 0 20px 0 20px;
+            height: 140px
+
+        }
+        .summary-content {
+            flex-grow: 1;
+        }
+        .summary-content h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .description {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .skills {
+            font-size: 16px;
+            color: black;
+        }
         
-            <div class="dropdown">
-                <a href="/projects.html"><button class="dropbtn">Projects</button></a>
-                <div class="dropdown-content">
-                    <a href="/projects/recommendation.html">MovieLens Recommendation</a>
-                    <a href="/projects/nlp.html">BERT Classification</a>
-                    <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
-                    <a href="/projects/basketball.html">Lakers 23-24 Analysis</a>
-                </div>
+
+        .backgd {
+            background: rgba(64, 64, 64, 0.94);
+            margin: 20px 100px 20px 100px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            min-width: 750px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+        <a href="/index.html">Home</a>
+        <a href="/resume.html">Resume</a>
+        <div class="dropdown">
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
+                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="/projects/nlp.html">BERT Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
             </div>
-            <a href="other.html">Other Stuff</a>
-            <a href= "#"> </a>
-            <a href= "#"> </a>
         </div>
-    
-    <h1 class="center-text">
-        My Projects
-    </h1>
-    <br/>
-    
-    <div class="visual">
-        <div class="polaroid">
-            <br/><br/>
-            <a href="projects/recommendation.html">
-            <img src="images/movies.png" alt="perceptron" style="width:500px">
-            <br/>
-            <br/>
-            <h2> Movie Lens <br/> Reommendation Systems </h2>
-        </a>
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
+            <div class="dropdown-content">
+                <a href="/math/perceptron.html">Perceptron</a>
+                <a href="/math/pandemic.html">Pandemic Modeling</a>
+                <a href="/math/cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
+            <div class="dropdown-content">
+                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
+            </div>
+        </div>
+        <a href="other.html">Other</a>
+        <a href= "#"> </a>
+        <a href= "#"> </a>
     </div>
-        
-        <div class="polaroid">
+
+    
+
+    <br/>
+    <div class="backgd">
+        <h1 class="center-text">
+            My Projects
+        </h1>
+        <hr>
+        <a href="projects/recommendation.html">
+            <div class="summary">
+                <img src="images/movies.png" alt="recommend">
+                <div class="summary-content">
+                    <h2 style="color: black;">MovieLens Recommendation System</h2>
+                    <div class="description" style="color: black;">
+                        To get a stronger understanding of Recommendation Systems methodologies, we studied the application of different recommendation systems on the MovieLens DataSet. We looked at the effectiveness of implementing ProbS, HeatS, and Collaborative Filtering as well as the network affects these recommendations had over iterations.
+                    <br/>
+                    <br/>
+                        <b>Skills:</b> Collaborative Filtering, ProbS/HeatS, Cold Start, Python, NetworX
+                    </div>
+                </div>
+            </div>
+            </a>
             <a href="projects/nlp.html">
-                <br/>
-                <img src="images/articles.png" alt="perceptron" style="width:300px">
- 
-                <h2> BERT Article Classification </h2>
-            </a>
-        </div>
-        
-        <div class="polaroid">
+            <div class="summary">
+                <img src="images/articles.png" alt="nlp">
+                <div class="summary-content">
+                    <h2 style="color: black;">Article Classification with Fine-tuned DistilBERT</h2>
+                    <div class="description" style="color: black;">
+                        Using DistilBERT from Hugging Face to classify 22,462 news articles into 7 labeled caterogries. I used data augmentation and
+                        data generation techniques to boost performance by 20% on only 32 samples. Using the same techniques, I was able to reach 85.98%
+                        accuracy.
+                         </div>
+                    <div class="skills">
+                        <b>Skills:</b> Natural Language Processing, Keras, Transformers, Trasnfer Learning, Data Augmentation, Model Distillation
+                    </div>
+                </div>
+            </div>
+            </a>    
             <a href="projects/gspmulticlass.html">
-                <br/>
-                <img src="images/geospatial.png" alt="geospatial" style="width:300px">
-
-                <h2> Classifying Urban Land Covers with Linear Models </h2>
-            </a>
-        </div>
+                <div class="summary">
+                    <img src="images/geospatial.png">
+                    <div class="summary-content">
+                        <h2 style="color: black;">Classifying Urban Land Covers with Linear Models</h2>
+                        <div class="description" style="color: black;">
+                            The distribution of a city's surface, known as land cover, significantly impacts flood risk and temperature extremes, making it crucial for public policy, especially amid the climate crisis. Classifying urban land cover types, such as trees and buildings, using aerial image analysis helps assess impervious surfaces, with input variables including brightness, color, and shape of objects.   
+                        </div>
+                        <div class="skills">
+                            <b>Skills:</b> Feature Selection, Regularlization, Bayesian Model Averaging, Model Selection, R
+                        </div>
+                    </div>
+                </div>
+                </a>   
+            </div>
         
-        <div class="polaroid">
-            <a href="projects/basketball.html">
-                <br/>
-                <img src="images/lakers.png" alt="sunshine" style="width:500px">
-
-                <h2> Lakers 2023-24 Regular Season Analysis </h2>
-            </a>
-        </div>
+    </div>
         
     </div> 
 

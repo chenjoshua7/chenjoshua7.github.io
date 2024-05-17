@@ -47,6 +47,47 @@
                 font-size: 12px;
             }
         }
+
+        .backgd {
+            background: rgba(64, 64, 64, 0.94);
+            margin: 20px 100px 20px 100px;
+            padding: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            min-width: 750px;
+        }
+
+        .summary {
+            background-color: rgba(189, 189, 189, 0.94);
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px 10px 20px 10px;
+            margin: 20px 50px;
+            height: 150px;
+        }
+        .summary img {
+            width: 180px;
+            margin: 0 20px 0 20px;
+            height: 140px
+
+        }
+        .summary-content {
+            flex-grow: 1;
+        }
+        .summary-content h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .description {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .skills {
+            font-size: 16px;
+            color: black;
+        }
     </style>
 </head>
 
@@ -57,75 +98,89 @@
         <a href="/index.html">Home</a>
         <a href="/resume.html">Resume</a>
         <div class="dropdown">
-            <a href="/math.html"><button class="dropbtn">Math</button></a>
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
+                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="/projects/nlp.html">BERT Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
             <div class="dropdown-content">
                 <a href="/math/perceptron.html">Perceptron</a>
                 <a href="/math/pandemic.html">Pandemic Modeling</a>
                 <a href="/math/cod.html">Curse of Dimensionality</a>
             </div>
         </div>
-    
         <div class="dropdown">
-            <a href="/projects.html"><button class="dropbtn">Projects</button></a>
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
             <div class="dropdown-content">
-                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
-                <a href="/projects/nlp.html">BERT Classification</a>
-                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
-                <a href="/projects/basketball.html">Lakers 23-24 Analysis</a>
+                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
             </div>
         </div>
-        <a href="other.html">Other Stuff</a>
+        <a href="other.html">Other</a>
         <a href= "#"> </a>
         <a href= "#"> </a>
     </div>
-
-
+    
+    <br/>
+    <div class="backgd">
     <h1 class="center-text">
         Math Corner
     </h1>
-    <br/>
-    
-    <div class="visual">
+    <hr>
+    <a href="math/perceptron.html">
+    <div class="summary">
+        <img src="images/binaryclass.png" alt="perceptron">
+        <div class="summary-content">
+            <h2 style="color: black;">Visualizing the Perceptron Algorithm</h2>
+            <div class="description" style="color: black;">
+            In my Machine Learning course, I coded the Perceptron Algorithm from scratch and applied it to various data scenarios, enhancing my understanding of empirical risk minimization and data projections. This project also included a visualization feature, allowing me to see the algorithm's behavior in two-dimensional cases. </div>
+            <div class="skills">
+                <b>Skills:</b> Machine Learning, Empirical Risk Minimization, Statistics, Python, Numpy, Matplotlib
+            </div>
+        </div>
+    </div>
+    </a>
+    <a href="math/pandemic.html">
+    <div class="summary">
+        <img src="images/virus.png" alt="perceptron">
+        <div class="summary-content">
+            <h2 style="color: black;">Pandemic Modeling</h2>
+            <div class="description" style="color: black;">
+                I have done pandemic modeling in two different circumstances with 2 different approaches. The first time was in Senior Year of my undergraduate program in my Mathematical Modeling course with SIR pandemic modeling. Coincidentally, this was also during COVID.
+                The second circumstance was in my Networks class in my Masters program from a Networks perspective.
+                 </div>
+            <div class="skills">
+                <b>Skills:</b> Graph Theory, Markov Chains, Networks, Python, NetworX
+            </div>
+        </div>
+    </div>
+    </a>    
+    <a href="math/cod.html">
+        <div class="summary">
+            <img src="images/hyperdimension.png">
+            <div class="summary-content">
+                <h2 style="color: black;">Curse of Dimensionality</h2>
+                <div class="description" style="color: black;">
+                    The Curse of Dimensionality complicates machine learning, making problems exponentially harder as dimensions increase. Understanding the true posterior distribution in hyperdimensional space is essential for accurate predictions, but as dimensions grow, the complexity of accurately modeling and predicting outcomes significantly increases.
+                     </div>
+                <div class="skills">
+                    <b>Skills:</b> Data Visualization, Statistics, Python, NumPy, kNN, t-SNE, PCA
+                </div>
+            </div>
+        </div>
+        </a>   
+    </div>
+
         
-        <div class="polaroid">
-            <a href="math/perceptron.html">
-            <br/>
-            <img src="images/binaryclass.png" alt="perceptron" style="width:330px">
-            <br/>
-            <br/>
-            <h2> Perceptron Algorithm </h2>
-            </a>
-        </div>
-     
-
-        
-        <div class="polaroid">
-            <a href="math/pandemic.html">
-                <br/>
-                <img src="images/virus.png" alt="perceptron" style="width:330px">
-                <br/>
-                <br/>
-                <br/>
-                <h2> Pandemic Modeling </h2>
-            </a>
-        </div>
-
-        <div class="polaroid">
-            <a href="math/cod.html">
-                <br/>
-                <img src="images/hyperdimension.png" alt="curse of dimensionality" style="width:330px">
-                <br/>
-                <br/>
-                <h2> Curse of Dimensionality </h2>
-            </a>
-        </div>
-
-
     </div>  
 
     </div>
-    <br/>
-    <br/>
     <br/>
     <br/>
 
