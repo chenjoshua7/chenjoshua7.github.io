@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: repeating-linear-gradient(to bottom, rgb(0, 183, 255), #54400e 100vh, rgb(0, 183, 255) 200vh );
+    background: linear-gradient(to bottom, rgb(53, 198, 255), rgb(220, 218, 255) 75vh );
 }
 
 .backgd {
