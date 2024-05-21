@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template.css">
+    <link rel="icon" type="image/png" href="images/icon.png">
+
+    <meta property="og:url" content="https://chenjoshua7.github.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Joshua D. Chen" />
+    <meta property="og:description" content="Personal website of Joshua D. Chen" />
+    <meta property="og:image" content="https://chenjoshua7.github.io/images/background2.png" />
+
+    <title>Joshua D. Chen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #2b5ca5, rgba(118,161,224,255) 20%, #868079 30%, #868079 100%);
+            height: 100%;
+            min-height: 100vh;
+            font-size: 19px;
+        }
+        a {
+            color: white
+        }
+        .disclaimer {
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+        .hero {
+            position: relative; /* Parent element */
+            text-align: center;
+            color: white;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20%; /* Adjust this value to where your image should start blending */
+            background: linear-gradient(to top, #868079, transparent);
+        }
+        
+        .hero img {
+            width: 1050px; /* Full width to maintain aspect ratio */
+            height: auto;
+        }
+        .hero-text {
+            position: absolute; /* Positioned absolutely relative to .hero */
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 2px 35px;
+            font-size: 20px;
+        }
+        .hero-text1 {
+            position: absolute; /* Positioned absolutely relative to .hero */
+            width: auto; /* Adjust the width as needed */
+            bottom: 7%; /* Position it from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 25px;
+            z-index: 11; /* Adjust padding as needed */
+        }
+
+        .hero-text2 {
+            position: absolute;
+            width: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            opacity: 0.5;
+        }
+
+        .about {
+            color: white;
+            padding: 20px 300px 20px 300px;
+            margin-top: 40px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        @media (max-width: 768px) {
+            .banner {
+                font-size: 16px;
+            }
+            
+            .hero-text {
+                font-size: 14px;
+            }
+
+            .about {
+                padding: 20px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner {
+                padding: 15px 10px;
+            }
+
+            .hero-text {
+                font-size: 12px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+        <a href="/index.html">Home</a>
+        <a href="/resume.html">Resume</a>
+        <div class="dropdown">
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
+                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="/projects/nlp.html">BERT Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
+            <div class="dropdown-content">
+                <a href="/math/perceptron.html">Perceptron</a>
+                <a href="/math/pandemic.html">Pandemic Modeling</a>
+                <a href="/math/cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
+            <div class="dropdown-content">
+                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
+            </div>
+        </div>
+        <a href="other.html">Other</a>
+        <a href= "#"> </a>
+        <a href= "#"> </a>
+    </div>
+
+    </div>
+    <div class="hero">
+        <img src="images/background.png" alt="background">
+        <div class="hero-text">
+            <h1>Joshua D. Chen</h1>
+            <h4>Data Scientist, Mathematician, Educator</h2>
+        </div>
+        <div class="hero-text1">
+
+            <a href="https://linkedin.com/in/chenjoshua7" target="_blank">
+                <img src="images/linkedin.png" alt="Linkedin" style="width: 40px; height: auto; margin-right: 20px;">
+            </a>
+            <a href="https://github.com/chenjoshua7" target="_blank">
+                <img src="images/github.png" alt="GitHub" style="width: 40px; height: auto;">
+            </a>
+            
+        </div><br>
+        <div class="hero-text2">Caucus Mountains in Georgia, 2024</div>
+    </div>
+    <!--
+    <div class="disclaimer">
+        <br/>
+        <h4>Work in Progress</h4>
+        <p>Not all pages are completed/projects included. Will update frequently so come back soon!</p>
+    </div>
+    -->
+    <div class="about">
+        <h2>About Me</h2>
+        <p>
+        Hi! I'm Josh, a Data Scientist & Machine Learning Engineer. with expertise in Computer Vision, and Deep Learning. 
+        My other areas on interest include Statistical Inference, Recommendation Systems, and Natural Language Processing.
+        Beyond ML, I enjoy: <a href="other.html"><code> my_python_expertise.extend(new_projects)</code></a>.
+        As a former math teacher, I love exploring <a href="math/">math problems</a> problems and finding ways to <a href="math/perceptron.html">visualize it</a> and simplify them for others.
+
+        </p>
+        <p> I found my love of data from studying Mathematics + Economics at Boston College. 
+        As I begin my final term at Barcelona School of Economics, I'm taking a 
+        Reinforcement Learning course, interning with the World Bank, and writing my Master's 
+        Thesis on CNNs versus Vision Transformers. This challenging yet rewarding chapter of 
+        my life is nearing its end, and I'm excited to return to the States to start my career in 
+        Data Science and Machine Learning. I am currently seeking full-time jobs in Data Science/ML, hit me up! 
+        </p>
+        <p>
+        High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.
+        </p>
+
+        <h2>Highlighted Pages</h2>
+        <ol>
+            <li><a href="/projects/nlp.html">BERT Topic Classification</a> - Using BERT for Multi-classification of New Articles and experimentation with Zero-shot Learning and Data Augmentation.</li>
+            <li><a href="/projects/gspmulticlass.html">Multiclassifcation of Geospatial Data with Linear Models</a> - Using different frequentist and bayesian model selection/regularization tools to classify
+            urban land covers.</li>
+            <li><a href="/visual/basketball.html">Lakers 23-24 Visualizaiton</a> - Organizing data into a MySQL database to create interactive visualizaitons with Python.</li> 
+            <li><a href="/math/cod.html">Curse of Dimensionality</a> - Visualizing the Curse of Dimensionality using kNN, PCA, and t-SNE</li>
+        </ol>
+
+        <br/>
+    </div>
+
+    <div class=btm_banner>
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+</body>
+</html>
