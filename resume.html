@@ -9,6 +9,7 @@
 
         gtag('config', 'G-W57V1PRPVC');
     </script>
+    <script src="navbar.js?v=1.0"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="template.css">
@@ -31,12 +32,12 @@
 
         .resume {
             background: #ebffe0;
-            margin: 20px 270px 0px;
+            margin: 20px auto;
             padding: 30px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            min-width: 750px;
+            max-width: 750px;
         }
 
         .header {
@@ -100,15 +101,52 @@
             width: fit-content; /* This makes the .download div only as wide as its content */
         }
         
-        
         .download a {
             color: #fff;
             text-decoration: none;
             margin: 0 10px;
-
         }
+
         .pdf-container {
             box-shadow: 0 0 20px #ebffe0;
+        }
+
+        .btm_banner {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .resume {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1, h2 {
+                font-size: 1.2em;
+            }
+            .left-col, .right-col {
+                float: none;
+                width: 100%;
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resume {
+                margin: 10px;
+                padding: 10px;
+            }
+            .download {
+                font-size: 16px;
+                padding: 10px;
+            }
+            .download a {
+                margin: 0 5px;
+            }
         }
     </style>
 </head>
@@ -125,15 +163,14 @@
             });
     </script>
 
-
     <div class="resume" style="text-align: center;">
-        <img src="Resume.png" width="900px" height="auto" class="pdf-container"/>
+        <img src="Resume.png" width="100%" height="auto" class="pdf-container"/>
     </div>
     <div class="download">
-        <a href="Resume.pdf" download = "Joshua_Chen_Resume.pdf">Download</a>
+        <a href="Resume.pdf" download="Joshua_Chen_Resume.pdf">Download</a>
     </div>
 
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 
