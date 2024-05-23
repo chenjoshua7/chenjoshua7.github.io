@@ -36,107 +36,6 @@
     <link rel="stylesheet" href="template.css">
     <title>Visualizations</title>
     <style>
-        .summary {
-            background-color: rgba(189, 189, 189, 0.94);
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            padding: 10px 10px 20px 10px;
-            margin: 20px 30px;
-        }
-        .summary img {
-            max-width: 150px;
-            margin-right: 20px;
-        }
-        .summary-content {
-            flex-grow: 1;
-        }
-        .summary-content h2 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .description {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        .skills {
-            font-size: 14px;
-            color: black;
-        }
-        .visual {
-            color: rgb(0, 0, 0);
-            text-align: center;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .graph {
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            margin: 0 0px;
-        }
-        
-        .graph img {
-            border-radius: 10px; 
-            width: 95%;
-            height: auto;
-        }
-
-        #myModal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 150px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-            z-index: 10;
-        }
-        /* Style the modal content (image) */
-        #img01 {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-
-        /* Caption of Modal Image */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-
-        /* The Close Button */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -150,89 +49,118 @@
 
         .backgd {
             background: rgba(64, 64, 64, 0.94);
-            margin: 20px 100px 20px 100px;
-            padding: 30px;
+            margin: 20px 10px;
+            padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            min-width: 750px;
         }
         
         .backgd1 {
             background: rgba(189, 189, 189, 0.94);
-            margin: 0px 50px 20px 50px;
-            padding: 2px 20px 20px 20px;
+            margin: 10px 0;
+            padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-            min-width: 750px;
         }
 
-        .apptracker {
-            text-align: center;
-        }
-
-        .apptracker img {
-            width: 700px;
-            height: auto;
-            
-        }
-
-        .organizedbox {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto auto;
-            gap: 20px;
-            box-sizing: border-box;
-            margin: 20px;
-        }
-        .gamebox {
-            text-align: justify;
-            justify-content: center;
-            max-width: 100%;
+        .summary {
+            background-color: rgba(189, 189, 189, 0.94);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
             padding: 10px;
+            margin: 10px 0;
         }
-        .smallimg {
+        .summary img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        .summary-content {
             text-align: center;
         }
-        .smallimg img{
-            width: 500px;
-            height: auto;
-            border-radius: 10px;
+        .summary-content h2 {
+            margin: 0;
+            font-size: 18px;
         }
-        .backgd a {
-            text-decoration: none;
-            color: inherit;
+        .description {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .skills {
+            font-size: 14px;
+            color: black;
+        }
+        .visual {
+            color: rgb(0, 0, 0);
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .graph {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .graph img {
+            border-radius: 10px; 
+            width: 100%;
+            height: auto;
         }
 
-        @media (max-width: 768px) {
+        .center-text {
+            text-align: center;
+            color: white;
+        }
+
+        .btm_banner {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: rgba(64, 64, 64, 0.94);
+            margin-top: 20px;
+        }
+
+        @media (min-width: 800px) {
             .summary {
+                flex-direction: row;
+                align-items: center;
+                margin: 20px 50px;
+            }
+            .summary img {
+                width: 150px;
+                height: auto;
+                margin-right: 20px;
+            }
+            .summary-content h2 {
+                font-size: 24px;
+            }
+            .description {
                 font-size: 16px;
             }
-
-            .hero-text {
-                font-size: 14px;
+            .skills {
+                font-size: 16px;
             }
-
-            .about {
-                padding: 20px 5%;
+            .backgd {
+                margin: 20px 100px;
+                padding: 30px;
             }
-        }
-
-        @media (max-width: 480px) {
-            .summary {
-                padding: 15px 10px;
-            }
-
-            .hero-text {
-                font-size: 12px;
+            .backgd1 {
+                margin: 0px 50px 20px 50px;
+                padding: 20px;
+                min-width: 750px;
             }
         }
     </style>
 </head>
 
 <body>
-
 
     <div id="navbar-placeholder"></div>
 
@@ -245,37 +173,33 @@
             });
     </script>
 
-
     <div class="backgd">
         <div class="textblock">
             <h1 class="center-text">Data Visualization</h1>
             <hr>
             <a href="visual/basketball.html">
-            <div class="summary">
-                <img src="images/lakers.png" alt="Lakers">
-                <div class="summary-content">
-                    <h2 style="color: black;">Lakers 2023-24 Regular Season Analysis</h2>
-                    <div class="description" style="color: black;">
-                        Strategically structured the Lakers' 2023-24 regular season data into a MySQL database. Utilized Python for data analysis and to create compelling visualizations using Plotly and Matplotlib.
-                    </div>
-                    <div class="skills">
-                        <b>Skills:</b> Python, MySQL, Plotly, Matplotlib, Pymysql
+                <div class="summary">
+                    <img src="images/lakers.png" alt="Lakers">
+                    <div class="summary-content">
+                        <h2 style="color: black;">Lakers 2023-24 Regular Season Analysis</h2>
+                        <div class="description" style="color: black;">
+                            Strategically structured the Lakers' 2023-24 regular season data into a MySQL database. Utilized Python for data analysis and to create compelling visualizations using Plotly and Matplotlib.
+                        </div>
+                        <div class="skills">
+                            <b>Skills:</b> Python, MySQL, Plotly, Matplotlib, Pymysql
+                        </div>
                     </div>
                 </div>
-            </div>
-        </a>
-        <br/>
+            </a>
+            <br/>
             <div class="backgd1">
- 
                 <h2 class="center-text" style="color: black;">Other Visualizations</h2>
-                <div class="center-text" style="color: black;"> <b>
-                    Geospatial Data: Skills: R, Geospatial Data, Sf, Econometrics </b></div>
-                <p class="center-text" style="color: black;"> Understanding the relationship between arable land and urban population dynamics is critical for
-                informing policies and strategies aimed at promoting sustainable urban development and preserving
-                agricultural resources. By analyzing trends in arable land area and urban population growth, this
-                report seeks to shed light on the complex interplay between urbanization and land use patterns in
-                Sub-Saharan Africa. </p>
-
+                <div class="center-text" style="color: black;"> 
+                    <b>Geospatial Data: Skills: R, Geospatial Data, Sf, Econometrics</b>
+                </div>
+                <p class="center-text" style="color: black;">
+                    Understanding the relationship between arable land and urban population dynamics is critical for informing policies and strategies aimed at promoting sustainable urban development and preserving agricultural resources. By analyzing trends in arable land area and urban population growth, this report seeks to shed light on the complex interplay between urbanization and land use patterns in Sub-Saharan Africa.
+                </p>
                 <div class="visual">
                     <div class="graph">
                         <figcaption>Percent Population in Urban Areas</figcaption>
@@ -290,8 +214,7 @@
         </div>
     </div>
 
-
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 </body>
