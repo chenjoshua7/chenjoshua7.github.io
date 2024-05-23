@@ -1,9 +1,10 @@
+/* Base styles for the navbar */
 .banner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-color: #333;
-    padding: 0px 0px 0px 0px;
+    padding: 0px;
     width: 100%;
 }
 
@@ -79,6 +80,7 @@
         display: flex; /* Show the navbar links when the hamburger menu is active */
     }
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -95,6 +97,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
     min-width: 750px;
 }
+
 .textblock {
     color: white;
     padding: 10px 50px 10px 50px;
@@ -109,6 +112,7 @@ body {
     text-decoration: none;
     margin: 0 10px;
 }
+
 .dropdown-content {
     color: white;
     display: none;
@@ -137,7 +141,9 @@ body {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f15b}
+.dropdown-content a:hover {
+    background-color: #f1f1f15b;
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
@@ -156,7 +162,7 @@ body {
     text-align: center;
     width: 100%;
     margin: 0;
-    position: bottom;
+    position: relative; /* Changed from 'bottom' to 'relative' to fix positioning */
     z-index: 10;
     font-size: 12px;
 }
@@ -166,5 +172,49 @@ body {
 }
 
 a {
-    color:rgba(172, 172, 172, 0.828);
+    color: rgba(172, 172, 172, 0.828);
+}
+
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+    .backgd {
+        margin: 20px;
+        padding: 20px;
+        min-width: 0; /* Remove min-width to allow proper scaling on small devices */
+    }
+
+    .textblock {
+        padding: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .sidebar {
+        margin: 0 0 20px 0;
+        padding: 20px;
+    }
+
+    .content {
+        margin: 0;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .textblock {
+        font-size: 16px;
+    }
+
+    .dropbtn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .dropdown-content a {
+        padding: 10px;
+        font-size: 14px;
+    }
 }

@@ -15,7 +15,7 @@
                 section.style.display = 'block';
             });
         });
-        
+
         function toggleSection(sectionId) {
             var section = document.getElementById(sectionId);
             if (section.style.display === "block") {
@@ -24,7 +24,6 @@
                 section.style.display = "block";
             }
         }
-
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +44,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-
             height: 100%;
             min-height: 100vh;
             font-size: 19px;
@@ -139,10 +137,16 @@
             }
             .container {
                 flex-direction: column;
+                margin: 10px;
             }
             .sidebar {
                 margin-right: 0;
                 margin-bottom: 20px;
+                margin-left: 0;
+            }
+            .content {
+                margin-right: 0;
+                padding: 10px;
             }
         }
         @media (max-width: 480px) {
@@ -150,7 +154,6 @@
                 font-size: 12px;
             }
         }
-
 
         .sidebar h2 {
             margin-top: 20px;
@@ -264,6 +267,13 @@
             text-decoration: none;
         }
         
+        .btm_banner {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -279,85 +289,72 @@
             });
     </script>
 
-
-
     <div class="container">
         <div class="sidebar">
-
-        <h1 class="center-text">Joshua Chen</h1>
-        <div class="center-text">
-        <img src="images/headshot.png" alt="Headshot" class="headshot">
-    </div>
-
-        <br>
-        <div style="display: flex; align-items: center;">
-            <a href="https://linkedin.com/in/chenjoshua7" target="_blank">
-                <img src="images/linkedin.png" alt="LinkedIn" style="width: 25px; height: auto; margin-right: 20px;">
-            </a>
-
-            <h6 style="margin: 0;">
-                LinkedIn: <a href="https://linkedin.com/in/chenjoshua7" target="_blank">in/chenjoshua7</a>
-            </h6>
-        </div>
-
-        <div style="display: flex; align-items: center;">
-            <a href="https://github.com/chenjoshua7" target="_blank">
-                <img src="images/github.png" alt="GitHub" style="width: 25px; height: auto; margin-right: 20px;">
-            </a> 
-            <h6 style="margin: 0;">
-                      GitHub: <a href="https://github.com/chenjoshua7" target="_blank">chenjoshua7</a>
-            </h6>
-        <br/>
-
-        
-        <br/>
-      
-        </div>
-
-        <div style="display: flex; align-items: center;">
-            <a href="mailto:chen.joshua98@gmail.com" target="_blank">
-                <img src="images/email.png" alt="Email" style="width: 25px; height: auto; margin-right: 20px;">
-            </a>
-
-            <h6 style="margin: 0;">
-                Email: <a href="mailto:chen.joshua98@gmail.com" target="_blank">chen.joshua98@gmail.com</a>
-            </h6>
-        </div>
-        <br/>
-        <div class="education">
-            <h2>Education</h2>
-            <h4>Barcelona School of Economics</h4>
-            <h6>MSc. Data Science Methodology</h6>
-            <h4>Relay School of Education</h4>
-            <h6>MA Secondary Mathematics Education</h6>
-            <h4>Boston College</h4>
-            <h6>BA Mathematics, Minor Economics, Honors Program</h6>
-        </div>
-        <br/>
-        <div class="skills">
-            <h2>Skills</h2>
-            <div class="skills-category">
-                <h3>Programming</h3>
-                <ul>
-                    <li>Python (Sk-Learn, Pandas, Numpy, Pytorch, TensorFlow)</li>
-                    <li>R (dplyr, mombf, sf)</li>
-                    <li>SQL (Postgres, MySQL, BeaverDB)</li>
-                    <li>Data Visualization (Plotly, Matplotlib, Leaflet, ggplot2)</li>
-                    <li>LaTeX, HTML, CSS</li>
-                </ul>
+            <h1 class="center-text">Joshua Chen</h1>
+            <div class="center-text">
+                <img src="images/headshot.png" alt="Headshot" class="headshot">
             </div>
-
-            <div class="skills-category">
-                <h3>Data Science</h3>
-                <ul>
-                    <li>Machine/Deep Learning</li>
-                    <li>Statistical and Causal Inference</li>
-                    <li>Bayesian Statistics</li>
-                    <li>Natural Language Processing</li>
-                    <li>Computer Vision</li>
-                </ul>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <a href="https://linkedin.com/in/chenjoshua7" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    LinkedIn: <a href="https://linkedin.com/in/chenjoshua7" target="_blank">in/chenjoshua7</a>
+                </h6>
             </div>
-        </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://github.com/chenjoshua7" target="_blank">
+                    <img src="images/github.png" alt="GitHub" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    GitHub: <a href="https://github.com/chenjoshua7" target="_blank">chenjoshua7</a>
+                </h6>
+            </div>
+            <br/>
+            <div style="display: flex; align-items: center;">
+                <a href="mailto:chen.joshua98@gmail.com" target="_blank">
+                    <img src="images/email.png" alt="Email" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    Email: <a href="mailto:chen.joshua98@gmail.com" target="_blank">chen.joshua98@gmail.com</a>
+                </h6>
+            </div>
+            <br/>
+            <div class="education">
+                <h2>Education</h2>
+                <h4>Barcelona School of Economics</h4>
+                <h6>MSc. Data Science Methodology</h6>
+                <h4>Relay School of Education</h4>
+                <h6>MA Secondary Mathematics Education</h6>
+                <h4>Boston College</h4>
+                <h6>BA Mathematics, Minor Economics, Honors Program</h6>
+            </div>
+            <br/>
+            <div class="skills">
+                <h2>Skills</h2>
+                <div class="skills-category">
+                    <h3>Programming</h3>
+                    <ul>
+                        <li>Python (Sk-Learn, Pandas, Numpy, Pytorch, TensorFlow)</li>
+                        <li>R (dplyr, mombf, sf)</li>
+                        <li>SQL (Postgres, MySQL, BeaverDB)</li>
+                        <li>Data Visualization (Plotly, Matplotlib, Leaflet, ggplot2)</li>
+                        <li>LaTeX, HTML, CSS</li>
+                    </ul>
+                </div>
+                <div class="skills-category">
+                    <h3>Data Science</h3>
+                    <ul>
+                        <li>Machine/Deep Learning</li>
+                        <li>Statistical and Causal Inference</li>
+                        <li>Bayesian Statistics</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="content">
             <h2>About Me</h2>
@@ -370,7 +367,6 @@
                 my life is nearing its end, and I'm excited to return to the States to start my career in Data Science and Machine Learning. I am currently seeking full-time jobs in Data Science/ML, hit me up!
             </p>
             <p>High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.</p>
-
 
             <h2>Highlighted Projects</h2>
             <button class="toggle-btn" onclick="toggleSection('ds-projects')">Data Science Projects</button>
@@ -392,11 +388,9 @@
                 <p><a href="/visual/basketball.html">Lakers 23-24 Visualization</a> - Organizing data into a MySQL database to create interactive visualizations with Python.</p>
             </div>
         </div>
-        </div>
-        </div>
-    <div class=btm_banner>
+    </div>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
-</div>
 </body>
 </html>
