@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
-    <script src="navbar.js?v=1.0"></script>
+    <script src="/navbar.js"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -12,20 +12,22 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../template.css">
+    <link rel="stylesheet" href="/template.css">
     <title>Visualizing the Perceptron Algorithm</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         a {
-            color:white;
+            color: white;
         }
+
         .center-text {
             text-align: center;
         }
+
         .percept {
             color: white;
-            padding: 10px 50px 10px 50px;
+            padding: 10px 50px;
             margin-top: 10px;
             text-align: justify;
             text-justify: inter-word;
@@ -39,38 +41,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap; /* Added to allow wrapping on small screens */
         }
-        .problem {
-            margin: 20px;
-            
-        }
-        .problem img {
-            width: 50%;
-            height: auto;
+
+        .problem img, .graph img, .bayes img, .result img {
             border-radius: 10px; 
-        }
-        .graph {
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            margin: 0 0px;
-        }
-        
-        .graph img {
-            border-radius: 10px; 
-            width: 80%;
-            height: auto;
-        }
-        .bayes {
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            margin: 0 0px;
-        }
-        
-        .bayes img {
-            border-radius: 10px; 
-            width: 50%;
+            width: 100%;
             height: auto;
         }
 
@@ -78,42 +54,61 @@
             color: white;
             text-align: left;
             position: relative;
-            display:flex
+            display: flex;
+            flex-wrap: wrap; /* Added to allow wrapping on small screens */
         }
+
         .texts {
             display: block;
             justify-content: center;
-            margin: 10px 10px 20px 0px;
+            margin: 10px;
             max-width: 600px;
         }
+
         .result {
             justify-content: center;
-            margin: 0 0px;
+            margin: 10px;
             align-items: right;
             text-align: right;
         }
-        
-        .result img {
-            border-radius: 10px; 
+
+        .btm_banner {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            text-align: center;
             width: 100%;
-            height: auto;
+            margin: 0;
         }
 
         @media (max-width: 768px) {
-            .banner {
-                font-size: 16px;
+            .percept {
+                padding: 10px 20px;
             }
 
-            .hero-text {
-                font-size: 14px;
+            .problem img, .graph img, .bayes img, .result img {
+                width: 90%;
+                margin: 10px auto; /* Center images on small screens */
             }
 
-            .about {
-                padding: 20px 5%;
+            .visual1, .visual {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .texts, .result {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
             }
         }
 
         @media (max-width: 480px) {
+            .percept {
+                font-size: 16px;
+                padding: 5px 10px;
+            }
+
             .banner {
                 padding: 15px 10px;
             }
@@ -121,8 +116,16 @@
             .hero-text {
                 font-size: 12px;
             }
-        }
 
+            .backgd {
+                margin: 0;
+                padding: 0;
+            }
+
+            .problem img, .graph img, .bayes img, .result img {
+                width: 100%;
+            }
+        }
 
     </style>
 </head>
@@ -131,7 +134,6 @@
     <div id="navbar-placeholder"></div>
 
     <script>
-        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
         fetch('/navbar.html')
             .then(response => response.text())
             .then(data => {
@@ -139,12 +141,10 @@
             });
     </script>
 
-    
     <div class="backgd">
         <div class="percept">
- 
-            <h1 class="center-text"> Understanding and Visualizing the Percpetron Algorithm</h1>
-            <p> First, if you are interested in viewing my Notebook to play around with or following along, click <a href="https://github.com/chenjoshua7/chenjoshua7.github.io/blob/main/notebooks/Question10.ipynb">here.</a></p>
+            <h1 class="center-text"> Understanding and Visualizing the Perceptron Algorithm</h1>
+            <p> First, if you are interested in viewing my Notebook to play around with, click <a href="https://github.com/chenjoshua7/chenjoshua7.github.io/blob/main/notebooks/Question10.ipynb">here.</a></p>
             <p> 
                 As part of my Machine Learning course with Professor Gabor Lugosi, part of our homework was to code the Perceptron Algorithm from scratch and apply it to generated linearly separable and linearly non separable data across different sample sizes, dimensions, and degrees of separability. This was then compared to the Bayes Risk.
             </p>
@@ -153,8 +153,6 @@
             </p>
             <p>
                 Additionally, I added a visualization feature in my algorithm to help me see what the algorithm was doing in two dimensional cases.
-            </p>
-            <p>
             </p>
         </div>
 
@@ -179,44 +177,43 @@
             </div>
         </div>
 
-
         <div class="percept">
-            <a id = "generate"></a>
+            <a id="generate"></a>
             <h2 class="center-text"> Generating the Data</h2>
-            <p>To generate the data for this binary classificaiton problem, I created data from two distributions.</p>
-            <p>In the linearly separable case, we pull from uniform distributions and we set the degree of seperation with al</p>
-            <p>For the linearly the linearly inseparable case, we draw from multivariate normals. However, for the first dimension, we set the mean to be 0 for one class and <i>m</i> for the other class. The means for the rest of the dimensions are 0.</p>
+            <p>To generate the data for this binary classification problem, I created data from two distributions.</p>
+            <p>In the linearly separable case, we pull from uniform distributions and we set the degree of separation with alpha.</p>
+            <p>For the linearly inseparable case, we draw from multivariate normals. However, for the first dimension, we set the mean to be 0 for one class and <i>m</i> for the other class. The means for the rest of the dimensions are 0.</p>
         </div>
 
         <div class="percept">
-            <a id = "algo"></a>
+            <a id="algo"></a>
             <h2 class="center-text"> The Algorithm</h2>
             <p>
-                This algorithm was invented on the 50’s and learns a neuron (a linear classifier is basically a neural network with one neuron).
-                </p>
-                <p>
+                This algorithm was invented in the 50’s and learns a neuron (a linear classifier is basically a neural network with one neuron).
+            </p>
+            <p>
                 Suppose that the data is nearly separable. Let’s see the algorithm.
-                </p>
-                <ol>
+            </p>
+            <ol>
                 <li>We start with an arbitrary \( w_0 \), for example \( w_0 = \vec{0} \).</li>
                 <li>Then we go through our data points one by one.<br>
-                At time \( t \):
+                    At time \( t \):
                     <ul>
-                    <li>If \( w_{t-1} X_t Y_t > 0 \) then we do nothing.</li>
-                    <li>If \( w_{t-1} X_t Y_t \leq 0 \) then \( w_t = w_{t-1} + X_t Y_t \).</li>
+                        <li>If \( w_{t-1} X_t Y_t > 0 \) then we do nothing.</li>
+                        <li>If \( w_{t-1} X_t Y_t \leq 0 \) then \( w_t = w_{t-1} + X_t Y_t \).</li>
                     </ul>
                 </li>
                 <li>Stop when all data points are correctly classified. Cycle through the data several times if needed.<br>
                 </li>
-                </ol>
+            </ol>
             Linearly separable data is a huge assumption. As we see in the visualization, we must create a maximum number of iterations or else it will run forever (as there will always be at least one misclassified point by definition.)
         </div>
 
         <div class="percept">
-            <a id = "results"></a>
+            <a id="results"></a>
             <h2 class="center-text"> Results </h2>
             <p>
-                To obtain our results, we tested the perceptron on numerous generated datasets. We tested across different dimensions, sample sizes, and degree of separabilities
+                To obtain our results, we tested the perceptron on numerous generated datasets. We tested across different dimensions, sample sizes, and degrees of separability
                 (alpha for separable data and m for nonseparable data as defined above). We tested each combination of parameters 20 times. By using 10,000 generated out of sample
                 testing points, we calculate the average risk (1 - accuracy) to estimate the true risk. See the results below: 
             </p>
@@ -225,7 +222,7 @@
                 <div class="texts">
                     <h4> Separable Data </h4>
                     <p>
-                        On the right, we show the results of the perceptron algorithm on across different sample sizes, dimensions, and degrees of separability (alpha).
+                        On the right, we show the results of the perceptron algorithm across different sample sizes, dimensions, and degrees of separability (alpha).
                         Greater separability and greater sample sizes will intuitively lower the estimated risk. However, we see the Curse of Dimensionality in effect
                         as greater dimensionality results in greater risk across all sample sizes and degrees of separability. 
                     </p>
@@ -236,49 +233,45 @@
                 </div>
             </div>
             <br/>
-    </div>
+        </div>
 
-    <div class="percept">
-        <a id = "generate"></a>
-        <h2 class="center-text"> Bayes Risk</h2>
+        <div class="percept">
+            <a id="generate"></a>
+            <h2 class="center-text"> Bayes Risk</h2>
             <p> The Bayes Classifier is the ideal classifier if the distribution of the data is known. The Bayes Risk is simply the expected risk of the Bayes Classifier.
-                FGr linearly separable data, the Bayes Risk is 0. There is no overlap in the distirbutions so we know every time which class the data belongs to given the
+                For linearly separable data, the Bayes Risk is 0. There is no overlap in the distributions so we know every time which class the data belongs to given the
                 class distributions.</p>
             <p> For our case of linearly inseparable data, below my calculations for the Bayes Risk.</p>
             <div class="bayes">
                 <img src="../perceptron_gifs/bayes_proof.png">
             </div>
-            <p>
-            Using this, we can compare our results above to the Bayes Risk as demonstrated by the black line.</p>
+            <p>Using this, we can compare our results above to the Bayes Risk as demonstrated by the black line.</p>
             <div class="graph">
                 <img src="../perceptron_gifs/ns_separable_withbayes.png">
             </div>
+        </div>
+        
+        <div class="percept">
+            <h1 class="center-text"> Extensions </h1>
+            <p>If you read through all that... Thank you. Here were a couple thoughts of how you can expand on what I did.</p>
+            <br/>
+            <h3>Non-Linearly but Separable Data Kernels</h3>
+            <p>What if we kernelized the perceptron classifier? This would be helpful for data that is separable but not necessarily linearly separable. 
+                Even for non-separable data, the Bayes classifier here is linear because the covariance matrices for both classes are the same. But what if they weren't?
+            </p>
+            <h3>Support Vector Machines</h3>
+            <p>All the perceptron cares about is separating the data. SVM works differently by trying to maximize the margin. Try doing the same thing with hard-margin SVM
+                and then try it again with soft-margin SVM. Let me know if you do?
+            </p>
+            <h3>Visualization Expansions</h3>
+            <p>Visualize perceptron in 3 dimensions. Then do it in 4 dimensions (just kidding). Also, an improvement on my visualization would be, for each update, the
+                misclassified point in question is highlighted.
+            </p>
+            <br/>
+            <p class="center-text">If you do any of these, please let me know. I'd love to see! Thanks for reading!</p>
+        </div>
     </div>
-    <div class="percept">
- 
-        <h1 class="center-text"> Extensions </h1>
-        <p>
-            If you read through all that... Thank you. Here were a couple thoughts of how you can expand on what I did.</p>
-        <br/>
-        <h3>Non-Linearly but Separable Data Kernels</h3>
-        <p>What if we kernalized the perceptron classificer? This would be helpful for data that is separable but not necessarily linearly separable. 
-            Even for non-separable data, the bayes classifier here is linear because the covariance matrices for both classes are the same. But what if they weren't?
-        </p>
-        <h3>Support Vector Machines</h3>
-        <p>All the perceptron cares about is separating the data. SVM works different by trying to maximize the margin. Try doing the same thing with hard-margin SVM
-            and the try it against with soft-margin SVM. Let me knwo if you do?
-        </p>
-        <h3>Visualziations Expansions</h3>
-        <p>
-        Visualize perceptron in 3 dimensions. Then do it in 4 dimensions (just kidding.) Also, an improvment on my visualization would be, for each update, the
-        misclassified point in question is highlighted.
-        </p>
-
-        <br/>
-        <p class="center-text">If you do any of these, please let me know. I'd love to see! Thanks for reading!</p>
-    </div>
-    </div>
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 </body>

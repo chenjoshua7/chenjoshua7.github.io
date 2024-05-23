@@ -2,13 +2,33 @@
 <html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
-    <script src="navbar.js?v=1.0"></script>
+    <script src="/navbar.js?v=1.0"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
         gtag('config', 'G-W57V1PRPVC');
+        document.addEventListener('DOMContentLoaded', function () {
+            var sections = document.querySelectorAll('.toggle-section');
+            sections.forEach(function (section) {
+                section.style.display = 'block';
+            });
+        });
+        
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "block") {
+                section.style.display = "none";
+            } else {
+                section.style.display = "block";
+            }
+        }
+
+        function toggleMenu() {
+            var navbarLinks = document.getElementById('navbar-links');
+            navbarLinks.classList.toggle('active');
+        }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
