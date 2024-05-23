@@ -2,8 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // Plot for 'lkrsstats'
-
-
     // Plot for 'myDiv2'
     fetch('other/lebron_season_stats.json')
         .then(response => response.json())

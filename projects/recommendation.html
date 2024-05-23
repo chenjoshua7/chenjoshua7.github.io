@@ -4,53 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/navbar.js?v=1.0"></script>
-
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>MovieLens Recommendation</title>
     <link rel="stylesheet" href="../template.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .backgd {
+            background: rgba(64, 64, 64, 0.94);
+            margin: 20px auto; /* Center horizontally */
+            max-width: 1100px;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
         
+
         table {
             font-family: Arial, sans-serif;
             border-collapse: collapse;
             width: 50%;
             margin-left: auto;  /* Centers table */
             margin-right: auto; /* Centers table */
-            }
+        }
 
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 10px;
-            }
-            
-            tr:nth-child(1) {
-            background-color: hsla(0, 0%, 0%, 0.602);
-            }
+        }
 
-            tr:nth-child(even) {
+        tr:nth-child(1) {
+            background-color: hsla(0, 0%, 0%, 0.602);
+        }
+
+        tr:nth-child(even) {
             background-color: hsla(256, 100%, 94%, 0.159);
-            }
+        }
+
         .image {
             text-align: center;
         }
 
-        .image img{
+        .image img {
             width: 700px;
             height: auto;
-            border-radius: 10px
+            border-radius: 10px;
         }
 
-        .note{
+        .note {
             background-color: rgba(23, 23, 23, 0.705);
             color: white;
             box-shadow: 0px 0 25px white;
             border-radius: 20px;
             padding: 20px 40px;
-            margin: 50px 100px
+            margin: 50px 100px;
         }
 
+        .textblock {
+            padding: 20px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .btm_banner {
+            text-align: center;
+            color: white;
+            padding: 10px;
+            background-color: rgba(23, 23, 23, 0.705);
+        }
+
+        @media (max-width: 768px) {
+            .backgd {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .note {
+                padding: 15px;
+                margin: 10px;
+                box-shadow: 0px 0 15px white;
+            }
+
+            .textblock {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            td, th {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .image img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .backgd {
+                margin: 5px;
+                padding: 5px;
+            }
+
+            .note {
+                padding: 10px;
+                margin: 5px;
+                box-shadow: 0px 0 10px white;
+            }
+
+            .textblock {
+                padding: 5px;
+                font-size: 12px;
+            }
+
+            table, td, th {
+                font-size: 12px;
+                padding: 5px;
+            }
+
+            .image img {
+                width: 100%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -65,8 +155,6 @@
             });
     </script>
 
-
-    
     <div class="backgd">
         <div class="textblock">
             <h1 class="center-text">MovieLens Recommendation System</h1>
@@ -117,35 +205,31 @@
                     <td> 0.77 </td>
                 </tr>
               </table>
-            <p>
-            </p>
             <h3 class="center-text">Discussion</h3>
             <p> Collaborative Filtering returned a very high precision but we had a problem. </p>
             <div class="image">
-                <img src="images/collabfilter.png">
+                <img src="images/collabfilter.png" alt="Collaborative Filtering Chart">
             </div>
-            <p> Every single movie reocmmended to User 314 was a highly rated movie from before 2000, despite a large majority of the movies in the dataset being post 2000. 
+            <p> Every single movie recommended to User 314 was a highly rated movie from before 2000, despite a large majority of the movies in the dataset being post 2000. 
                 This is a perfect representation of the Cold Start problem.
             </p>
 
             <div class="image">
-                <figcaption>Prob S Dyanmics over 1, 10, and 100 Iterations</figcaption>
-                <img src="images/ProbS.png">
-               
+                <figcaption>Prob S Dynamics over 1, 10, and 100 Iterations</figcaption>
+                <img src="images/ProbS.png" alt="Prob S Dynamics">
             </div>
             <p> Here we see this problem represented for through running iterations of the Prob S recommendations. Already popular movies will get disproportionately
                 recommended over time, with smaller movies never getting recommended. Heat S, as seen below, sacrifices precision. However, it allows for movies to be
                 more equitably recommended.
             </p>
             <div class="image">
-                <figcaption>Heat S Dyanmics over 1, 10, and 100 Iterations</figcaption>
-                <img src="images/ProbS.png">
-               
+                <figcaption>Heat S Dynamics over 1, 10, and 100 Iterations</figcaption>
+                <img src="images/ProbS.png" alt="Heat S Dynamics">
             </div>
         </div>        
     </div>
     <br/>
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 </body>
