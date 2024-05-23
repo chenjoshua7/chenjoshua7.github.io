@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: flex-start;
     background-color: #333;
-    padding: 10px;
+    padding: 0px 0px 0px 0px;
+    width: 100%;
 }
 
 .dropbtn {
@@ -30,11 +31,17 @@
     display: flex;
 }
 
+.hamburger {
+    display: none; /* Hide the hamburger menu by default */
+}
+
+/* Styles for larger screens */
 @media (min-width: 600px) {
     .banner {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding: 0 20px;
     }
 
     .navbar-links {
@@ -51,20 +58,27 @@
     }
 }
 
+/* Styles for smaller screens */
 @media (max-width: 599px) {
-    .dropbtn {
-        display: block;
+    .dropbtn:not(.hamburger) {
+        display: none; /* Hide the normal dropdown buttons on mobile */
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger menu on mobile */
+        align-self: flex-end;
     }
 
     .navbar-links {
         display: none;
+        flex-direction: column;
+        width: 100%;
     }
 
     .navbar-links.active {
-        display: flex;
+        display: flex; /* Show the navbar links when the hamburger menu is active */
     }
 }
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;

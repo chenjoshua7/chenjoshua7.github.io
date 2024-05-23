@@ -1,37 +1,48 @@
 <div class="banner">
     <a href="#"></a>
     <a href="#"></a>
-    <div class="dropdown">
-    <a href="/index.html"><button class="dropbtn">Home</button></a>
-    </div>
-    <div class="dropdown">
-    <a href="/resume.html"><button class="dropbtn">Resume</button></a>
-    </div>
-    <div class="dropdown">
-        <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
-        <div class="dropdown-content">
-            <a href="/projects/recommendation.html">MovieLens Recommendation</a>
-            <a href="/projects/nlp.html">BERT Classification</a>
-            <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+    <a href="#"></a>  
+    <button class="hamburger dropbtn" onclick="toggleMenu()">☰</button>
+    <div id="navbar-links" class="navbar-links">
+        <div class="dropdown">
+            <a href="/index.html"><button class="dropbtn">Home</button></a>
         </div>
-    </div>
-    <div class="dropdown">
-        <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
-        <div class="dropdown-content">
-            <a href="/math/perceptron.html">Perceptron</a>
-            <a href="/math/pandemic.html">Pandemic Modeling</a>
-            <a href="/math/cod.html">Curse of Dimensionality</a>
+        <div class="dropdown">
+            <a href="/resume.html"><button class="dropbtn">Resume</button></a>
         </div>
-    </div>
-    <div class="dropdown">
-        <a href="/programming.html"><button class="dropbtn">Programming</button></a>
-    </div>
-    <div class="dropdown">
-        <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
-        <div class="dropdown-content">
-            <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
+        <div class="dropdown">
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
+                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
+                <a href="/projects/nlp.html">BERT Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
+            </div>
         </div>
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
+            <div class="dropdown-content">
+                <a href="/math/perceptron.html">Perceptron</a>
+                <a href="/math/pandemic.html">Pandemic Modeling</a>
+                <a href="/math/cod.html">Curse of Dimensionality</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
+            <div class="dropdown-content">
+                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
+            </div>
+        </div>
+        <a href="#"></a>
+        <a href="#"></a>
     </div>
-    <a href="#"></a>
-    <a href="#"></a>
 </div>
+
+<script>
+    function toggleMenu() {
+        const navbarLinks = document.getElementById('navbar-links');
+        navbarLinks.classList.toggle('active');
+    }
+</script>

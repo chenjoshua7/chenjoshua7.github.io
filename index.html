@@ -270,14 +270,15 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-
     <script>
+        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
         fetch('/navbar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('navbar-placeholder').innerHTML = data;
             });
     </script>
+
 
 
     <div class="container">
