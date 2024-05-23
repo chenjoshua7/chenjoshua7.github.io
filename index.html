@@ -29,6 +29,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="template.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/icon.png">
 
     <meta property="og:url" content="https://chenjoshua7.github.io" />
@@ -265,44 +266,18 @@
         
     </style>
 </head>
+
 <body>
-    <div class="banner">
-        <a href="#"></a>
-        <a href="#"></a>
-        <div class="dropdown">
-        <a href="/index.html"><button class="dropbtn">Home</button></a>
-        </div>
-        <div class="dropdown">
-        <a href="/resume.html"><button class="dropbtn">Resume</button></a>
-        </div>
-        <div class="dropdown">
-            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
-            <div class="dropdown-content">
-                <a href="/projects/recommendation.html">MovieLens Recommendation</a>
-                <a href="/projects/nlp.html">BERT Classification</a>
-                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
-            <div class="dropdown-content">
-                <a href="/math/perceptron.html">Perceptron</a>
-                <a href="/math/pandemic.html">Pandemic Modeling</a>
-                <a href="/math/cod.html">Curse of Dimensionality</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
-        </div>
-        <div class="dropdown">
-            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
-            <div class="dropdown-content">
-                <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
-            </div>
-        </div>
-        <a href="#"></a>
-        <a href="#"></a>
-    </div>
+    <div id="navbar-placeholder"></div>
+
+
+    <script>
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
 
 
     <div class="container">
