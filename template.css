@@ -1,3 +1,5 @@
+
+
 /* Base styles for the navbar */
 .banner {
     display: flex;
@@ -8,28 +10,10 @@
     width: 100%;
 }
 
-.dropbtn {
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    font-size: 16px;
-}
-
 .navbar-links {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.dropdown-content {
     display: none;
     flex-direction: column;
-}
-
-.dropdown:hover .dropdown-content {
-    display: flex;
+    width: 100%;
 }
 
 .hamburger {
@@ -46,6 +30,7 @@
     }
 
     .navbar-links {
+        display: flex;
         flex-direction: row;
         align-items: center;
     }
@@ -61,25 +46,30 @@
 
 /* Styles for smaller screens */
 @media (max-width: 599px) {
-    .dropbtn:not(.hamburger) {
-        display: none; /* Hide the normal dropdown buttons on mobile */
-    }
-
     .hamburger {
         display: block; /* Show the hamburger menu on mobile */
         align-self: flex-end;
     }
 
-    .navbar-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-    }
-
     .navbar-links.active {
         display: flex; /* Show the navbar links when the hamburger menu is active */
+        flex-direction: column;
+    }
+
+    .navbar-links a {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        background-color: #444;
+        color: white;
+        text-decoration: none;
+    }
+
+    .navbar-links a:hover {
+        background-color: #555;
     }
 }
+
 
 body {
     font-family: Arial, sans-serif;
