@@ -16,46 +16,84 @@
     <link rel="stylesheet" href="/template.css">
     <link rel="stylesheet" href="/menu.css">
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
         .summary {
             background-color: rgba(189, 189, 189, 0.94);
             display: flex;
+            flex-direction: column;
             align-items: center;
             border: 1px solid #ccc;
-            padding: 10px 10px 20px 10px;
-            margin: 20px 50px;
-            height: 150px;
+            padding: 10px;
+            margin: 10px;
         }
         .summary img {
-            width: 180px;
-            margin: 0 20px 0 20px;
-            height: 140px
-
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
         }
         .summary-content {
-            flex-grow: 1;
+            text-align: center;
         }
         .summary-content h2 {
             margin: 0;
-            font-size: 24px;
+            font-size: 18px;
         }
         .description {
-            font-size: 16px;
+            font-size: 14px;
             margin: 10px 0;
         }
         .skills {
-            font-size: 16px;
+            font-size: 14px;
             color: black;
         }
-        
-
         .backgd {
             background: rgba(64, 64, 64, 0.94);
-            margin: 20px 100px 20px 100px;
-            padding: 30px;
+            margin: 10px;
+            padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            min-width: 750px;
+        }
+        .center-text {
+            text-align: center;
+            color: white;
+        }
+        .btm_banner {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: rgba(64, 64, 64, 0.94);
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .summary {
+                flex-direction: row;
+                align-items: center;
+                margin: 20px 50px;
+            }
+            .summary img {
+                width: 180px;
+                height: 140px;
+                margin: 0 20px;
+            }
+            .summary-content h2 {
+                font-size: 24px;
+            }
+            .description {
+                font-size: 16px;
+            }
+            .skills {
+                font-size: 16px;
+            }
+            .backgd {
+                margin: 20px 100px;
+                padding: 30px;
+                min-width: 750px;
+            }
         }
     </style>
 </head>
@@ -71,8 +109,6 @@
             });
     </script>
 
-    
-
     <br/>
     <div class="backgd">
         <h1 class="center-text">
@@ -85,54 +121,47 @@
                 <div class="summary-content">
                     <h2 style="color: black;">MovieLens Recommendation System</h2>
                     <div class="description" style="color: black;">
-                        Implemented and evaluated novel recommendation systems including ProbS, HeatS, and Collaborative Filtering from scratch.  Leveraged the MovieLens dataset to analyze their effectiveness and the impact of iterative network effects on recommendation accuracy.
-                    <br/>
-                    <br/>
+                        Implemented and evaluated novel recommendation systems including ProbS, HeatS, and Collaborative Filtering from scratch. Leveraged the MovieLens dataset to analyze their effectiveness and the impact of iterative network effects on recommendation accuracy.
+                        <br/><br/>
                         <b>Skills:</b> Collaborative Filtering, ProbS/HeatS, Cold Start, Python, NetworX
                     </div>
                 </div>
             </div>
-            </a>
-            <a href="projects/nlp.html">
+        </a>
+        <a href="projects/nlp.html">
             <div class="summary">
                 <img src="images/articles.png" alt="nlp">
                 <div class="summary-content">
                     <h2 style="color: black;">Article Classification with Fine-tuned DistilBERT</h2>
                     <div class="description" style="color: black;">
-                        Using DistilBERT from Hugging Face to classify 22,462 news articles into 7 labeled caterogries. I used data augmentation and
-                        data generation techniques to boost performance by 20% on only 32 samples. Using the same techniques, I was able to reach 85.98%
-                        accuracy.
-                         </div>
+                        Using DistilBERT from Hugging Face to classify 22,462 news articles into 7 labeled categories. I used data augmentation and data generation techniques to boost performance by 20% on only 32 samples. Using the same techniques, I was able to reach 85.98% accuracy.
+                    </div>
                     <div class="skills">
-                        <b>Skills:</b> Natural Language Processing, Keras, Transformers, Trasnfer Learning, Data Augmentation, Model Distillation
+                        <b>Skills:</b> Natural Language Processing, Keras, Transformers, Transfer Learning, Data Augmentation, Model Distillation
                     </div>
                 </div>
             </div>
-            </a>    
-            <a href="projects/gspmulticlass.html">
-                <div class="summary">
-                    <img src="images/geospatial.png">
-                    <div class="summary-content">
-                        <h2 style="color: black;">Classifying Urban Land Covers with Linear Models</h2>
-                        <div class="description" style="color: black;">
-                            The distribution of a city's surface, known as land cover, significantly impacts flood risk and temperature extremes, making it crucial for public policy, especially amid the climate crisis. Classifying urban land cover types, such as trees and buildings, using aerial image analysis helps assess impervious surfaces, with input variables including brightness, color, and shape of objects.   
-                        </div>
-                        <div class="skills">
-                            <b>Skills:</b> Feature Selection, Regularlization, Bayesian Model Averaging, Model Selection, R
-                        </div>
+        </a>    
+        <a href="projects/gspmulticlass.html">
+            <div class="summary">
+                <img src="images/geospatial.png" alt="geospatial">
+                <div class="summary-content">
+                    <h2 style="color: black;">Classifying Urban Land Covers with Linear Models</h2>
+                    <div class="description" style="color: black;">
+                        The distribution of a city's surface, known as land cover, significantly impacts flood risk and temperature extremes, making it crucial for public policy, especially amid the climate crisis. Classifying urban land cover types, such as trees and buildings, using aerial image analysis helps assess impervious surfaces, with input variables including brightness, color, and shape of objects.
+                    </div>
+                    <div class="skills">
+                        <b>Skills:</b> Feature Selection, Regularization, Bayesian Model Averaging, Model Selection, R
                     </div>
                 </div>
-                </a>   
             </div>
-        
+        </a>   
     </div>
-        
-    </div> 
+
     <br/>
 
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
-    
 </body>
 </html>

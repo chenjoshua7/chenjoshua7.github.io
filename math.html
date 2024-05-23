@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="menu.css">
     <title>Math Things</title>
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
         .visual {
             color: white;
             text-align: center;
@@ -24,74 +28,84 @@
             justify-content: center;
             align-items: center;
         }
-        
-        @media (max-width: 768px) {
-            .banner {
-                font-size: 16px;
-            }
-
-            .hero-text {
-                font-size: 14px;
-            }
-
-            .about {
-                padding: 20px 5%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .banner {
-                padding: 15px 10px;
-            }
-
-            .hero-text {
-                font-size: 12px;
-            }
-        }
 
         .backgd {
             background: rgba(64, 64, 64, 0.94);
-            margin: 20px 100px 20px 100px;
-            padding: 30px;
+            margin: 10px;
+            padding: 20px;
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            min-width: 750px;
         }
-
         .summary {
             background-color: rgba(189, 189, 189, 0.94);
             display: flex;
+            flex-direction: column;
             align-items: center;
             border: 1px solid #ccc;
-            padding: 10px 10px 20px 10px;
-            margin: 20px 50px;
-            height: 150px;
+            padding: 10px;
+            margin: 10px 0;
         }
         .summary img {
-            width: 180px;
-            margin: 0 20px 0 20px;
-            height: 140px
-
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
         }
         .summary-content {
-            flex-grow: 1;
+            text-align: center;
         }
         .summary-content h2 {
             margin: 0;
-            font-size: 24px;
+            font-size: 18px;
         }
         .description {
-            font-size: 16px;
+            font-size: 14px;
             margin: 10px 0;
         }
         .skills {
-            font-size: 16px;
+            font-size: 14px;
             color: black;
+        }
+        .center-text {
+            text-align: center;
+            color: white;
+        }
+        .btm_banner {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            background-color: rgba(64, 64, 64, 0.94);
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .summary {
+                flex-direction: row;
+                align-items: center;
+                margin: 20px 50px;
+            }
+            .summary img {
+                width: 180px;
+                height: 140px;
+                margin: 0 20px;
+            }
+            .summary-content h2 {
+                font-size: 24px;
+            }
+            .description {
+                font-size: 16px;
+            }
+            .skills {
+                font-size: 16px;
+            }
+            .backgd {
+                margin: 20px 100px;
+                padding: 30px;
+                min-width: 750px;
+            }
         }
     </style>
 </head>
-
 <body>
     <div id="navbar-placeholder"></div>
 
@@ -104,67 +118,60 @@
             });
     </script>
 
-    
     <br/>
     <div class="backgd">
-    <h1 class="center-text">
-        Math Corner
-    </h1>
-    <hr>
-    <a href="math/perceptron.html">
-    <div class="summary">
-        <img src="images/binaryclass.png" alt="perceptron">
-        <div class="summary-content">
-            <h2 style="color: black;">Visualizing the Perceptron Algorithm</h2>
-            <div class="description" style="color: black;">
-            In my Machine Learning course, I coded the Perceptron Algorithm from scratch and applied it to various data scenarios, enhancing my understanding of empirical risk minimization and data projections. This project also included a visualization feature, allowing me to see the algorithm's behavior in two-dimensional cases. </div>
-            <div class="skills">
-                <b>Skills:</b> Machine Learning, Empirical Risk Minimization, Statistics, Python, Numpy, Matplotlib
-            </div>
-        </div>
-    </div>
-    </a>
-    <a href="math/pandemic.html">
-    <div class="summary">
-        <img src="images/virus.png" alt="perceptron">
-        <div class="summary-content">
-            <h2 style="color: black;">Pandemic Modeling</h2>
-            <div class="description" style="color: black;">
-                I have done pandemic modeling in two different circumstances with 2 different approaches. The first time was in Senior Year of my undergraduate program in my Mathematical Modeling course with SIR pandemic modeling. Coincidentally, this was also during COVID.
-                The second circumstance was in my Networks class in my Masters program from a Networks perspective.
-                 </div>
-            <div class="skills">
-                <b>Skills:</b> Graph Theory, Markov Chains, Networks, Python, NetworX
-            </div>
-        </div>
-    </div>
-    </a>    
-    <a href="math/cod.html">
-        <div class="summary">
-            <img src="images/hyperdimension.png">
-            <div class="summary-content">
-                <h2 style="color: black;">Curse of Dimensionality</h2>
-                <div class="description" style="color: black;">
-                    The Curse of Dimensionality complicates machine learning, making problems exponentially harder as dimensions increase. Understanding the true posterior distribution in hyperdimensional space is essential for accurate predictions, but as dimensions grow, the complexity of accurately modeling and predicting outcomes significantly increases.
-                     </div>
-                <div class="skills">
-                    <b>Skills:</b> Data Visualization, Statistics, Python, NumPy, kNN, t-SNE, PCA
+        <h1 class="center-text">
+            Math Corner
+        </h1>
+        <hr>
+        <a href="math/perceptron.html">
+            <div class="summary">
+                <img src="images/binaryclass.png" alt="perceptron">
+                <div class="summary-content">
+                    <h2 style="color: black;">Visualizing the Perceptron Algorithm</h2>
+                    <div class="description" style="color: black;">
+                        In my Machine Learning course, I coded the Perceptron Algorithm from scratch and applied it to various data scenarios, enhancing my understanding of empirical risk minimization and data projections. This project also included a visualization feature, allowing me to see the algorithm's behavior in two-dimensional cases.
+                    </div>
+                    <div class="skills">
+                        <b>Skills:</b> Machine Learning, Empirical Risk Minimization, Statistics, Python, Numpy, Matplotlib
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
+        <a href="math/pandemic.html">
+            <div class="summary">
+                <img src="images/virus.png" alt="pandemic">
+                <div class="summary-content">
+                    <h2 style="color: black;">Pandemic Modeling</h2>
+                    <div class="description" style="color: black;">
+                        I have done pandemic modeling in two different circumstances with 2 different approaches. The first time was in Senior Year of my undergraduate program in my Mathematical Modeling course with SIR pandemic modeling. Coincidentally, this was also during COVID. The second circumstance was in my Networks class in my Masters program from a Networks perspective.
+                    </div>
+                    <div class="skills">
+                        <b>Skills:</b> Graph Theory, Markov Chains, Networks, Python, NetworX
+                    </div>
+                </div>
+            </div>
+        </a>    
+        <a href="math/cod.html">
+            <div class="summary">
+                <img src="images/hyperdimension.png" alt="dimensionality">
+                <div class="summary-content">
+                    <h2 style="color: black;">Curse of Dimensionality</h2>
+                    <div class="description" style="color: black;">
+                        The Curse of Dimensionality complicates machine learning, making problems exponentially harder as dimensions increase. Understanding the true posterior distribution in hyperdimensional space is essential for accurate predictions, but as dimensions grow, the complexity of accurately modeling and predicting outcomes significantly increases.
+                    </div>
+                    <div class="skills">
+                        <b>Skills:</b> Data Visualization, Statistics, Python, NumPy, kNN, t-SNE, PCA
+                    </div>
+                </div>
+            </div>
         </a>   
     </div>
 
-        
-    </div>  
-
-    </div>
-    <br/>
     <br/>
 
-    <div class=btm_banner>
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 </body>
 </html>
-
