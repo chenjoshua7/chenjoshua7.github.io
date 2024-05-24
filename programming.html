@@ -123,7 +123,6 @@
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-            min-width: 750px;
         }
         
         .backgd1 {
@@ -133,7 +132,6 @@
             box-sizing: border-box;
             border-radius: 10px;
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-            min-width: 750px;
         }
 
         .apptracker {
@@ -141,45 +139,52 @@
         }
 
         .apptracker img {
-            width: 700px;
+            width: 100%;
             height: auto;
-            
+            max-width: 700px;
         }
 
         .organizedbox {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: auto auto;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
             box-sizing: border-box;
             margin: 20px;
         }
         .gamebox {
             text-align: justify;
             justify-content: center;
-            max-width: 100%;
             padding: 10px;
         }
         .smallimg {
             text-align: center;
         }
         .smallimg img{
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
             height: auto;
             border-radius: 10px;
         }
 
         @media (max-width: 768px) {
-            .banner {
-                font-size: 16px;
+            .backgd {
+                margin: 20px;
+                padding: 20px;
             }
 
-            .hero-text {
-                font-size: 14px;
+            .backgd1 {
+                margin: 10px;
+                padding: 10px;
             }
 
-            .about {
-                padding: 20px 5%;
+            .organizedbox {
+                grid-template-columns: 1fr;
+                margin: 10px;
+            }
+
+            .apptracker img {
+                width: 100%;
+                max-width: 100%;
             }
         }
 
@@ -266,7 +271,7 @@
                         <h3 class="center-text">Tic Tac Toe</h3>
                         <p>I started with the simplest game - Tic Tac Toe. I followed the tutorial below to get the idea of where to start. I added the ability to play multiple games as well as a score board.</p>
                         <div class="center-text">
-                            <iframe width="500" height="315" src="https://www.youtube.com/embed/dK6gJw4-NCo?si=hNPiSFdo_FUOP2CF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/dK6gJw4-NCo?si=hNPiSFdo_FUOP2CF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                     
