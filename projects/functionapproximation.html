@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script src="/navbar.js?v=1.0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Function Approximation Project</title>
+    <link rel="stylesheet" href="../template.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .textblock {
+            background-color: rgba(23, 23, 23, 0.705); /* Keep original background color */
+            color: white;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 1000px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px; /* Constrain table width */
+            margin: 20px auto; /* Center table */
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .note {
+            background-color: #f8f9fa;
+            color: #333;
+            box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .btm_banner {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .textblock {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            table {
+                font-size: 14px;
+                max-width: 100%; /* Ensure table does not exceed container width */
+            }
+
+            td, th {
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .textblock {
+                padding: 5px;
+                margin: 5px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            td, th {
+                padding: 4px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <script>
+        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div class="textblock">
+        
+        <p class="center-text"><small>Note: Accuracy is measured based on the mean squared error between the true function and the approximations.</small></p>
+
+        <br/>
+
+        <h3 class="center-text">About this Project</h3>
+        <p>Function approximation is a fundamental concept in numerical analysis and machine learning, where the goal is to approximate a target function using a simpler or more easily computable form. This project explores three different methods for function approximation: Taylor Series, Linear Regression with Polynomial Terms, and a Neural Network implemented from scratch using Numpy.</p>
+        <p>
+            <strong>Taylor Series:</strong> The Taylor series is a representation of a function as an infinite sum of terms calculated from the values of its derivatives at a single point. This method is particularly effective for approximating smooth functions that are well-behaved near the point of expansion.
+        </p>
+        <p>
+            <strong>Linear Regression with Polynomial Terms:</strong> By including polynomial terms in a linear regression model, we can capture non-linear relationships between the input variables and the target function. This method is straightforward and provides a good balance between complexity and performance.
+        </p>
+        <p>
+            <strong>Neural Network (Numpy):</strong> Neural networks are powerful tools for approximating complex, non-linear functions. For this project, we implemented a simple neural network from scratch using Numpy, demonstrating the network's ability to learn and approximate the target function with high accuracy.
+        </p>
+        <p>
+            Each method has its advantages and limitations, and the choice of method depends on the specific requirements and constraints of the problem at hand. This project highlights the strengths and weaknesses of each approach and provides a comprehensive comparison of their performance in function approximation tasks.
+        </p>
+        <p><a href="https://github.com/chenjoshua7/Function_Approximation_Project">Github for this project can be found here.</a></p>
+    </div>
+
+    <div class="btm_banner">
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+</body>
+</html>

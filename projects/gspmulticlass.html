@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <title>BERT Classification</title>
+    <title>Urban Land Covers</title>
     <link rel="stylesheet" href="../template.css">
     <style>
         /* General styles */
@@ -37,11 +37,11 @@
         .textblock {
             background-color: rgba(23, 23, 23, 0.705); /* Keep original background color */
             color: white;
-            padding: 20px;
+            padding: 20px 60px;
             margin: 20px auto;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            max-width: 800px;
+            max-width: 1000px;
         }
 
         .table-container {
@@ -56,14 +56,24 @@
             margin: 20px auto; /* Center table */
         }
 
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
+            color: #333; /* Darker text color */
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
         }
 
         .image {
@@ -131,7 +141,6 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div>
-
     <script>
         // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
         fetch('/navbar.html')
@@ -144,7 +153,6 @@
     <div class="textblock">
         <h1 class="center-text">Classification of Urban Land Covers with Linear Models</h1>
         <p class="center-text"><small> Special thanks to my wonderful project partner: Jonas Wallstein</small></p>
-        <br/>
         <h3 class="center-text">Results</h3>
 
         <div class="table-container">
