@@ -17,126 +17,114 @@
     <title>BERT Classification</title>
     <link rel="stylesheet" href="../template.css">
     <style>
-        #myModal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 150px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-            z-index: 10;
-        }
-        /* Style the modal content (image) */
-        #img01 {
-            margin: auto;
-            display: block;
-            width: 100%;
-            max-width: 700px;
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
 
-        /* Caption of Modal Image */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-
-        /* The Close Button */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
+        a {
+            color: #007bff;
             text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .apptracker img {
-            width: 700px;
-            height: auto;
-            
         }
 
-        #gameArea {
+        .center-text {
             text-align: center;
-            margin-top: 50px;
         }
-        
-        #choices button {
-            margin: 5px;
-            padding: 10px;
+
+        .textblock {
+            background-color: rgba(23, 23, 23, 0.705); /* Keep original background color */
+            color: white;
+            padding: 20px;
+            margin: 20px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 800px;
         }
-        
-        #message {
-            margin-top: 20px;
-            font-size: 20px;
-            color: rgb(0, 0, 0);
+
+        .table-container {
+            overflow-x: auto;
         }
 
         table {
             font-family: Arial, sans-serif;
             border-collapse: collapse;
-            width: 60%;
-            margin-left: auto;  /* Centers table */
-            margin-right: auto; /* Centers table */
-            }
+            width: 100%;
+            max-width: 600px; /* Constrain table width */
+            margin: 20px auto; /* Center table */
+        }
 
         td, th {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 10px;
-            }
-            
-            tr:nth-child(1) {
-            background-color: hsla(0, 0%, 0%, 0.602);
-            }
+            padding: 8px;
+        }
 
-            tr:nth-child(even) {
-            background-color: hsla(256, 100%, 94%, 0.159);
-            }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
         .image {
             text-align: center;
+            margin: 20px 0;
         }
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%;
-            border-radius: 10px;
-          }
-
-        .image img{
-            width: 700px;
+        .image img {
+            max-width: 100%;
             height: auto;
-            border-radius: 10px
+            border-radius: 10px;
         }
 
-        .note{
-            background-color: rgba(23, 23, 23, 0.705);
+        .note {
+            background-color: #f8f9fa;
+            color: #333;
+            box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: justify;
+        }
+
+        .btm_banner {
+            background: #333;
             color: white;
-            box-shadow: 0px 0 25px white;
-            border-radius: 20px;
-            padding: 20px 40px;
-            margin: 50px 100px
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .textblock {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            table {
+                font-size: 14px;
+                max-width: 100%; /* Ensure table does not exceed container width */
+            }
+
+            td, th {
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .textblock {
+                padding: 5px;
+                margin: 5px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            td, th {
+                padding: 4px;
+            }
         }
 
     </style>
@@ -153,15 +141,13 @@
             });
     </script>
 
+    <div class="textblock">
+        <h1 class="center-text">Classification of Urban Land Covers with Linear Models</h1>
+        <p class="center-text"><small> Special thanks to my wonderful project partner: Jonas Wallstein</small></p>
+        <br/>
+        <h3 class="center-text">Results</h3>
 
-    
-    <div class="backgd">
-        <div class="textblock">
-            <h1 class="center-text">Classification of Urban Land Covers with Linear Models</h1>
-            <p class="center-text"><small> Special thanks to my wonderful project partner: Jonas Wallstein</small></p>
-            <br/>
-            <h3 class="center-text">Results</h3>
-            
+        <div class="table-container">
             <table>
                 <tr>
                     <th>Linear Model</th>
@@ -181,47 +167,46 @@
                 </tr>
                 <tr>
                     <td>Bayesian Model Averaging (OvR)</td>
-                    <td> 0.857 (0.795,0.906)</td>
+                    <td>0.857 (0.795,0.906)</td>
                 </tr>
                 <tr>
-                    <td> LASSO CV (OvO)</td>
-                    <td> 0.738 (0.665,0.803)</td>
+                    <td>LASSO CV (OvO)</td>
+                    <td>0.738 (0.665,0.803)</td>
                 </tr>
                 <tr>
-                    <td> LASSO CV w/ SMOTE Oversampling (OvR)</td>
-                    <td> 0.738 (0.665,0.803)</td>
+                    <td>LASSO CV w/ SMOTE Oversampling (OvR)</td>
+                    <td>0.738 (0.665,0.803)</td>
                 </tr>
             </table>
-            <p class="center-text"><small>Note on Bayesian Model Averaging: We set the coefficient prior to Zellner's Prior with g = 1
-                and a Beta-Binomial(1,1) model prior.
-            </small></p>
-
-            <br/>
-            
-            <h3 class="center-text"">About this Project</h3>
-            <p>The way in which the surface of a city is distributed has a huge impact on human life in the city. Cities with a large
-                share of impervious surfaces have higher risk of floods as water cannot sink into the soil (Feng et al. 2021), and
-                temperatures are more extreme (Kalnay and Cai, 2003). An important aspect for public policy is therefore knowing how the 
-                area in a city is distributed. This is especially important in light of the climate crisis which will increase the frequency 
-                and severity of extreme weather events such as floods and high temperature. The distribution of surfaces is referred to as the 
-                land cover and is defined as “the composition and characteristics of land surface elements” (Cihlar, 2000). The land cover in 
-                an urban area typically includes objects such as asphalt cars and trees. Classification of these objects is vital to assess 
-                the share of impervious surfaces in a city and is typically determined by analyzing aerial images. Thus, our outcome variable 
-                is the class of an object, which can be one of nine types of urban land cover, for example trees or buildings. The input 
-                variables are measures from an aerial image such as the brightness, color or shape of an object.
-                The input data is preprocessed from the pixel level to different “segments”, which are explained in the data section.</p>
-            <p>
-                The goal of this thesis is to classify the urban land cover objects in a setting with a high dimensional feature space.
-                Thus, we use logistic and multinomial regressions with LASSO and Bayesian model selection. Further, we assess the 
-                performance of different clustering methods in differentiating the actual number of clusters that correspond to our nine
-                 types of land cover. This thesis proceeds with a summary of related work and the data used. Then we use regression and 
-                 unsupervised learning and finally discuss our methodology and findings.</p>
-            </p> 
-            <p><a href="https://github.com/chenjoshua7/Urban_Land_Cover_Multiclassification/blob/main/urban_land_covers_chen_wallstein.pdf">Github for this project can be found here.</a></p>
         </div>
+        
+        <p class="center-text"><small>Note on Bayesian Model Averaging: We set the coefficient prior to Zellner's Prior with g = 1 and a Beta-Binomial(1,1) model prior.</small></p>
+
+        <br/>
+
+        <h3 class="center-text">About this Project</h3>
+        <p>The way in which the surface of a city is distributed has a huge impact on human life in the city. Cities with a large
+            share of impervious surfaces have higher risk of floods as water cannot sink into the soil (Feng et al. 2021), and
+            temperatures are more extreme (Kalnay and Cai, 2003). An important aspect for public policy is therefore knowing how the 
+            area in a city is distributed. This is especially important in light of the climate crisis which will increase the frequency 
+            and severity of extreme weather events such as floods and high temperature. The distribution of surfaces is referred to as the 
+            land cover and is defined as “the composition and characteristics of land surface elements” (Cihlar, 2000). The land cover in 
+            an urban area typically includes objects such as asphalt cars and trees. Classification of these objects is vital to assess 
+            the share of impervious surfaces in a city and is typically determined by analyzing aerial images. Thus, our outcome variable 
+            is the class of an object, which can be one of nine types of urban land cover, for example trees or buildings. The input 
+            variables are measures from an aerial image such as the brightness, color or shape of an object.
+            The input data is preprocessed from the pixel level to different “segments”, which are explained in the data section.</p>
+        <p>
+            The goal of this thesis is to classify the urban land cover objects in a setting with a high dimensional feature space.
+            Thus, we use logistic and multinomial regressions with LASSO and Bayesian model selection. Further, we assess the 
+            performance of different clustering methods in differentiating the actual number of clusters that correspond to our nine
+             types of land cover. This thesis proceeds with a summary of related work and the data used. Then we use regression and 
+             unsupervised learning and finally discuss our methodology and findings.
+        </p>
+        <p><a href="https://github.com/chenjoshua7/Urban_Land_Cover_Multiclassification/blob/main/urban_land_covers_chen_wallstein.pdf">Github for this project can be found here.</a></p>
     </div>
-    <br/>
-    <div class=btm_banner>
+
+    <div class="btm_banner">
         © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
     </div>
 </body>
