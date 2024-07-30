@@ -232,6 +232,34 @@
             text-decoration: underline;
         }
 
+        .new-section {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            padding-left: 10px;
+        }
+
+        .new-section h4 {
+            margin: 10px 0;
+            padding: 0px 0px 0px 10px 
+        }
+
+        .new-section p {
+            margin: 10px 0;
+            padding: 10px
+        }
+
+        .new-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .new-section a:hover {
+            text-decoration: underline;
+        }
+
+        
+
         .skills {
             margin-top: 20px;
         }
@@ -278,6 +306,19 @@
             color: white;
             margin-top: 20px;
         }
+
+        .image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0px;
+        }
+
+
     </style>
 </head>
 
@@ -369,7 +410,20 @@
                 my life is nearing its end, and I'm excited to return to the States to start my career in Data Science and Machine Learning. I am currently seeking full-time jobs in Data Science/ML, hit me up!
             </p>
             <p>High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.</p>
-
+            
+            <h2>&#127881 Newest Addition &#127881</h2>
+            <div class="new-section">
+                <a href="projects/functionapproximation.html"><h4>Function Approximation with Taylor Series, Polynomial Regression, and Neural Networks</h4></a>
+                <p>In this project, I visualize function approximation using MatplotLib in Python by using three different mathematical methods. A highlight of this project was coding a Fully Connected
+                Neural Network from scratch using only base Python and Numpy. This code allows for variable layer depths and widths as well as learning rate decay. This made for some pretty fun visualizations
+                of Neural Networks learning various functions. </p>
+                <div class="image">
+                <video controls="controls" width="400" height="300" name="Video Name">
+                    <source src="projects/functionapprox/nn_lr01_dc1_5terms_4layers.mov">
+                </video>
+                </div>
+            </div>    
+            
             <h2>Highlighted Projects</h2>
             <button class="toggle-btn" onclick="toggleSection('ds-projects')">Data Science Projects</button>
             <div id="ds-projects" class="toggle-section">
