@@ -16,11 +16,28 @@
             padding: 10px;
             font-size: 16px;
         }
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
         button {
-            margin-top: 10px;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin-right: 10px;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         .result, .error {
             margin-top: 20px;
@@ -59,38 +76,71 @@
             text-align: right;
             font-weight: bold;
         }
-        .loading {
-            display: none;
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #555;
-        }
     </style>
 </head>
 <body>
     <h1>Genre Prediction from Lyrics</h1>
     <textarea id="inputText" placeholder="Enter your text here..."></textarea>
     <br>
-    <button onclick="predict()">Predict Genre</button>
-    <div id="loading" class="loading">Processing...</div>
-    <div id="result" class="result"></div>
+    <div class="button-container">
+        <button onclick="predict()">Predict Genre</button>
+        <div id="loader" class="loader"></div>
+    </div>
+
+    <!-- Predefined empty prediction bars -->
+    <div id="result" class="result">
+        <h3>Prediction Results:</h3>
+        <div class="prediction-container">
+            <div class="prediction-label">Rap</div>
+            <div class="prediction-bar-container">
+                <div class="prediction-bar" id="bar-rap"></div>
+            </div>
+            <div class="prediction-percentage" id="percentage-rap">0%</div>
+        </div>
+        <div class="prediction-container">
+            <div class="prediction-label">Rock</div>
+            <div class="prediction-bar-container">
+                <div class="prediction-bar" id="bar-rock"></div>
+            </div>
+            <div class="prediction-percentage" id="percentage-rock">0%</div>
+        </div>
+        <div class="prediction-container">
+            <div class="prediction-label">R&B</div>
+            <div class="prediction-bar-container">
+                <div class="prediction-bar" id="bar-rnb"></div>
+            </div>
+            <div class="prediction-percentage" id="percentage-rnb">0%</div>
+        </div>
+        <div class="prediction-container">
+            <div class="prediction-label">Pop</div>
+            <div class="prediction-bar-container">
+                <div class="prediction-bar" id="bar-pop"></div>
+            </div>
+            <div class="prediction-percentage" id="percentage-pop">0%</div>
+        </div>
+        <div class="prediction-container">
+            <div class="prediction-label">Country</div>
+            <div class="prediction-bar-container">
+                <div class="prediction-bar" id="bar-country"></div>
+            </div>
+            <div class="prediction-percentage" id="percentage-country">0%</div>
+        </div>
+    </div>
+
     <div id="error" class="error"></div>
 
     <script>
         async function predict() {
             const inputText = document.getElementById('inputText').value;
-            const resultDiv = document.getElementById('result');
             const errorDiv = document.getElementById('error');
-            const loadingDiv = document.getElementById('loading');
+            const loaderDiv = document.getElementById('loader');
 
-            resultDiv.innerHTML = '';
             errorDiv.innerHTML = '';
-            loadingDiv.style.display = 'block';
+            loaderDiv.style.display = 'inline-block'; // Show the loader
 
             if (inputText.length < 50) {
                 errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
-                loadingDiv.style.display = 'none';
+                loaderDiv.style.display = 'none'; // Hide the loader
                 return;
             }
 
@@ -110,41 +160,33 @@
                 if (!response.ok) {
                     const errorResponse = await response.json();
                     errorDiv.innerHTML = `Error: ${errorResponse.detail}`;
-                    loadingDiv.style.display = 'none';
+                    loaderDiv.style.display = 'none'; // Hide the loader
                     return;
                 }
 
                 const result = await response.json();
 
-                let resultHTML = '<h3>Prediction Results:</h3>';
-                for (const [genre, probability] of Object.entries(result)) {
-                    const percentage = parseFloat(probability);
-                    resultHTML += `
-                        <div class="prediction-container">
-                            <div class="prediction-label">${genre}</div>
-                            <div class="prediction-bar-container">
-                                <div class="prediction-bar" style="width: 0;"></div>
-                            </div>
-                            <div class="prediction-percentage">${probability}</div>
-                        </div>
-                    `;
-                }
-
-                resultDiv.innerHTML = resultHTML;
-
-                // Animate the bars
-                document.querySelectorAll('.prediction-bar').forEach((bar, index) => {
-                    const percentage = parseFloat(Object.values(result)[index]);
-                    setTimeout(() => {
-                        bar.style.width = `${percentage}%`;
-                    }, 100); // Delay to allow transition to start
-                });
+                // Update the bars and percentages
+                updateBar('rap', result.rap);
+                updateBar('rock', result.rock);
+                updateBar('rnb', result.rb);
+                updateBar('pop', result.pop);
+                updateBar('country', result.Country);
 
             } catch (error) {
                 errorDiv.innerHTML = `Network Error: ${error.message}`;
             } finally {
-                loadingDiv.style.display = 'none';
+                loaderDiv.style.display = 'none'; // Hide the loader
             }
+        }
+
+        function updateBar(genre, probability) {
+            const bar = document.getElementById(`bar-${genre}`);
+            const percentage = document.getElementById(`percentage-${genre}`);
+            const percentageValue = probability ? (parseFloat(probability)).toFixed(2) : 0;
+
+            bar.style.width = `${percentageValue}%`;
+            percentage.textContent = `${percentageValue}%`;
         }
     </script>
 </body>
