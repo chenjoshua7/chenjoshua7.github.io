@@ -88,8 +88,8 @@
             errorDiv.innerHTML = '';
             loadingDiv.style.display = 'block';
 
-            if (inputText.length < 100) {
-                errorDiv.innerHTML = 'Error: Text must contain at least 100 characters.';
+            if (inputText.length < 50) {
+                errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
                 loadingDiv.style.display = 'none';
                 return;
             }
