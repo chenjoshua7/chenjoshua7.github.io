@@ -96,12 +96,15 @@
             margin-left: 10px;
             overflow: hidden;
             border-radius: 5px;
+            padding: 0;
+            box-sizing: border-box;
         }
         .prediction-bar {
-            height: 90%;
+            height: 100%;
             background-color: #4caf50;
             width: 0;
             transition: width 1s ease;
+            border-radius: 5px;
         }
         .prediction-percentage {
             width: 9%;
@@ -129,19 +132,24 @@
                 margin-right: 10px;
             }
             .prediction-bar-container {
-                width: 60%;
+                width: 100%;
                 background-color: #f0f0f0;
                 position: relative;
                 height: 20px;
-                margin-right: 10px;
+                margin-left: 10px;
                 overflow: hidden;
                 border-radius: 5px;
+                padding: 0;
+                box-sizing: border-box;
             }
             .prediction-bar {
                 height: 100%;
                 background-color: #4caf50;
                 width: 0;
                 transition: width 1s ease;
+                margin: 0;
+                padding: 0;
+                border-radius: 5px;
             }
             .prediction-percentage {
                 width: 20%;
@@ -177,11 +185,7 @@
     <div class="box">
 
         <h1>Genre Prediction from Lyrics</h1>
-        <div style="position: relative;">
-            <textarea id="inputText" oninput="updateCharacterCount()" placeholder="Enter your text here..." style="width: 100%; height: 100px;"></textarea>
-        
-        </div>
-        
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
         <br>
         <div class="button-container">
             <button onclick="predict()">Predict Genre</button>
@@ -232,21 +236,6 @@
         <div id="error" class="error"></div>
 
         <script>
-            function updateCharacterCount() {
-                const inputText = document.getElementById('inputText').value;
-                const charCountDiv = document.getElementById('charCount');
-                
-                // Calculate the length of the text excluding spaces
-                const nonSpaceLength = inputText.replace(/\s+/g, '').length;
-                
-                // Update the character count or hide it if it reaches 50 characters
-                if (nonSpaceLength < 50) {
-                    charCountDiv.textContent = `${nonSpaceLength}/50`;
-                } else {
-                    charCountDiv.textContent = '';
-                }
-            }
-
             async function predict() {
                 const inputText = document.getElementById('inputText').value;
                 const errorDiv = document.getElementById('error');
@@ -255,7 +244,7 @@
                 errorDiv.innerHTML = '';
                 loaderDiv.style.display = 'inline-block'; // Show the loader
 
-                if (inputText.replace(/\s+/g, '').length < 50) {
+                if (inputText.length < 50) {
                     errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
                     loaderDiv.style.display = 'none'; // Hide the loader
                     return;
