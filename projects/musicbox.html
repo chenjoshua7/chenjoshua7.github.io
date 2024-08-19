@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script src="/navbar.js?v=1.0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var sections = document.querySelectorAll('.toggle-section');
+            sections.forEach(function (section) {
+                section.style.display = 'block';
+            });
+        });
+        
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "block") {
+                section.style.display = "none";
+            } else {
+                section.style.display = "block";
+            }
+        }
+
+        function toggleMenu() {
+            var navbarLinks = document.getElementById('navbar-links');
+            navbarLinks.classList.toggle('active');
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Genre Prediction</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite;
+            display: none;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .result, .error {
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+        }
+        .prediction-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .prediction-label {
+            width: 20%;
+            font-weight: bold;
+            text-align: left;
+            margin-right: 10px;
+        }
+        .prediction-bar-container {
+            width: 100%;
+            background-color: #f0f0f0;
+            position: relative;
+            height: 20px;
+            margin-left: 10px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .prediction-bar {
+            height: 90%;
+            background-color: #4caf50;
+            width: 0;
+            transition: width 1s ease;
+        }
+        .prediction-percentage {
+            width: 9%;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .box {
+            padding: 0px 30px 0px 30px
+        }
+        .predictions-box {
+            padding: 0px 500px 0px 10px
+        }
+
+        @media (max-width: 900px) {
+            .prediction-container {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            .prediction-label {
+                width: 20%;
+                font-weight: bold;
+                text-align: left;
+                margin-right: 10px;
+            }
+            .prediction-bar-container {
+                width: 60%;
+                background-color: #f0f0f0;
+                position: relative;
+                height: 20px;
+                margin-right: 10px;
+                overflow: hidden;
+                border-radius: 5px;
+            }
+            .prediction-bar {
+                height: 100%;
+                background-color: #4caf50;
+                width: 0;
+                transition: width 1s ease;
+            }
+            .prediction-percentage {
+                width: 20%;
+                text-align: right;
+                font-weight: bold;
+            }
+            .predictions-box {
+                padding: 0px 0px 0px 0px
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../template.css">
+    <style>
+        .textblock {
+            text-align: justify;
+            color: black;
+        }
+        .black-link {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <script>
+        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+    <div class="box">
+
+        <h1>Genre Prediction from Lyrics</h1>
+        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <br>
+        <div class="button-container">
+            <button onclick="predict()">Predict Genre</button>
+            <div id="loader" class="loader"></div>
+        </div>
+
+        <div class="predictions-box">
+        <div id="result" class="result">
+            <h3>Prediction Results:</h3>
+            <div class="prediction-container">
+                <div class="prediction-label">Rap</div>
+                <div class="prediction-bar-container">
+                    <div class="prediction-bar" id="bar-rap"></div>
+                </div>
+                <div class="prediction-percentage" id="percentage-rap">0%</div>
+            </div>
+            <div class="prediction-container">
+                <div class="prediction-label">Rock</div>
+                <div class="prediction-bar-container">
+                    <div class="prediction-bar" id="bar-rock"></div>
+                </div>
+                <div class="prediction-percentage" id="percentage-rock">0%</div>
+            </div>
+            <div class="prediction-container">
+                <div class="prediction-label">R&B</div>
+                <div class="prediction-bar-container">
+                    <div class="prediction-bar" id="bar-rnb"></div>
+                </div>
+                <div class="prediction-percentage" id="percentage-rnb">0%</div>
+            </div>
+            <div class="prediction-container">
+                <div class="prediction-label">Pop</div>
+                <div class="prediction-bar-container">
+                    <div class="prediction-bar" id="bar-pop"></div>
+                </div>
+                <div class="prediction-percentage" id="percentage-pop">0%</div>
+            </div>
+            <div class="prediction-container">
+                <div class="prediction-label">Country</div>
+                <div class="prediction-bar-container">
+                    <div class="prediction-bar" id="bar-country"></div>
+                </div>
+                <div class="prediction-percentage" id="percentage-country">0%</div>
+            </div>
+        </div>
+        </div>
+
+        <div id="error" class="error"></div>
+
+        <script>
+            async function predict() {
+                const inputText = document.getElementById('inputText').value;
+                const errorDiv = document.getElementById('error');
+                const loaderDiv = document.getElementById('loader');
+
+                errorDiv.innerHTML = '';
+                loaderDiv.style.display = 'inline-block'; // Show the loader
+
+                if (inputText.length < 50) {
+                    errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
+                    loaderDiv.style.display = 'none'; // Hide the loader
+                    return;
+                }
+
+                const data = {
+                    text: inputText
+                };
+
+                try {
+                    const response = await fetch('https://lyric-genre-predictor-f8b9dgcfa4cmbva9.eastus-01.azurewebsites.net/predict/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        const errorResponse = await response.json();
+                        errorDiv.innerHTML = `Error: ${errorResponse.detail}`;
+                        loaderDiv.style.display = 'none'; // Hide the loader
+                        return;
+                    }
+
+                    const result = await response.json();
+
+                    // Update the bars and percentages
+                    updateBar('rap', result.rap);
+                    updateBar('rock', result.rock);
+                    updateBar('rnb', result.rb);
+                    updateBar('pop', result.pop);
+                    updateBar('country', result.country);
+
+                } catch (error) {
+                    errorDiv.innerHTML = `Network Error: ${error.message}`;
+                } finally {
+                    loaderDiv.style.display = 'none'; // Hide the loader
+                }
+            }
+
+            function updateBar(genre, probability) {
+                const bar = document.getElementById(`bar-${genre}`);
+                const percentage = document.getElementById(`percentage-${genre}`);
+                const percentageValue = probability ? (parseFloat(probability)).toFixed(2) : 0;
+
+                bar.style.width = `${percentageValue}%`;
+                percentage.textContent = `${percentageValue}%`;
+            }
+        </script>
+        <hr>
+        <div class="textblock">
+            <h2>About This Project</h2>
+                <p>This project is a comprehensive end-to-end Machine Learning application, designed to classify song lyrics into five genres: Rap, Rock, R&B, Pop, and Country. I trained a DistilBERT model using PyTorch on a dataset of 50,000 song lyrics, ensuring an equal distribution across all genres to avoid bias and improve model accuracy.</p>
+                <p>To monitor and manage the machine learning lifecycle, I integrated MLFlow, which allowed me to track experiments, log parameters, and visualize performance metrics effectively. For serving the model, I developed a RESTful API using FastAPI, chosen for its speed and ease of integration with Python-based models.</p>
+                <p>The entire application is containerized with Docker, ensuring consistency across different environments and simplifying deployment. I deployed the containerized application on Azure, leveraging its robust cloud infrastructure to ensure scalability and reliability. This project demonstrates my proficiency in modern machine learning workflows, from model development and deployment to tracking and management in a cloud-based environment.</p>
+                <p>Check out the Github for this project <a href="https://github.com/chenjoshua7/chen_musicbox", class ="black-link">here</a>.</p>
+                <div style="display: flex; justify-content: space-around; align-items: center;">
+                    <img src="https://raw.githubusercontent.com/mlflow/mlflow/master/docs/source/_static/MLflow-logo-final-black.png" alt="MLflow Logo" style="max-height: 70px; margin: 10px;">
+                    <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/pytorch_logo_icon_169823.png" alt="PyTorch Logo" style="max-height: 100px; margin: 10px;">
+                    <img src="https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="FastAPI Logo" style="max-height: 100px; margin: 10px;">
+                    <img src="https://logos-world.net/wp-content/uploads/2021/02/Docker-Emblem.png" alt="Docker Logo" style="max-height: 100px; margin: 10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Microsoft_Azure_Logo.svg/1024px-Microsoft_Azure_Logo.svg.png" alt="Azure Logo" style="max-height: 55px; margin: 10px;">
+                </div>            
+        </div>
+    </div>
+    <br/>
+    <div class="btm_banner">
+        © 2024 All rights reserved. Designed and developed by Joshua Chen.
+    </div>
+</body>
+</html>
