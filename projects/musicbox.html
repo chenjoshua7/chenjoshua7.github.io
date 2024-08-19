@@ -110,10 +110,10 @@
         }
 
         .box {
-            padding: 0px 30px 0px 30px
+            padding: 0px 30px 0px 30px;
         }
         .predictions-box {
-            padding: 0px 500px 0px 10px
+            padding: 0px 500px 0px 10px;
         }
 
         @media (max-width: 900px) {
@@ -149,7 +149,7 @@
                 font-weight: bold;
             }
             .predictions-box {
-                padding: 0px 0px 0px 0px
+                padding: 0px 0px 0px 0px;
             }
         }
     </style>
@@ -177,7 +177,11 @@
     <div class="box">
 
         <h1>Genre Prediction from Lyrics</h1>
-        <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        <div style="position: relative;">
+            <textarea id="inputText" oninput="updateCharacterCount()" placeholder="Enter your text here..." style="width: 100%; height: 100px;"></textarea>
+        
+        </div>
+        
         <br>
         <div class="button-container">
             <button onclick="predict()">Predict Genre</button>
@@ -228,6 +232,21 @@
         <div id="error" class="error"></div>
 
         <script>
+            function updateCharacterCount() {
+                const inputText = document.getElementById('inputText').value;
+                const charCountDiv = document.getElementById('charCount');
+                
+                // Calculate the length of the text excluding spaces
+                const nonSpaceLength = inputText.replace(/\s+/g, '').length;
+                
+                // Update the character count or hide it if it reaches 50 characters
+                if (nonSpaceLength < 50) {
+                    charCountDiv.textContent = `${nonSpaceLength}/50`;
+                } else {
+                    charCountDiv.textContent = '';
+                }
+            }
+
             async function predict() {
                 const inputText = document.getElementById('inputText').value;
                 const errorDiv = document.getElementById('error');
@@ -236,7 +255,7 @@
                 errorDiv.innerHTML = '';
                 loaderDiv.style.display = 'inline-block'; // Show the loader
 
-                if (inputText.length < 50) {
+                if (inputText.replace(/\s+/g, '').length < 50) {
                     errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
                     loaderDiv.style.display = 'none'; // Hide the loader
                     return;
@@ -293,7 +312,7 @@
                 <p>This project is a comprehensive end-to-end Machine Learning application, designed to classify song lyrics into five genres: Rap, Rock, R&B, Pop, and Country. I trained a DistilBERT model using PyTorch on a dataset of 50,000 song lyrics, ensuring an equal distribution across all genres to avoid bias and improve model accuracy.</p>
                 <p>To monitor and manage the machine learning lifecycle, I integrated MLFlow, which allowed me to track experiments, log parameters, and visualize performance metrics effectively. For serving the model, I developed a RESTful API using FastAPI, chosen for its speed and ease of integration with Python-based models.</p>
                 <p>The entire application is containerized with Docker, ensuring consistency across different environments and simplifying deployment. I deployed the containerized application on Azure, leveraging its robust cloud infrastructure to ensure scalability and reliability. This project demonstrates my proficiency in modern machine learning workflows, from model development and deployment to tracking and management in a cloud-based environment.</p>
-                <p>Check out the Github for this project <a href="https://github.com/chenjoshua7/chen_musicbox", class ="black-link">here</a>.</p>
+                <p>Check out the Github for this project <a href="https://github.com/chenjoshua7/chen_musicbox" class="black-link">here</a>.</p>
                 <div style="display: flex; justify-content: space-around; align-items: center;">
                     <img src="https://raw.githubusercontent.com/mlflow/mlflow/master/docs/source/_static/MLflow-logo-final-black.png" alt="MLflow Logo" style="max-height: 70px; margin: 10px;">
                     <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/pytorch_logo_icon_169823.png" alt="PyTorch Logo" style="max-height: 100px; margin: 10px;">
