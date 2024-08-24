@@ -160,6 +160,59 @@
                 padding: 0px 0px 0px 0px;
             }
         }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+
+        .result {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    
+        label {
+            font-size: 1rem;
+            color: #555;
+            margin-right: 10px;
+        }
+    
+        .select-container {
+            position: relative;
+        }
+    
+        select {
+            width: 100px; /* Set a specific smaller width for the dropdown */
+            padding: 5px; /* Adjust padding to match the smaller size */
+            font-size: 0.9rem; /* Slightly smaller font size */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            appearance: none;
+        }
+    
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+    
+        .select-container::after {
+            content: '\25BC'; /* Down arrow */
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #999;
+        }
     </style>
     <link rel="stylesheet" href="../template.css">
     <style>
@@ -185,15 +238,20 @@
     <div class="box">
 
         <h1>Genre Prediction from Lyrics</h1>
+        <p>Note: This application is hosted on a free-tier Azure web server. If you are the first person to use the application in a while, the server may take a few moments to start up. Thank you for your patience!</p>
+
         <textarea id="inputText" placeholder="Enter your text here..."></textarea>
         <br>
+        
         <div class="button-container">
             <button onclick="predict()">Predict Genre</button>
             <div id="loader" class="loader"></div>
         </div>
 
+
+        
         <div class="predictions-box">
-        <div id="result" class="result">
+
             <h3>Prediction Results:</h3>
             <div class="prediction-container">
                 <div class="prediction-label">Rap</div>
@@ -242,11 +300,11 @@
                 const loaderDiv = document.getElementById('loader');
 
                 errorDiv.innerHTML = '';
-                loaderDiv.style.display = 'inline-block'; // Show the loader
+                loaderDiv.style.display = 'inline-block';
 
                 if (inputText.length < 50) {
                     errorDiv.innerHTML = 'Error: Text must contain at least 50 characters.';
-                    loaderDiv.style.display = 'none'; // Hide the loader
+                    loaderDiv.style.display = 'none';
                     return;
                 }
 
