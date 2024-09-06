@@ -252,7 +252,7 @@
         <div id="result" class="result" style="padding: 0px; margin:0px">
             <label for="actual">Actual Genre:</label>
             <select name="actual" id="actual">
-                <option value="null">N/A</option>
+                <option value="null"></option>
                 <option value="rap">Rap</option>
                 <option value="rock">Rock</option>
                 <option value="rb">R&B</option>
@@ -305,6 +305,42 @@
         <div id="error" class="error"></div>
 
         <script>
+            async function log(inputText, predictions) {
+                const actualGenre = document.getElementById('actual').value;
+                const errorDiv = document.getElementById('error');  // Add errorDiv for error handling
+            
+                if (!actualGenre) {
+                    errorDiv.innerHTML = 'Error: Please select the actual genre.';
+                    return;
+                }
+            
+                const logData = {
+                    lyrics: inputText,
+                    predictions: predictions,
+                    actual: actualGenre
+                };
+            
+                try {
+                    const response = await fetch('https://lyric-genre-predictor-f8b9dgcfa4cmbva9.eastus-01.azurewebsites.net/log/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(logData)  // Correctly stringify the JSON body
+                    });
+            
+                    if (!response.ok) {
+                        const errorResponse = await response.json();
+                        errorDiv.innerHTML = `Error: ${errorResponse.detail}`;
+                        return;
+                    }
+            
+                    console.log('Log data successfully sent');
+                } catch (error) {
+                    errorDiv.innerHTML = `Network Error: ${error.message}`;
+                }
+            }
+
             async function predict() {
                 const inputText = document.getElementById('inputText').value;
                 const errorDiv = document.getElementById('error');
@@ -347,7 +383,8 @@
                     updateBar('rnb', result.rb);
                     updateBar('pop', result.pop);
                     updateBar('country', result.country);
-
+                    
+                    log(inputText, result);
                 } catch (error) {
                     errorDiv.innerHTML = `Network Error: ${error.message}`;
                 } finally {
