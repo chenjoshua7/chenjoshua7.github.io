@@ -241,13 +241,14 @@
         <p>Note: This application is hosted on a free-tier Azure web server. If you are the first person to use the application in a while, the server may take a few moments to start up. Thank you for your patience!</p>
 
         <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+        
         <br>
         
         <div class="button-container">
             <button onclick="predict()">Predict Genre</button>
             <div id="loader" class="loader"></div>
         </div>
-
+        
         <h4 style="padding: 20px 0px 10px 0px; margin:0px">Help Train my Model!</h4>
         <div id="result" class="result" style="padding: 0px; margin:0px">
             <label for="actual">Actual Genre:</label>
@@ -300,7 +301,9 @@
                 <div class="prediction-percentage" id="percentage-country">0%</div>
             </div>
         </div>
+        <p>By continuing you agree to the <a href="../tos.html", style="color:black"><b>Terms of Service</b></a></p>
         </div>
+        
 
         <div id="error" class="error"></div>
 
