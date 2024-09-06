@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W57V1PRPVC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-W57V1PRPVC');
+    </script>
+    <script src="navbar.js?v=1.0"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="template.css">
+    <title>Terms of Service & Privacy Policy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            background-size: cover;
+            background-attachment: fixed; 
+            background-repeat: no-repeat; 
+            background-position: center center;
+            color: #333;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #0073e6;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .terms-of-service, .privacy-policy {
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px auto;
+            font-size: 15px;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        .terms-of-service h2, .privacy-policy h3 {
+            color: #0073e6;
+            font-weight: bold;
+        }
+
+        .sidebar {
+            display: none; /* Hide the sidebar */
+        }
+
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .terms-of-service, .privacy-policy {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terms-of-service, .privacy-policy {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .btm_banner {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <script>
+        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
+        fetch('/navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
+    </script>
+
+    <div class="container">
+        <div class="terms-of-service">
+            <h2>Terms of Service</h2>
+            <p>
+                By accessing and using this website, you agree to these Terms of Service. If you do not agree, please stop using the site. For details on how I handle your information, please see my Privacy Policy.
+            </p>
+            <h3>Services</h3>
+            <p>
+                This website uses Google Analytics to understand user behavior and improve the site. I also collect and store anonymous user inputs through the NLP classification system to enhance the service.
+            </p>
+            <h3>Data Collection</h3>
+            <p>
+                I collect data to help improve the site, including anonymized data through Google Analytics and user inputs for the NLP classification. All data is collected and stored in a way that does not identify individuals.
+            </p>
+            <h3>User Responsibilities</h3>
+            <p>
+                Users must not use the site for unlawful activities. Misuse of the website or its services may result in termination of access.
+            </p>
+            <h3>Intellectual Property</h3>
+            <p>
+                All content on this website is protected by intellectual property laws. You agree not to copy, distribute, or modify any content without permission.
+            </p>
+            <h3>Limitation of Liability</h3>
+            <p>
+                I provide this website "as is" without any guarantees. I am not responsible for any damages or losses resulting from the use of the site.
+            </p>
+            <h3>Changes to the Terms</h3>
+            <p>
+                I may update these terms at any time. Please check this page regularly for updates. Continued use of the site means you accept the revised terms.
+            </p>
+            <h3>Contact Me</h3>
+            <p>
+                For questions about these Terms, please contact me at <a href="mailto:chen.joshua98@gmail.com">chen.joshua98@gmail.com</a>.
+            </p>
+        </div>
+
+        <div class="privacy-policy">
+            <h3>Privacy Policy</h3>
+            <p>
+                This website collects anonymized data through Google Analytics and stores anonymous user inputs from the NLP classification system. No personal information is collected that can identify you.
+            </p>
+            <p>
+                Data is collected solely to improve the website and its services. I take reasonable measures to ensure that your data is stored securely and is not shared with any third parties.
+            </p>
+            <p>
+                For any questions regarding the Privacy Policy, feel free to contact me at <a href="mailto:chen.joshua98@gmail.com">chen.joshua98@gmail.com</a>.
+            </p>
+        </div>
+    </div>
+
+    <div class="btm_banner">
+        © Copyright 2024 All rights reserved. Designed and developed from scratch by Joshua Chen.
+    </div>
+
+</body>
+</html>
