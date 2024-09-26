@@ -73,7 +73,7 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, rgb(53, 198, 255), rgb(220, 218, 255) 75vh );
+    background: linear-gradient(to bottom, rgb(38, 38, 38), rgb(93, 93, 93) 75vh );
 }
 
 .backgd {
