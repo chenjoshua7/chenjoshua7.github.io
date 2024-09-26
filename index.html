@@ -404,25 +404,55 @@
         <div class="content">
             <h2>About Me</h2>
             <p>Hi! I'm Josh, a Data Scientist and Machine Learning Engineer. I am passionate about using data in innovative and creative ways to help solve problems - whether its 
-                building ML products or deriving insights. I recently graduated with my M.Sc. in Data Science Methodology where I focused on Machine/Deep Learning, Natural Language 
-                Processing, and Computer Vision. I am currently looking for roles in Data Science, Analytics, or Machine Learning.
+                building ML products or deriving insights. 
             </p>
-            <p>
-                Please come again soon! I am always working on new projects to pick up new skills and new technologies.
-            </p>
-            <p>High School Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.</p>
+            <p>Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.</p>
             <div id="masters-these" style="text-align:center; padding:10px 40px">
             <p style="align-items: center; font-family:Georgia, 'Times New Roman', Times, serif"> Check out my Masters Thesis!<br><a href="https://drive.google.com/file/d/1GloQc8WNWnrVC249ixRG3qIIADIFHxeE/view?usp=sharing"> Comparison of Vision Transformers and Convolution Neural Networks </p></a>
             </div>
-            <h2>&#127881 Newest Additions &#127881</h2>
+            <h2>Highlighted Projects</h2>
+            <p>These are some of my favorite/most recent projects but I have plenty of other cool stuff elsewhere on my website. Don't miss it!</p>
+            
             <div class="new-section">
-                <a href="projects/musicbox.html"><h4>Chen's Musicbox</h4></a>
-                <p>In this project, I developed an end-to-end NLP machine learning model to classify song genres based on lyrics. The workflow includes using PyTorch for model training, MLFlow for tracking and logging experiments, and FastAPI for building the API services. The entire application is containerized with Docker and hosted on Azure. Check out the live web application!</p> 
+                <a href="https://resilience-earth.streamlit.app/"><h4>AI + Climate Hackathon - Resilience App</h4>
+                <p>
+                    In six hours, we developed a web application to help policymakers and green developers identify sustainable, community-driven, and financially viable solutions in Brooklyn. Using NYC Open Data, we applied prompt engineering, Generative AI, and LangChain to create a streamlined platform. The final product is presented through Folium within a user-friendly Streamlit web app.
+                </p>
                 <div class="image">
-                    <img src="projects/images/example.png" style="max-width: 70%; border-radius: 10px;">
+                    <img src="images/resilience.png" style="max-width: 50%; border-radius: 10px;">
                 </div>
             </div>    
-            
+            </a>    
+            <br>
+
+            <div class="new-section">
+                <a href="https://chen-leetcode.streamlit.app/"><h4>Automated LeetCode Daily Problem Dashboard</h4>
+                <p>
+                    Like many, I rely on LeetCode to sharpen my coding skills and master Data Structures & Algorithms. 
+                    To motivate myself further and to track my progress, I built an automated Streamlit dashboard that monitors my journey and 
+                    offers deeper insights into my performance. Key features include a backend powered by an AWS RDS MySQL database, a daily
+                     problem tracker, predictive benchmarks, and interactive Plotly visualizations. 
+                </p>
+                <div style="display: flex; justify-content: center;">
+                    <video width="50%" controls>
+                        <source src="https://chenjoshua7.github.io/example.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>    
+            <br>
+
+            <div class="new-section">
+                <a href="projects/musicbox.html"><h4>Chen's Musicbox</h4>
+                <p>An end-to-end NLP machine learning model to classify song genres based on lyrics. The workflow includes using PyTorch for model training, MLFlow for tracking and logging experiments, and FastAPI for building the API services. The entire application is containerized with Docker and hosted on Azure. 
+                    For model validation, I am using batch processing with Azure SQL and Azure Blob Storage.
+                    Check out the live web application!</p> 
+                <div class="image">
+                    <img src="projects/images/example.png" style="max-width: 60%; border-radius: 10px;">
+                </div>
+            </div>    
+        </a>
+<!--
             <h2>Highlighted Projects</h2>
             <button class="toggle-btn" onclick="toggleSection('ds-projects')">Data Science Projects</button>
             <div id="ds-projects" class="toggle-section">
@@ -443,8 +473,12 @@
             <div id="viz-projects" class="toggle-section">
                 <p><a href="/visual/basketball.html">Lakers 23-24 Visualization</a> - Organizing data into a MySQL database to create interactive visualizations with Python.</p>
             </div>
+-->
         </div>
+
+
     </div>
+
     <div class="btm_banner">
         © Copyright 2024 All rights reserved. |  
         <a href="tos.html" style="color:white">Terms of Service</a>   |  
