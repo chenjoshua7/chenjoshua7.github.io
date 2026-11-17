@@ -6,158 +6,487 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'G-W57V1PRPVC');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var sections = document.querySelectorAll('.toggle-section');
+            sections.forEach(function (section) {
+                section.style.display = 'block';
+            });
+        });
+        
+        function toggleSection(sectionId) {
+            var section = document.getElementById(sectionId);
+            if (section.style.display === "block") {
+                section.style.display = "none";
+            } else {
+                section.style.display = "block";
+            }
+        }
+
+        function toggleMenu() {
+            var navbarLinks = document.getElementById('navbar-links');
+            navbarLinks.classList.toggle('active');
+        }
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua D. Chen – Data Scientist &amp; ML Engineer</title>
-    <meta name="description" content="Portfolio of Joshua D. Chen: data science, machine learning engineering, math and data visualization projects.">
+    <link rel="stylesheet" href="template.css">
     <link rel="icon" type="image/png" href="images/icon.png">
 
     <meta property="og:url" content="https://chenjoshua7.github.io" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Joshua D. Chen" />
-    <meta property="og:description" content="Data Scientist &amp; Machine Learning Engineer. Projects in ML, math and data visualization." />
+    <meta property="og:description" content="Personal website of Joshua D. Chen" />
     <meta property="og:image" content="https://chenjoshua7.github.io/images/background2.png" />
 
-    <link rel="stylesheet" href="/site.css">
+    <title>Joshua D. Chen</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            min-height: 100vh;
+            font-size: 19px;
+        }
+        .headshot {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid white;
+            object-fit: cover;
+            object-position: center;
+        }
+        a {
+            color: white;
+        }
+        .disclaimer {
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+        .hero {
+            height: 150px;
+            margin: 50px;
+            position: relative;
+            text-align: center;
+            color: rgb(64, 32, 83);
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+        .hero-text {
+            position: absolute;
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 2px 35px;
+            font-size: 20px;
+        }
+        .hero-text1 {
+            position: relative;
+            width: auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 25px;
+            z-index: 11;
+        }
+        .hero-text2 {
+            position: absolute;
+            width: auto;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            opacity: 0.5;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            margin: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            margin-right: 20px;
+            margin-left: 80px;
+        }
+        .content {
+            flex: 3;
+            margin-right: 80px;
+            padding: 10px 50px 50px 50px;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .about {
+            color: white;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        .banner {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .banner a {
+            margin: 0 10px;
+        }
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 14px;
+            }
+            .container {
+                flex-direction: column;
+                margin: 10px;
+            }
+            .sidebar {
+                margin-right: 0;
+                margin-bottom: 20px;
+                margin-left: 0;
+            }
+            .content {
+                margin-right: 0;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text {
+                font-size: 12px;
+            }
+        }
+
+        .sidebar h2 {
+            margin-top: 20px;
+        }
+
+        .education h4, .education h6 {
+            margin: 5px 0;
+        }
+
+        .education h6 {
+            font-weight: normal;
+            color: #ccc; /* Lighten the color for distinction */
+        }
+        .education h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .contact p a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact p a:hover {
+            text-decoration: underline;
+        }
+        
+        .contact p a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact p a:hover {
+            text-decoration: underline;
+        }
+        
+        .toggle-btn {
+            width: 100%;
+            background-color: #2b5ca5;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            margin-top: 10px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #1a3e7a;
+        }
+        
+        .toggle-section {
+            display: block; /* Changed from 'none' to 'block' to start with sections visible */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding-left: 15px;
+            margin-top: 10px;
+        }
+        
+        .toggle-section p {
+            margin: 10px 0;
+            padding: 10px
+        }
+        
+        .toggle-section a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .toggle-section a:hover {
+            text-decoration: underline;
+        }
+
+        .new-section {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            padding-left: 10px;
+        }
+
+        .new-section h4 {
+            margin: 10px 0;
+            padding: 0px 0px 0px 10px 
+        }
+
+        .new-section p {
+            margin: 10px 0;
+            padding: 10px
+        }
+
+        .new-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .new-section a:hover {
+            text-decoration: underline;
+        }
+
+        
+
+        .skills {
+            margin-top: 20px;
+        }
+        
+        .skills h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .skills-category {
+            margin-bottom: 10px;
+        }
+        
+        .skills-category h3 {
+            padding-bottom: 2px;  /* Reduced padding */
+            margin-bottom: 5px;   /* Reduced margin */
+            color: #ffffff;
+            font-size: 18px;  /* Smaller font size for better alignment */
+        }
+        
+        .skills ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 14px; /* Smaller text for list items */
+        }
+        
+        .skills ul li {
+            margin: 3px 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .contact p a, .skills ul li {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btm_banner {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            margin-top: 20px;
+        }
+
+        .image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0px;
+        }
+
+
+    </style>
 </head>
 
 <body>
     <div id="navbar-placeholder"></div>
+
     <script>
+        // Load the navbar.html file and insert it into the div with id="navbar-placeholder"
         fetch('/navbar.html')
-            .then(r => r.text())
-            .then(html => { document.getElementById('navbar-placeholder').innerHTML = html; });
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            });
     </script>
 
-    <main class="wrap">
-        <!-- Hero -->
-        <section class="hero">
-            <div>
-                <span class="eyebrow">Data Scientist &amp; ML Engineer</span>
-                <h1>Hi, I'm <span>Josh Chen.</span></h1>
-                <p class="lead">I use data in innovative and creative ways to solve problems, whether that's building ML products end to end or digging out insights. Off the clock: volleyball coach, chess fanatic, Lakers fan, origami enthusiast, great violinist, poor guitarist.</p>
-                <div class="hero-actions">
-                    <a class="btn primary" href="/resume.html">View Resume</a>
-                    <a class="btn" href="https://github.com/chenjoshua7" target="_blank" rel="noopener">GitHub</a>
-                    <a class="btn" href="https://linkedin.com/in/chenjoshua7" target="_blank" rel="noopener">LinkedIn</a>
-                    <a class="btn" href="mailto:chen.joshua98@gmail.com">Email me</a>
+    <div class="container">
+        <div class="sidebar">
+            <h1 class="center-text">Joshua Chen</h1>
+            
+            <div class="center-text">
+                <img src="images/headshot.png" alt="Headshot" class="headshot">
+            </div>
+            <br>
+            <div style="display: flex; align-items: center;">
+                <a href="https://linkedin.com/in/chenjoshua7" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    LinkedIn: <a href="https://linkedin.com/in/chenjoshua7" target="_blank">in/chenjoshua7</a>
+                </h6>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="https://github.com/chenjoshua7" target="_blank">
+                    <img src="images/github.png" alt="GitHub" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    GitHub: <a href="https://github.com/chenjoshua7" target="_blank">chenjoshua7</a>
+                </h6>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <a href="mailto:chen.joshua98@gmail.com" target="_blank">
+                    <img src="images/email.png" alt="Email" style="width: 25px; height: auto; margin-right: 20px;">
+                </a>
+                <h6 style="margin: 0;">
+                    Email: <a href="mailto:chen.joshua98@gmail.com" target="_blank">chen.joshua98@gmail.com</a>
+                </h6>
+            </div>
+        
+            <h2>About Me</h2>
+            <p style="font-size:16px">Hi! I'm Josh, a Data Scientist and Machine Learning Engineer. I am passionate about using data in innovative and creative ways to help solve problems - whether its 
+                building ML products or deriving insights. 
+            </p>
+            <p style="font-size:16px;">Volleyball Coach, Chess Fanatic, Lakers Fan, Origami Enthusiast, Great Violinist, Poor Guitarist.</p>
+            
+            <br>
+<!--            <div class="skills">
+                <h2>Skills</h2>
+                <div class="skills-category">
+                    <h4 style="padding:0px; margin:10px 0px">Programming Skills</h4>
+                    <p id="programming-skills", style="font-size:15px; padding: 0px; margin: 0px 0px 25px 0px">Python, R, SQL, Web Development (HTML, CSS, JavaScript)</p>
+                </div>
+                <div class="skills-category">
+                    <h4 style="padding:0px; margin:10px 0px">Data Science</h4>
+                    <p id="ds-skills", style="font-size:15px; padding: 0px; margin: 0px 0px 25px 0px;">PyTorch, TensorFlow, XGBoost, Gurobi</p>
+                </div>
+                <div class="skills-category">
+                    <h4 style="padding:0px; margin:10px 0px">MLOps</h4>
+                    <p id="cs-skills", style="font-size:15px; padding: 0px; margin: 0px 0px 25px 0px">FastAPI, Flask, Docker, Azure, AWS</p>
+                </div>
+                <div class="skills-category">
+                    <h4 style="padding:0px; margin:10px 0px">Data Visualization</h4>
+                    <p id="dataviz-skills", style="font-size:15px; padding: 0px; margin: 0px 0px 25px 0px">Tableau, Streamlit, Plotly, Seaborn, ggplot2</p>
                 </div>
             </div>
-            <div class="headshot-wrap">
-                <div class="headshot">
-                    <img src="images/headshot.png" alt="Portrait of Joshua Chen">
-                </div>
+        -->
+            <div class="skills">
             </div>
-        </section>
+            <div class="education">
+                <h2>Education</h2>
+                <h4>MSc. Data Science Methodology</h4>
+                <h6>Barcelona School of Economics</h6>
+                <h4>MA Secondary Mathematics Education</h4>
+                <h6>Relay School of Education</h6>
+                <h4>BA Mathematics, Minor Economics, Honors Program</h4>
+                <h6>Boston College</h6>
+            </div>
+        
+        </div>
+        <div class="content">
 
-        <!-- Thesis callout -->
-        <div class="notice">
-            <div>
-                <strong>Master's Thesis</strong>
-                <span>Comparison of Vision Transformers and Convolutional Neural Networks</span>
+            <div id="masters-thesis" style="text-align:center; padding:0px 0px 10px">
+            <p style="align-items: center; font-family:Georgia, 'Times New Roman', Times, serif"> Check out my Masters Thesis!<br><a href="https://drive.google.com/file/d/1GloQc8WNWnrVC249ixRG3qIIADIFHxeE/view?usp=sharing"> Comparison of Vision Transformers and Convolution Neural Networks </p></a>
             </div>
-            <a class="btn" href="https://drive.google.com/file/d/1GloQc8WNWnrVC249ixRG3qIIADIFHxeE/view?usp=sharing" target="_blank" rel="noopener">Read the thesis →</a>
+            <h2>Highlighted Projects</h2>
+            <p>These are some of my favorite/most recent projects but I have plenty of other cool stuff elsewhere on my website. Don't miss it!</p>
+            
+            <div class="new-section">
+                <a href="https://resilience-earth.streamlit.app/"><h4>AI + Climate Hackathon - Resilience App</h4>
+                <p>
+                    In six hours, we developed a web application to help policymakers and green developers identify sustainable, community-driven, and financially viable solutions in Brooklyn. Using NYC Open Data, we applied prompt engineering, Generative AI, and LangChain to create a streamlined platform. The final product is presented through Folium within a user-friendly Streamlit web app.
+                </p>
+                <div class="image">
+                    <img src="images/resilience.png" style="max-width: 50%; border-radius: 10px;">
+                </div>
+            </div>    
+            </a>    
+            <br>
+
+            <div class="new-section">
+                <a href="https://chen-leetcode.streamlit.app/"><h4>Automated LeetCode Daily Problem Dashboard</h4>
+                <p>
+                    Like many, I rely on LeetCode to sharpen my coding skills and master Data Structures & Algorithms. 
+                    To motivate myself further and to track my progress, I built an automated Streamlit dashboard that monitors my journey and 
+                    offers deeper insights into my performance. Key features include a backend powered by an AWS RDS MySQL database, a daily
+                     problem tracker, predictive benchmarks, and interactive Plotly visualizations. 
+                </p>
+                <div style="display: flex; justify-content: center;">
+                    <video width="50%" controls>
+                        <source src="https://chenjoshua7.github.io/example.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>    
+            <br>
+
+            <div class="new-section">
+                <a href="projects/musicbox.html"><h4>Chen's Musicbox</h4>
+                <p>An end-to-end NLP machine learning model to classify song genres based on lyrics. The workflow includes using PyTorch for model training, MLFlow for tracking and logging experiments, and FastAPI for building the API services. The entire application is containerized with Docker and hosted on Azure. 
+                    For model validation, I am using batch processing with Azure SQL and Azure Blob Storage.
+                    Check out the live web application!</p> 
+                <div class="image">
+                    <img src="projects/images/example.png" style="max-width: 60%; border-radius: 10px;">
+                </div>
+            </div>    
+        </a>
+<!--
+            <h2>Highlighted Projects</h2>
+            <button class="toggle-btn" onclick="toggleSection('ds-projects')">Data Science Projects</button>
+            <div id="ds-projects" class="toggle-section">
+                <p><a href="/projects/nlp.html">BERT Topic Classification</a> - Using BERT for Multi-classification of News Articles and experimentation with Zero-shot Learning and Data Augmentation.</p>
+                <p><a href="/projects/recommendation.html">MoviesLens Recommendation System</a> - Analyzed the MovieLens DataSet to evaluate the effectiveness of ProbS, HeatS, and Collaborative Filtering recommendation systems and their iterative network effects.</p>
+                <p><a href="/projects/gspmulticlass.html">Multiclassification of Geospatial Data</a> - Using different frequentist and bayesian model selection/regularization tools to classify urban land covers.</p>
+            </div>
+        
+            <button class="toggle-btn" onclick="toggleSection('math-projects')">Mathematical Concepts</button>
+            <div id="math-projects" class="toggle-section">
+                <p><a href="math/functionapproximation.html">Function Approximation</a> - Coded a neural network class using only base Python and Numpy with customizable layer depths, widths, and learning rate decay as well as with visualization.</p>
+                <p><a href="/math/perceptron.html">Visualizing the Perceptron Algorithm</a> - Visualize the learning process of the perceptron algorithm and analyze its performance in comparison to Bayes Risk.</p>
+                <p><a href="/math/cod.html">Curse of Dimensionality</a> - Visualizing/understanding the Curse of Dimensionality using kNN, PCA, and t-SNE</p>
+                <p><a href="/math/pandemic.html">Pandemic Modeling</a> - Understand pandemic behavior using Markov Chain SIR modeling and Graph Theory to analyze the impact of community groups on pandemic spread.</p>
+            </div>
+        
+            <button class="toggle-btn" onclick="toggleSection('viz-projects')">Data Visualizations</button>
+            <div id="viz-projects" class="toggle-section">
+                <p><a href="/visual/basketball.html">Lakers 23-24 Visualization</a> - Organizing data into a MySQL database to create interactive visualizations with Python.</p>
+            </div>
+-->
         </div>
 
-        <!-- Featured projects -->
-        <section class="section" style="padding-top:48px">
-            <div class="section-head">
-                <h2>Featured projects</h2>
-                <p>A few favourites. There's plenty more below.</p>
-            </div>
-            <div class="card-grid">
-                <a class="card wide" href="projects/musicbox.html">
-                    <div class="card-media"><img src="projects/images/example.png" alt="Chen's Musicbox web application" loading="lazy"></div>
-                    <div class="card-body">
-                        <h3>Chen's Musicbox</h3>
-                        <p>An end-to-end NLP model that classifies song genres from lyrics. PyTorch for training, MLflow for experiment tracking, FastAPI for the API, all containerized with Docker and hosted on Azure, with batch validation through Azure SQL and Blob Storage.</p>
-                        <div class="card-tags">
-                            <span class="chip">PyTorch</span><span class="chip">MLflow</span><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Azure</span>
-                        </div>
-                        <span class="card-link">See the project →</span>
-                    </div>
-                </a>
 
-                <a class="card" href="https://resilience-earth.streamlit.app/" target="_blank" rel="noopener">
-                    <div class="card-media"><img src="images/resilience.png" alt="Resilience App screenshot" loading="lazy"></div>
-                    <div class="card-body">
-                        <h3>AI + Climate Hackathon: Resilience App</h3>
-                        <p>Built in six hours: a web app that helps policymakers and green developers find sustainable, community-driven, financially viable solutions in Brooklyn, using NYC Open Data, GenAI and LangChain, served through Folium in Streamlit.</p>
-                        <div class="card-tags">
-                            <span class="chip">LangChain</span><span class="chip">GenAI</span><span class="chip">Streamlit</span><span class="chip">Folium</span>
-                        </div>
-                        <span class="card-link">Open the app →</span>
-                    </div>
-                </a>
+    </div>
 
-                <div class="card">
-                    <div class="card-media">
-                        <video muted loop playsinline preload="metadata" aria-label="LeetCode dashboard demo"
-                               onmouseenter="this.play()" onmouseleave="this.pause()">
-                            <source src="example.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="card-body">
-                        <h3>Automated LeetCode Dashboard <span class="status-badge">Paused</span></h3>
-                        <p>A Streamlit dashboard that tracks my daily LeetCode progress, backed by an AWS RDS MySQL database, with a daily problem tracker, predictive benchmarks and interactive Plotly charts.</p>
-                        <div class="card-tags">
-                            <span class="chip">Streamlit</span><span class="chip">AWS RDS</span><span class="chip">MySQL</span><span class="chip">Plotly</span>
-                        </div>
-                        <span class="card-note">Live app is currently offline. Hover the preview to play the demo.</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="btm_banner">
+        © Copyright 2024 All rights reserved. |  
+        <a href="tos.html" style="color:white">Terms of Service</a>   |  
+        <a href="tos.html" style="color:white">Privacy Policy</a>   |  
+        <a href="mailto:chen.joshua98@gmail.com", style="color:white">Contact Me</a>
+    </div>
 
-        <!-- Explore -->
-        <section class="section">
-            <div class="section-head"><h2>Explore more</h2></div>
-            <div class="explore">
-                <a href="/projects.html"><b>Machine Learning →</b><span>NLP, recommenders, classification</span></a>
-                <a href="/math.html"><b>Math &amp; Theory →</b><span>Neural nets from scratch, perceptron, pandemics</span></a>
-                <a href="/programming.html"><b>Programming →</b><span>Dashboards, trackers and tools</span></a>
-                <a href="/visual.html"><b>Visualizations →</b><span>Geospatial work and Lakers analytics</span></a>
-            </div>
-        </section>
-
-        <!-- Skills + Education -->
-        <section class="section two-col">
-            <div class="panel">
-                <h2>Toolbox</h2>
-                <div class="skill-group">
-                    <h4>Programming</h4>
-                    <div class="chips"><span class="chip">Python</span><span class="chip">R</span><span class="chip">SQL</span><span class="chip">HTML / CSS / JS</span></div>
-                </div>
-                <div class="skill-group">
-                    <h4>Data Science</h4>
-                    <div class="chips"><span class="chip">PyTorch</span><span class="chip">TensorFlow</span><span class="chip">XGBoost</span><span class="chip">Gurobi</span></div>
-                </div>
-                <div class="skill-group">
-                    <h4>MLOps</h4>
-                    <div class="chips"><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Docker</span><span class="chip">Azure</span><span class="chip">AWS</span></div>
-                </div>
-                <div class="skill-group">
-                    <h4>Data Visualization</h4>
-                    <div class="chips"><span class="chip">Tableau</span><span class="chip">Streamlit</span><span class="chip">Plotly</span><span class="chip">Seaborn</span><span class="chip">ggplot2</span></div>
-                </div>
-            </div>
-            <div class="panel">
-                <h2>Education</h2>
-                <div class="edu"><b>MSc. Data Science Methodology</b><span>Barcelona School of Economics</span></div>
-                <div class="edu"><b>MA Secondary Mathematics Education</b><span>Relay School of Education</span></div>
-                <div class="edu"><b>BA Mathematics, Minor Economics, Honors Program</b><span>Boston College</span></div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        © <script>document.write(new Date().getFullYear())</script> Joshua D. Chen
-        <br>
-        <a href="tos.html">Terms of Service</a>
-        <a href="tos.html#privacy">Privacy Policy</a>
-        <a href="mailto:chen.joshua98@gmail.com">Contact</a>
-    </footer>
 </body>
 </html>

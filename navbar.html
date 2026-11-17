@@ -1,34 +1,46 @@
-<header class="site-nav">
-    <a class="brand" href="/index.html">Joshua Chen</a>
-    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.getElementById('navbar-links').classList.toggle('active')">☰</button>
-    <nav id="navbar-links" class="nav-links">
-        <a href="/index.html">Home</a>
-        <a href="/resume.html">Resume</a>
-        <div class="has-sub">
-            <a href="/projects.html">Machine Learning</a>
-            <div class="sub">
+<div class="banner">
+    <button class="hamburger dropbtn" onclick="toggleMenu()">☰</button>
+    <div id="navbar-links" class="navbar-links">
+        <div class="dropdown">
+            <a href="/index.html"><button class="dropbtn">Home</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/resume.html"><button class="dropbtn">Resume</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/projects.html"><button class="dropbtn">Machine/Deep Learning</button></a>
+            <div class="dropdown-content">
                 <a href="/projects/musicbox.html">Chen's Musicbox</a>
                 <a href="/projects/nlp.html">BERT Classification</a>
                 <a href="/projects/recommendation.html">MovieLens Recommendation</a>
-                <a href="/projects/gspmulticlass.html">Urban Land Cover Classification</a>
+                <a href="/projects/gspmulticlass.html">Urban Land Covers Class-<br/>ification with Linear Models</a>
             </div>
         </div>
-        <div class="has-sub">
-            <a href="/math.html">Math &amp; Theory</a>
-            <div class="sub">
+        <div class="dropdown">
+            <a href="/math.html"><button class="dropbtn">Math/Theory</button></a>
+            <div class="dropdown-content">
                 <a href="/math/functionapproximation.html">Function Approximation</a>
                 <a href="/math/perceptron.html">Perceptron</a>
                 <a href="/math/pandemic.html">Pandemic Modeling</a>
                 <a href="/math/cod.html">Curse of Dimensionality</a>
             </div>
         </div>
-        <a href="/programming.html">Programming</a>
-        <div class="has-sub">
-            <a href="/visual.html">Visualizations</a>
-            <div class="sub">
+        <div class="dropdown">
+            <a href="/programming.html"><button class="dropbtn">Programming</button></a>
+        </div>
+        <div class="dropdown">
+            <a href="/visual.html"><button class="dropbtn">Visualizations</button></a>
+            <div class="dropdown-content">
                 <a href="/visual/connecticutVignette.html">Connecticut Study</a>
                 <a href="/visual/basketball.html">Lakers 23-24 Analysis</a>
             </div>
         </div>
-    </nav>
-</header>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var navbarLinks = document.getElementById('navbar-links');
+        navbarLinks.classList.toggle('active');
+    }
+</script>
